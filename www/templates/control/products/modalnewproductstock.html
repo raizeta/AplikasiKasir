@@ -1,0 +1,26 @@
+<ion-modal-view class="mymodalstock">
+  <ion-content>
+    <ion-list>
+      <form name="newstockForm" novalidate="true" ng-submit="newstockForm.$valid && tambahstock(newstock)">
+        <div class="row">
+          <div class="col">
+            <label class="item item-input item-stacked-label border-bottom">
+             <span class="input-label">STOK SAAT INI</span>
+              <input type="text" format="number" ng-model="newstock.CURRENT_STOCK" class="custom-success" style="background-color: white">
+            </label>
+            <label class="item item-input item-stacked-label border-bottom">
+             <span class="input-label">TAMBAH STOK</span>
+              <input type="number" name="productstock" ng-model="newstock.FORM_INPUT_STOCK" ng-required="true" class="custom-success" style="background-color: white" placeholder="Masukkan Penambahan Stok Disini" min="1">
+              <p ng-show="newstockForm.$submitted && newstockForm.productstock.$invalid" style="color:red;">
+                Stok Tidak Boleh Kosong/Nol
+              </p>
+            </label>
+            <button type="submit" class="button button-block button-assertive" ng-disabled="buttonsubmit.formstock">
+              SUBMIT
+            </button>
+          </div>
+        </div>
+      </form>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

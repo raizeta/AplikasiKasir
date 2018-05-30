@@ -1,0 +1,17 @@
+<ion-view>
+  <ion-nav-title>
+    <div class="page-title" ng-click="openstorepopup(datadetail)" ng-if="!screenbesar">
+        TOPUP-SALDO {{datadetail.STORE_NM|uppercase}}
+      <i class="icon ion-ios-arrow-down placeholder-icon" style="color: #fff"></i>
+    </div>
+    <div class="page-title" ng-if="screenbesar">
+        TOPUP-SALDO {{datadetail.STORE_NM|uppercase}}
+    </div>
+  </ion-nav-title>   
+  <ion-content class="fullsaja-ctrlstore" padding="false" scroll="false">
+    <ion-list>
+      <div ng-include="'templates/control/masterlayar/topuplayarbesar.html'" ng-if="screenbesar"></div>
+      <div ng-include="'templates/control/masterlayar/topuplayarkecil.html'" ng-if="!screenbesar"></div>
+    </ion-list>
+  </ion-content>
+</ion-view>

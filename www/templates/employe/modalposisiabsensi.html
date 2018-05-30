@@ -1,0 +1,17 @@
+<ion-modal-view class="mymodalpembayarannotifikasi">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <button class="button button-icon icon ion-backspace-outline" ng-click="closemodalposisiabsensi()"></button>
+    <h1 class="title">LOKASI ABSENSI</h1>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+    <div class="row responsive-md">
+      <div class="col col-100">
+          <ng-map zoom="20" center="{{latitude}},{{longitude}}" style="display:block; width:100%; height:90vh" draggable="false" max-zoom="20" min-zoom="15">
+            <marker position="{{latitude}},{{longitude}}" ></marker>
+        </ng-map>
+      </div>
+    </div>
+    </ion-list> 
+  </ion-content>
+</ion-modal-view>

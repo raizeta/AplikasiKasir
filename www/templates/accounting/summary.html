@@ -1,0 +1,293 @@
+<ion-view>
+  <ion-nav-title>
+      <div class="page-title" ng-click="openstorepopup(store)"  ng-if="profileops.ACCESS_LEVEL == 'OWNER'">
+          {{store.STORE_NM|uppercase}}
+        <i class="icon ion-ios-arrow-down placeholder-icon" style="color: #fff"></i>
+      </div>
+      <div class="page-title" ng-if="profileops.ACCESS_LEVEL == 'OPS'">
+          {{store.STORE_NM|uppercase}}
+        <i class="icon ion-ios-arrow-down placeholder-icon" style="color: #fff"></i>
+      </div>
+  </ion-nav-title>
+  <ion-header-bar class="bar-subheader"  ng-class="theme.headerstyle" id="mybar" style="padding-left: 0px;padding-right: 0px;padding-bottom: 0px;padding-top: 0px" >
+      <div class="button-bar" id="mybar">
+        <a class="button icon ion-stats-bars" grouped-radio="'chart'" ng-model="mode.valuechoose"></a>
+        <a class="button icon ion-lock-combination" grouped-radio="'teks'" ng-model="mode.valuechoose"></a>
+        <a class="button icon ion-ios-cart" grouped-radio="'product'" ng-model="mode.valuechoose"></a>
+        <a class="button icon ion-ios-cart" grouped-radio="'sisastock'" ng-model="mode.valuechoose"></a>
+      </div>
+    </ion-header-bar>
+  <ion-content class="has-subheader layerbackground">
+    <div ng-if="showdatacharting">
+    <ion-list ng-if="mode.valuechoose == 'teks'">
+      <div class="row" style="flex-wrap: wrap;">
+          <div class="col" ng-class="{'col-50':screenbesar == false,'col-33':screenbesar == true}">
+              <div class="list card" >
+                <div class="item item-devider" style="background-color: bisque">
+                  <h2 style="text-align: center;">TRANSAKSI</h2>
+                </div>
+                <div class="item item-body" style="min-height: 50px">
+                  <h1>
+                      {{datachart.JUMLAH_TRANSAKSI|number}}
+                  </h1>
+                </div>
+              </div>  
+          </div>
+          <div class="col" ng-class="{'col-50':screenbesar == false,'col-33':screenbesar == true}">
+              <div class="list card" >
+                <div class="item item-devider" style="background-color: bisque">
+                  <h2 style="text-align: center;">BAYAR CASH ({{datachart.CNT_TUNAI|number}})</h2>
+                </div>
+
+                <div class="item item-body" style="min-height: 50px">
+                  <h1>
+                      {{datachart.TTL_TUNAI|number}}
+                  </h1>
+                </div>
+              </div>  
+          </div>
+          <div class="col" ng-class="{'col-50':screenbesar == false,'col-33':screenbesar == true}">
+              <div class="list card" >
+                <div class="item item-devider" style="background-color: bisque">
+                  <h2 style="text-align: center;">MESIN EDC ({{datachart.CNT_DEBET|number}})</h2>
+                </div>
+
+                <div class="item item-body" style="min-height: 50px">
+                  <h1>
+                      {{datachart.TTL_DEBET|number}}
+                  </h1>
+                </div>
+              </div>  
+          </div>
+          <div class="col" ng-class="{'col-50':screenbesar == false,'col-33':screenbesar == true}">
+              <div class="list card" >
+                <div class="item item-devider" style="background-color: bisque">
+                  <h2 style="text-align: center;">CREDIT CARD ({{datachart.CNT_KREDIT|number}})</h2>
+                </div>
+
+                <div class="item item-body" style="min-height: 50px">
+                  <h1>
+                      {{datachart.TTL_KREDIT|number}}
+                  </h1>
+                </div>
+              </div>  
+          </div>
+          <div class="col" ng-class="{'col-50':screenbesar == false,'col-33':screenbesar == true}">
+              <div class="list card" >
+                <div class="item item-devider" style="background-color: bisque">
+                  <h2 style="text-align: center;">TOTAL</h2>
+                </div>
+
+                <div class="item item-body" style="min-height: 50px">
+                  <h1>
+                      {{datachart.TOTAL_SALES|number}}
+                  </h1>
+                </div>
+              </div>  
+          </div>
+      </div>
+    </ion-list>
+    <ion-list ng-if="mode.valuechoose == 'chart'">
+        <div class="list card" >
+          <div class="item item-devider" style="background-color: bisque">
+            <h2 style="text-align: center;">DETAIL TRANSAKSI</h2>
+          </div>
+
+          <div class="item item-body">
+            <nvd3 options="options" data="transitem"></nvd3>
+          </div>
+        </div>
+        <div class="list card" >
+          <div class="item item-devider" style="background-color: bisque">
+            <h2 style="text-align: center;">TOTAL RUPIAH</h2>
+          </div>
+
+          <div class="item item-body">
+            <nvd3 options="options" data="transrupiah"></nvd3>
+          </div>
+        </div>
+
+        <div class="list card" >
+          <div class="item item-devider" style="background-color: bisque">
+            <h2 style="text-align: center;">TOP 5 PRODUK/ITEM</h2>
+          </div>
+
+          <div class="item item-body">
+            <nvd3 options="optionsbars" data="top5qty"></nvd3>
+          </div>
+        </div>
+        <div class="list card" >
+          <div class="item item-devider" style="background-color: bisque">
+            <h2 style="text-align: center;">TOP 5 PRODUK/HARGA</h2>
+          </div>
+          <div class="item item-body">
+            <nvd3 options="optionsbars" data="top5rupiah"></nvd3>
+          </div>
+        </div>
+    </ion-list>
+    <ion-list ng-if="mode.valuechoose == 'product'">
+        <style>
+          div{font-size: 0.9em}
+        </style>
+        <ion-item class="item-stable" style="padding-top:0px;">
+          <div class="row padding">
+            <div class="col my-col" style="max-width:10px">
+              #.
+            </div>
+            <div class="col my-col">
+              <div style="float:left;padding-left:15px;width: 35vw;">
+                Nama
+              </div>
+            </div>
+            <div class ="my-col">
+              <div style="float: right;">
+                Harga
+              </div>
+            </div>
+            <div class ="my-col">
+              <div style="float: right;">
+                Qty
+              </div>
+            </div>
+            <div class ="my-col">
+              <div style="float:right">
+                Sub
+              </div>
+            </div>
+          </div>
+          <ion-scroll class="detailtrans-scroll" style="height: 65vh;">
+            <div class="row  padding" style='padding-top:5px;padding-bottom:5px;border-top: 1px solid rgba(1, 1, 1, 0.1);' ng-repeat="product in productterjual track by $index">
+              <div class="col my-col" style="max-width:10px">
+                {{$index + 1}}.
+              </div>
+              <div class="col my-col">
+                <div style="float:left;padding-left:15px;width:35vw;">
+                  {{product.namaproduct|cuttext:true:32:'...'}}
+                </div>
+              </div>
+              <div class="my-col">
+                <div style="float: right;">
+                  {{product.harga_product|number}}
+                  <!-- <span ng-if="!screenbesar" >{{product.HARGA_JUAL|nrFormat}}</span> -->
+                </div>
+              </div>
+              <div class="my-col">
+                <div style="float: right;">
+                  x {{product.qty_product|number}}
+                </div>
+              </div>
+              <div class="my-col">
+                <div style="float:right">
+                  {{product.sub_total|number}}
+                </div>
+              </div>
+            </div>
+          </ion-scroll>
+        </ion-item>
+        <ion-item class="item-stable" style="position: fixed;padding-top: 0px;padding-bottom: 0px;
+        bottom: 0px;width: 100vw;">
+          <div class="row padding" >
+              <div class="my-col">
+                <h3>{{productitem.length|number}} Item</h3>
+              </div>
+              <div class="my-col">
+                <div style="float:right;padding-right: 3vw;">
+                  <h3>{{productitem|sumByKey:'PRODUCT_QTY'|number}} Unit</h3>
+                </div>
+              </div>
+              <div class="my-col">
+                <div style="float:right;padding-right: 0px;">
+                  <h3>{{productitem|sumByKey:'SUB_TOTAL'|number}}</h3>
+                </div>
+              </div>
+          </div>
+        </ion-item>
+    </ion-list>
+    <ion-list ng-if="mode.valuechoose == 'sisastock'">
+        <style>
+          div{font-size: 0.9em}
+        </style>
+        <ion-item class="item-stable" style="padding-top:0px;">
+          <div class="row padding">
+            <div class="col my-col" style="max-width:10px">
+              #.
+            </div>
+            <div class="col my-col">
+              <div style="float:left;padding-left:15px;width: 35vw;">
+                Nama
+              </div>
+            </div>
+            <div class ="my-col">
+              <div style="float: right;">
+                Harga
+              </div>
+            </div>
+            <div class ="my-col">
+              <div style="float: right;">
+                Qty
+              </div>
+            </div>
+            <div class ="my-col">
+              <div style="float:right">
+                Sub
+              </div>
+            </div>
+          </div>
+          <ion-scroll class="detailtrans-scroll" style="height: 65vh;">
+            <div class="row  padding" style='padding-top:5px;padding-bottom:5px;border-top: 1px solid rgba(1, 1, 1, 0.1);' ng-repeat="product in productterjual track by $index">
+              <div class="col my-col" style="max-width:10px">
+                {{$index + 1}}.
+              </div>
+              <div class="col my-col">
+                <div style="float:left;padding-left:15px;width:35vw;">
+                  {{product.namaproduct|cuttext:true:32:'...'}}
+                </div>
+              </div>
+              <div class="my-col">
+                <div style="float: right;">
+                  {{product.harga_product|number}}
+                  <!-- <span ng-if="!screenbesar" >{{product.HARGA_JUAL|nrFormat}}</span> -->
+                </div>
+              </div>
+              <div class="my-col">
+                <div style="float: right;">
+                  x {{product.qty_product|number}}
+                </div>
+              </div>
+              <div class="my-col">
+                <div style="float:right">
+                  {{product.sub_total|number}}
+                </div>
+              </div>
+            </div>
+          </ion-scroll>
+        </ion-item>
+        <ion-item class="item-stable" style="position: fixed;padding-top: 0px;padding-bottom: 0px;
+        bottom: 0px;width: 100vw;">
+          <div class="row padding" >
+              <div class="my-col">
+                <h3>{{productitem.length|number}} Item</h3>
+              </div>
+              <div class="my-col">
+                <div style="float:right;padding-right: 3vw;">
+                  <h3>{{productitem|sumByKey:'PRODUCT_QTY'|number}} Unit</h3>
+                </div>
+              </div>
+              <div class="my-col">
+                <div style="float:right;padding-right: 0px;">
+                  <h3>{{productitem|sumByKey:'SUB_TOTAL'|number}}</h3>
+                </div>
+              </div>
+          </div>
+        </ion-item>
+    </ion-list>
+    </div>
+    <div class="row not-found" ng-if="!showdatacharting">
+      <div class="profile">
+          <img ng-src="img/kg.png"/>
+          <h2 style="color: #444;margin-top: -1vh;">Belum Ada Transaksi</h2>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+

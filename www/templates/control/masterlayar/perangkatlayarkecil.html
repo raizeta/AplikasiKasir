@@ -1,0 +1,93 @@
+<div class="row">
+  <div class="col col-100 layerbackground" style="height:100vh;margin-top: -1vh;margin-left: -1vh;margin-right: -1vh;">
+    <div class="button-bar bar-calm" id="mybar" >
+      <style>
+        #mybar .button {line-height:40px;font-size:12px;}
+      </style>
+      <a class="button button-small" grouped-radio="'PEMBAYARAN'" ng-model="viewtoshow.valuechoose">
+        PEMBAYARAN
+      </a>
+      <a class="button button-small" grouped-radio="'LISTPERANGKAT'" ng-model="viewtoshow.valuechoose">
+        PERANGKAT
+      </a>
+    </div>
+    <ion-scroll style="height: 87vh;">
+      <div class="row"  style="flex-wrap: wrap;padding-top: 10px;" ng-if="viewtoshow.valuechoose == 'PEMBAYARAN' ">
+        <div class="col col-100"  ng-repeat="perangkat in dataperangkat track by $index" ng-click="modalbayariuranopen(perangkat,$index)" ng-if="perangkat.KASIR_STT_NM == 'DEACTIVE' ">
+          <div class="cardcredit-bgred" style="height: auto;">
+              <div class="row" title="{{perangkat.KASIR_NM}}" style="float: left;padding-left:15px;">
+                {{perangkat.KASIR_NM}}
+              </div>
+              <div class="data">
+                <div class="pan" title="{{perangkat.DATE_START}}">
+                  UUID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{perangkat.PERANGKAT_UUID}}
+                </div>
+                <div class="pan" title="{{perangkat.DATE_START}}">
+                  TYPE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ANDROID 
+                </div>
+                <div class="pan" title="{{perangkat.DATE_START}}">
+                  EXPIRED&nbsp;&nbsp;&nbsp;&nbsp;: {{perangkat.DATE_END|date:'dd-MM-yyyy'}}
+                </div>
+                <div class="pan" title="KARTU DEBIT" >
+                  STATUS&nbsp;&nbsp;&nbsp;&nbsp; : {{perangkat.KASIR_STT_NM}}
+                </div>
+                <div class="pan" title="KARTU DEBIT" >
+                  BAYAR VIA &nbsp;: {{perangkat.PAYMENT_METHODE_NM}}
+                </div>
+                <div class="pan" title="KARTU DEBIT" >
+                  AUTO-DEBET : {{perangkat.DOMPET_AUTODEBET_NM}}
+                </div>
+                <div class="pan" title="KARTU DEBIT" >
+                  NAMA-PAKET : {{perangkat.PAKET_ATRIBUT.PAKET_NM}}
+                </div>
+                <div class="name-on-card" title="John Doe" style="font-size: 18px;">  {{detailmerchant.MERCHANT_NM}}
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="row"  style="flex-wrap: wrap;padding-top: 10px;" ng-if="viewtoshow.valuechoose == 'LISTPERANGKAT' ">
+        <div class="col col-50"  ng-repeat="perangkat in dataperangkat track by $index" ng-click="modalupdateperangkatopen(perangkat,$index)">
+          <div ng-class="{'cardcredit-bgyellow':perangkat.KASIR_STT_NM == 'ACTIVE','cardcredit-bgred':perangkat.KASIR_STT_NM == 'DEACTIVE'}" style="height: auto;">
+              <div class="row" title="{{perangkat.KASIR_NM}}" style="float: left;padding-left:15px;">
+                {{perangkat.KASIR_NM}}
+              </div>
+              <div class="data">
+                <div class="pan" title="{{perangkat.DATE_START}}">
+                  UUID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{perangkat.PERANGKAT_UUID}}
+                </div>
+                <div class="pan" title="{{perangkat.DATE_START}}">
+                  TYPE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ANDROID 
+                </div>
+                <div class="pan" title="{{perangkat.DATE_START}}">
+                  EXPIRED&nbsp;&nbsp;&nbsp;&nbsp;: {{perangkat.DATE_END|date:'dd-MM-yyyy'}}
+                </div>
+                <div class="pan" title="KARTU DEBIT" >
+                  STATUS&nbsp;&nbsp;&nbsp;&nbsp; : {{perangkat.KASIR_STT_NM}}
+                </div>
+                <div class="pan" title="KARTU DEBIT" >
+                  BAYAR VIA &nbsp;: {{perangkat.PAYMENT_METHODE_NM}}
+                </div>
+                <div class="pan" title="KARTU DEBIT" >
+                  AUTO-DEBET : {{perangkat.DOMPET_AUTODEBET_NM}}
+                </div>
+                <div class="pan" title="KARTU DEBIT" >
+                  NAMA-PAKET : {{perangkat.PAKET_ATRIBUT.PAKET_NM}}
+                </div>
+                <div class="name-on-card" title="John Doe" style="font-size: 18px;">  {{detailmerchant.MERCHANT_NM}}
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="row not-found" ng-show="dataperangkat.length == 0">
+        <div class="profile">
+            <img ng-src="img/kg.png"/>
+            <h4 style="color: #444;margin-top: -1vh;">
+              Belum Ada Perangkat Yang Terdaftar
+            </h4>
+        </div>
+      </div>
+    </ion-scroll>
+  </div>
+</div>

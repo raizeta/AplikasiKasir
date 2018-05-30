@@ -1,0 +1,81 @@
+<ion-view view-title="LAPORAN ABSENSI">
+  <ion-nav-title>
+      <div class="page-title" ng-click="openstorepopup(store)"  ng-if="profileops.ACCESS_LEVEL == 'OWNER'">
+          {{store.STORE_NM|uppercase}}
+        <i class="icon ion-ios-arrow-down placeholder-icon" style="color: #fff"></i>
+      </div>
+      <div class="page-title" ng-if="profileops.ACCESS_LEVEL == 'OPS'">
+          {{store.STORE_NM|uppercase}}
+      </div>
+  </ion-nav-title>
+  <ion-content padding="false" class="layerbackground" scroll="true" style="background-size: cover;">
+    <ion-list ng-if="databasensikaryawan.length > 0">
+        <style>
+          div{font-size: 0.93em}
+        </style>
+        <ion-item class="item-stable" style="padding-top:0px;" >
+          <div class="row padding">
+            <div class="col my-col" style="max-width:10px">
+              #.
+            </div>
+            <div class="col my-col">
+              <div style="float:left;padding-left:15px;width: 40vw;">
+                Karyawan
+              </div>
+            </div>
+            <div class ="my-col">
+              <div>
+                Masuk
+              </div>
+            </div>
+            <div class ="my-col">
+              <div style="float:right">
+                Pulang
+              </div>
+            </div>
+            <div class ="my-col">
+              <div style="float:right">
+                Pos
+              </div>
+            </div>
+          </div>
+          <div ng-repeat="group in databasensikaryawan|orderBy:'-dataparent'">
+            <div class="item item-divider item-calm" ng-class="theme.itemdividerstyle">
+              {{group.dataparent}}
+            </div>
+            <div class="row  padding" style='padding-top:5px;padding-bottom:5px;border-top: 1px solid rgba(1, 1, 1, 0.1);' ng-repeat="absensi in group.datachildren|orderBy:'KARYAWAN'">
+              <div class="col my-col" style="max-width:10px">
+                {{$index + 1}}.
+              </div>
+              <div class="col my-col">
+                <div style="float:left;padding-left:15px;width:40vw;">
+                  {{absensi.KARYAWAN}}
+                </div>
+              </div>
+              <div class="my-col">
+                <div>
+                  {{absensi.MASUK}}
+                </div>
+              </div>
+              <div class="my-col">
+                <div style="float:right">
+                  {{absensi.KELUAR}}
+                </div>
+              </div>
+              <div class="my-col" ng-click="openmodalposisiabsensi({{absensi.LATITUDE}},{{absensi.LONGITUDE}})">
+                <div style="float:right">
+                    <i class="icon ion-ios-location-outline placeholder-icon" style="font-size: 20px;"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-item>
+    </ion-list>
+    <div class="row not-found" ng-if="databasensikaryawan.length == 0">
+      <div class="profile">
+          <img ng-src="img/kg.png"/>
+          <h5 style="color: #444;margin-top: -1vh;">Data Absensi Kosong</h5>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

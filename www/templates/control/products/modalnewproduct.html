@@ -1,0 +1,121 @@
+<ion-modal-view class="mymodalpembayarannotifikasi">
+  <form name="newprouctForm" novalidate="true">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <h1 class="title">PRODUK BARU</h1>
+    <button class="button button-clear right" ng-click="modaltambahproductclose()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <button class="button button-clear left" ng-click="modaltambahproductsubmit(newprouctForm)" ng-disabled="newprouctForm.$invalid">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <div class="row" style="flex-wrap: wrap;">
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Nama Produk</span>
+            <input type="text" placeholder="Masukkan Nama Produk Disini" name="productnama" ng-model="newproduct.PRODUCT_NM" class="custom-success" required>
+            <p ng-show="newprouctForm.productnama.$error.required" class="label-error">
+              Nama Produk Tidak Boleh Kosong
+            </p>
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Stok</span>
+            <input type="tel" placeholder="Masukkan Nilai Stock Disini" format="number" name="productstock" ng-model="newproduct.CURRENT_STOCK" class="custom-success" required>
+            <p ng-show="newprouctForm.productstock.$error.required" class="label-error">
+              Stok Tidak Boleh Kosong
+            </p>
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Harga</span>
+            <input type="tel" placeholder="Masukkan Harga Jual Disini" format="number" name="productharga" ng-model="newproduct.HARGA_JUAL" class="custom-success" required>
+            <p ng-show="newprouctForm.productharga.$error.required" class="label-error">
+              Harga Produk Tidak Boleh Kosong
+            </p>
+          </label>
+        </div>
+        <div class="col col-50" >
+          <label class="item item-input item-stacked-label border-bottom" ng-click="openproductunitspop('new')">
+           <span class="input-label">Unit Jual</span>
+            <input type="text" placeholder="Dijual Dalam Satuan" name="productunit" ng-model="newproduct.UNIT_NM" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+            <p ng-show="newprouctForm.productunit.$error.required" class="label-error">
+              Unit Tidak Boleh Kosong
+            </p>
+          </label>
+        </div>
+        <div class="col col-50" >
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Barcode/QR Code</span>
+            <input type="text" placeholder="Masukkan Barcode Disini" name="productqr" ng-model="newproduct.PRODUCT_QR" class="custom-success">
+          </label>
+        </div>
+        
+
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom" ng-click="openproductgroupspop('new')">
+           <span class="input-label">Kategori</span>
+            <input type="text" name="productgroup" ng-model="newproduct.GROUP_NM" placeholder="Pilih Kategori Produk" ng-readonly="true" class="custom-success" ng-disabled="true" style="background-color: white">
+          </label>
+        </div>
+        
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Stok Level</span>
+            <input type="tel" format="number"  name="productlevel" ng-model="newproduct.STOCK_LEVEL" placeholder="Masukkan Stok Level Disini" class="custom-success">
+          </label>
+        </div>
+
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Warna</span>
+            <input type="text" name="productwarna" ng-model="newproduct.PRODUCT_WARNA" placeholder="Masukkan Warna Disini" class="custom-success">
+          </label>
+        </div>
+
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">PPN (%)</span>
+            <input type="tel" format="number" name="productppn" ng-model="newproduct.CURRENT_PPN" placeholder="Dalam Persen (%)" class="custom-success">
+          </label>
+        </div>
+
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Diskon (%)</span>
+            <input type="tel" format="number" name="productdiskon" ng-model="newproduct.CURRENT_DISCOUNT" placeholder="Dalam Persen (%)" class="custom-success">
+          </label>
+        </div>
+        <div class="col col-30">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Ukuran</span>
+            <input type="tel" format="number" name="productukuran" ng-model="newproduct.PRODUCT_SIZE" placeholder="Masukkan Ukuran Disini" class="custom-success">
+          </label>
+        </div>
+        <div class="col col-20">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Satuan/Unit</span>
+            <input type="text" name="productsatuan" ng-model="newproduct.PRODUCT_SIZE_UNIT" placeholder="Masukkan Satuan Unit Disini" class="custom-success">
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Headline</span>
+            <input type="text" ng-model="newproduct.PRODUCT_HEADLINE" placeholder="Masukkan Headline Disini" class="custom-success">
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Catatan Produk</span>
+            <input type="text" ng-model="newproduct.DCRP_DETIL" placeholder="Masukkan Deskripsi Disini" class="custom-success">
+          </label>
+        </div>
+      </div>
+    </ion-list>
+  </ion-content>
+  </form>
+</ion-modal-view>

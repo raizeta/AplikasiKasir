@@ -1,0 +1,97 @@
+<ion-modal-view class="mymodalpembayarannotifikasi">
+  <form name="productForm" novalidate="">
+  <ion-header-bar class="bar bar-header bar-assertive">
+    <h1 class="title">TAMBAH PRODUCT</h1>
+    <button class="button button-clear right" ng-click="closemodaltambahproduct()">
+      <i class="icon ion-backspace"></i>
+    </button>
+    <button class="button button-clear left" ng-click="submitmodaltambahproduct()" ng-disabled="productForm.$invalid">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <div class="row" style="flex-wrap: wrap;">
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label">
+           <span class="input-label">Nama Produk</span>
+            <input type="text" ng-model="newproduct.PRODUCT_NM" required>
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label" ng-click="openproductgroupspop('new')" style="background-color: #f8f8f8">
+           <span class="input-label">Group Produk</span>
+            <input type="text" ng-model="newproduct.GROUP_NM" ng-readonly="true" required>
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label">
+           <span class="input-label">QR Produk</span>
+            <input type="text" ng-model="newproduct.PRODUCT_QR" required >
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label">
+           <span class="input-label">Harga Produk</span>
+            <input type="text" ng-model="newproduct.HARGA_JUAL" required>
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label">
+           <span class="input-label">Diskon Produk</span>
+            <input type="text" ng-model="newproduct.DISCOUNT" required>
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label">
+           <span class="input-label">Stok Produk</span>
+            <input type="text" min="0" ng-model="newproduct.CURRENT_STOCK" required>
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label">
+           <span class="input-label">Warna Produk</span>
+            <input type="text" ng-model="newproduct.PRODUCT_WARNA" required>
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label">
+           <span class="input-label">Size Produk</span>
+            <input type="text" ng-model="newproduct.PRODUCT_SIZE" required>
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label">
+           <span class="input-label">Size Unit Produk</span>
+            <input type="text" ng-model="newproduct.PRODUCT_SIZE_UNIT" required>
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label">
+           <span class="input-label">Headline Produk</span>
+            <input type="text" ng-model="newproduct.PRODUCT_HEADLINE" required>
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label" ng-click="openproductunitspop('new')" style="background-color: #f8f8f8">
+           <span class="input-label">Nama Unit Produk</span>
+            <input type="text" ng-model="newproduct.UNIT_NM" required ng-readonly="true">
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label">
+           <span class="input-label">Stock Level Produk</span>
+            <input type="text" ng-model="newproduct.STOCK_LEVEL" required>
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label">
+           <span class="input-label">Deskripsi Produk</span>
+            <input type="text" ng-model="newproduct.DCRP_DETIL" required>
+          </label>
+        </div>
+      </div>
+    </ion-list>
+  </ion-content>
+  </form>
+</ion-modal-view>

@@ -1,0 +1,32 @@
+<ion-modal-view class="mymodalpembayarannotifikasi">
+  <form name="updatemerchantbankForm" novalidate="">
+  <ion-header-bar class="bar bar-header bar-assertive">
+    <h1 class="title">UPDATE MERCHANT BANK</h1>
+    <button class="button button-clear right" ng-click="modalupdatemerchantbankclose()">
+      <i class="icon ion-backspace"></i>
+    </button>
+    <button class="button button-clear left" ng-click="modalupdatemerchantbanksubmit()" ng-disabled="updatemerchantbankForm.$invalid">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <div class="row" style="flex-wrap: wrap;">
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label">
+           <span class="input-label">NAMA BANK</span>
+            <input type="text" ng-model="updatemerchantbank.BANK_NM" required>
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label">
+           <span class="input-label">DESKRIPSI</span>
+            <input type="text" ng-model="updatemerchantbank.DCRP_DETIL" required>
+          </label>
+        </div>
+        
+      </div>
+    </ion-list>
+  </ion-content>
+  </form>
+</ion-modal-view>

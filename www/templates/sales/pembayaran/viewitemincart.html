@@ -1,0 +1,125 @@
+<ion-modal-view class="mymodalpembayaran">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <button class="button button-icon icon ion-chevron-left" ng-click="closemodalviewitemincart()" style="left:-10px;"></button>
+    <h1 class="title">Keranjang Belanja</h1>
+  </ion-header-bar>
+  
+  <ion-content scroll='false'>
+    <div class="row" style="background: #f8f8f8">
+        <div class="my-col" style="min-width:50vw">
+          #.&nbsp;&nbsp;NAMA
+        </div>
+        <div class ="my-col">
+          HARGA
+        </div>
+        <div class ="my-col">
+          QTY
+        </div>
+        <div class ="my-col">
+          <div style="float:right">
+            SUB
+          </div>
+        </div>
+    </div>
+    <ion-scroll style="height:70%">
+      <div class="row" ng-repeat="itemproduct in itemincart track by $index" style='padding-top:5px;padding-bottom:5px;border-top: 1px solid rgba(1, 1, 1, 0.1);' ng-click="OpenModalAddToCart(itemproduct,'fromcart')">
+          <div class="my-col" style="min-width:50vw;">
+            {{$index + 1}}.&nbsp;&nbsp;{{itemproduct.PRODUCT_NM|cuttext:true:32:'...'}}
+            <div style="padding-left: 20px" ng-if="itemproduct.PPN > 0">
+              PPN ({{itemproduct.PPN}}%)
+            </div>
+          </div>
+          <div class="my-col">
+            {{itemproduct.HARGA_JUAL|number}}
+            
+          </div>
+          <div class="my-col">
+            x {{itemproduct.QTY_INCART}}
+          </div>
+          <div class="my-col">
+            <div style="float:right">
+              {{itemproduct.HARGA_JUAL * itemproduct.QTY_INCART|number}}</br>
+              <span style="float: right;" ng-if="itemproduct.PPN>0">
+                {{itemproduct.HARGA_JUAL * itemproduct.QTY_INCART * itemproduct.PPN / 100 | number}}
+              </span>
+            </div>
+          </div>
+      </div>
+      <div class="header text-center" ng-if="itemincart.length == 0" style="margin-top: 10vh">
+        <i class="icon ion-ios-cart-outline" style="font-size:20vw;color:#b2b2b2;"></i>
+    </div>
+    </ion-scroll>
+            
+    <div style="position:absolute;bottom:-10px;width: 100%">
+      <ion-toggle ng-model="pakaippnatautidak.checked" ng-checked="pakaippnatautidak.checked" ng-if="pakaippnatautidak.display" style="padding-left: 10px;padding-right: 5px;">
+          PPN (10%)
+      </ion-toggle>
+      <div class="row" style="background: #f8f8f8;bottom: -5px;" ng-if="!pakaippnatautidak.checked">
+          <div class="my-col">
+            <h4>Total </h4>
+          </div>
+          <div class="my-col">
+            <div style="float:right">
+              <h4>{{itemincart.length}} Item</h4>
+            </div>
+          </div>
+          <div class="my-col">
+            <div style="float:right;padding-right: 0px;">
+              <h4 ng-if="itemincart.length > 0">{{hitungtotal(itemincart)|number}}</h4>
+              <h4 ng-if="itemincart.length == 0">0</h4>
+            </div>
+          </div>
+      </div>
+      <div class="row" style="background: #f8f8f8;bottom: -5px;" ng-if="pakaippnatautidak.checked">
+          <div class="my-col">
+            <h4>Sub Total </h4>
+          </div>
+          <div class="my-col">
+            <div style="float:right">
+              <h4>{{itemincart.length}} Item</h4>
+            </div>
+          </div>
+          <div class="my-col">
+            <div style="float:right;padding-right: 0px;">
+              <h4 ng-if="itemincart.length > 0">{{hitungtotal(itemincart)|number}}</h4>
+              <h4 ng-if="itemincart.length == 0">0</h4>
+            </div>
+          </div>
+      </div>
+      <div class="row" style="background: #f8f8f8;bottom: -5px;" ng-if="pakaippnatautidak.checked">
+          <div class="my-col">
+            <h4>PPN (10%) </h4>
+          </div>
+          <div class="my-col">
+            <div style="float:right;padding-right: 0px;">
+              <h4 ng-if="itemincart.length > 0">{{hitungtotal(itemincart) * 0.1 |number:0}}</h4>
+              <h4 ng-if="itemincart.length == 0">0</h4>
+            </div>
+          </div>
+      </div>
+      <div class="row" style="background: #f8f8f8;bottom: -5px;" ng-if="pakaippnatautidak.checked">
+          <div class="my-col">
+            <h4>Total </h4>
+          </div>
+          <div class="my-col">
+            <div style="float:right;padding-right: 0px;">
+              <h4 ng-if="itemincart.length > 0">{{hitungtotal(itemincart) * 1.1 |number:0}}</h4>
+              <h4 ng-if="itemincart.length == 0">0</h4>
+            </div>
+          </div>
+      </div>
+      <div class="row" style="padding:0px;" ng-if="itemincart.length > 0">
+        <div class="col col-50" style="padding:0px;" ng-click="openmodalsavetobill()">
+          <button class="button button-calm button-block button-full">
+            Simpan
+          </button>
+        </div>
+        <div class="col col-50" style="padding:0px;">
+          <button class="button button-block button-full" ng-class="theme.buttonstyle" ng-click="openmodalpembayaran(nomortransaksicustomer,hitungtotal(itemincart))" >
+            Bayar
+          </button>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

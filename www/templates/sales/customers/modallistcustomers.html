@@ -1,0 +1,84 @@
+<ion-modal-view class="mymodalcustnewtransaksi">
+<form name="newcustomerForm" novalidate="true">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <h1 class="title">DATA PELANGGAN</h1>
+    <button class="button button-clear left" ng-click="closemodallistcustomer()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <button class="button button-clear right" type="submit" ng-disabled="newcustomerForm.$invalid" ng-click="submitmodallistcustomer()">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-header-bar class="bar-subheader"  ng-class="theme.headerstyle" id="mybar" style="padding-left: 0px;padding-right: 0px;padding-bottom: 0px;padding-top: 0px" >
+      <div class="button-bar" id="mybar">
+        <a class="button button-small icon ion-person" grouped-radio="'true'" ng-model="customerisexist.exist"></a>
+        <a class="button button-small icon ion-person-add" grouped-radio="'false'" ng-model="customerisexist.exist"></a>
+      </div>
+    </ion-header-bar>
+  <ion-content class="has-subheader">
+    <ion-list>
+      <div class="col col-100">
+        <div ng-show="customerisexist.exist == 'true'" style="padding: 5px 3px">
+          <label class="item item-input" >
+            <input type="text" ng-model="filtercustomer" placeholder="Cari Pelanggan" ng-change='filtertable(filtercustomer)'>
+          </label>   
+        </div>   
+        <div ng-show="customerisexist.exist == 'false'" style="padding: 5px 3px">
+          <label class="item item-input item-stacked-label border-bottom">
+            <span class="input-label">Nama Lengkap</span>
+            <input type="text" name="namalengkap" ng-model="newcustomer.NAME" class="custom-success" placeholder="Masukkan Nama Lengkap Disini" ng-required="customerisexist.exist == 'false'">
+            <p ng-show="newcustomerForm.namalengkap.$error.required" style="color:red;">
+              Nama Lengkap Tidak Boleh Kosong
+            </p>
+          </label>
+          <label class="item item-input item-stacked-label border-bottom">
+            <span class="input-label">Alamat Email</span>
+              <input type="email" name="alamatemail" ng-model="newcustomer.EMAIL" class="custom-success" placeholder="Masukkan Alamat Email Disini"  ng-required="customerisexist.exist == 'false'">
+              <p ng-show="newcustomerForm.alamatemail.$error.required" style="color:red;">
+              Email Tidak Boleh Kosong
+            </p>
+            <p ng-show="newcustomerForm.alamatemail.$error.email" style="color:red;">
+              Email Tidak Valid
+            </p>
+          </label>
+          <label class="item item-input item-stacked-label border-bottom">
+            <span class="input-label">Nomor Telp/HP</span>
+              <input type="text" name="nomortelp" ng-model="newcustomer.PHONE" class="custom-success" placeholder="Masukkan Nomor Telp/HP Disini" ng-required="customerisexist.exist == 'false'">
+              <p ng-show="newcustomerForm.nomortelp.$error.required" style="color:red;">
+                Nomor Telepon/HP Tidak Boleh Kosong
+              </p>
+          </label>
+          <label class="item item-input item-stacked-label border-bottom">
+            <span class="input-label">Deskripsi</span>
+              <input type="text" ng-model="newcustomer.DCRP_DETIL" class="custom-success" placeholder="Masukkan Deskripsi Disini">
+          </label>
+        </div>
+      </div>
+      <div class="col col-100" ng-show="customerisexist.exist == 'true'">
+        <!-- <div ui-grid="gridOptions" ui-grid-selection class="grid"></div> -->
+        <ion-item ng-repeat="customer in datacustomers | filter: filtercustomer track by $index" ng-class="isGroupShown(customer) ? 'custom-active':''" on-tap="tapcustomer(customer)">
+              <div class="row">
+                  <div class="my-col" style="min-width:160px">
+                    {{$index + 1}}.&nbsp;&nbsp;{{customer.NAME}}
+                  </div>
+                  <div class="my-col">
+                    {{customer.EMAIL}}
+                  </div>
+                  <div class="my-col" ng-if="screenbesar">
+                    <div style="float:right">
+                      {{customer.PHONE}}
+                    </div>
+                  </div>
+              </div>
+          </ion-item>
+      </div>
+    </ion-list>
+    <div class="row not-found" ng-if="customerisexist.exist == 'true' && datacustomers.length == 0">
+      <div class="profile">
+          <img ng-src="img/kg.png"/>
+          <h5 style="color: #444;margin-top: -1vh;">Pelanggan Masih Kosong</h5>
+      </div>
+    </div>
+  </ion-content>
+</form>
+</ion-modal-view>

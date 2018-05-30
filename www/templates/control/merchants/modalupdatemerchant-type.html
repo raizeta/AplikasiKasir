@@ -1,0 +1,32 @@
+<ion-modal-view class="mymodalpembayarannotifikasi">
+  <form name="updatemerchanttypeForm" novalidate="">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <h1 class="title">UPDATE MERCHANT-TYPE</h1>
+    <button class="button button-clear right" ng-click="modalupdatemerchanttypeclose()">
+      <i class="icon ion-backspace"></i>
+    </button>
+    <button class="button button-clear left" ng-click="modalupdatemerchanttypesubmit()" ng-disabled="updatemerchanttypeForm.$invalid">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <div class="row" style="flex-wrap: wrap;">
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label">
+           <span class="input-label">TYPE PEMBAYARAN</span>
+            <input type="text" ng-model="updatemerchanttype.TYPE_PAY_NM" required>
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label">
+           <span class="input-label">DESKRIPSI</span>
+            <input type="text" ng-model="updatemerchanttype.DCRP_DETIL" required>
+          </label>
+        </div>
+        
+      </div>
+    </ion-list>
+  </ion-content>
+  </form>
+</ion-modal-view>

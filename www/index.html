@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Kontrol Gampang</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="css/shadow.css" rel="stylesheet">
+    <link href="build/minify/styles.min.css" rel="stylesheet">
+
+    <link href="lib/nvd3/build/nv.d3.css" rel="stylesheet">
+    <link href="lib/sweetalert/dist/sweetalert.css" rel="stylesheet">
+    <link href="lib/angular-toastr/dist/angular-toastr.css" rel="stylesheet" />
+
+    <script src="cordova.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/underscore/underscore.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="lib/angular-ui-clock/dist/angular-clock.js"></script>
+    <script src="lib/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="lib/auth0.js/build/auth0.js"></script>
+    <script src="lib/auth0-angular/build/auth0-angular.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+
+    <script src="lib/ngmap/build/scripts/ng-map.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaEXYArxCQLYuQ0UIYwVybTxKd46AIwk4" type="text/javascript">
+    </script>
+    
+    <script src="lib/d3/d3.js"></script>
+    <script src="lib/nvd3/build/nv.d3.js"></script>
+    <script src="lib/angular-nvd3/dist/angular-nvd3.js"></script>
+    <script src="lib/ng-letter-avatar/ngletteravatar.js"></script>
+    <script src="lib/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="lib/qrious/dist/qrious.js"></script>
+
+    <!-- <script src="build/minify/app.min.js"></script> -->
+    
+    <script src="js/app.js"></script>
+    <script src="js/routing/main.js"></script>
+    <script src="js/routing/secured.js"></script>
+    <script src="js/routing/sales.js"></script>
+    <script src="js/routing/accounting.js"></script>
+    <script src="js/routing/settings.js"></script>
+    <script src="js/routing/stores.js"></script>
+    <script src="js/routing/openclosebook.js"></script>
+    <script src="js/routing/employe.js"></script>
+    <script src="js/routing/control.js"></script>
+    <script src="js/routing/refund.js"></script>
+    <script src="js/routing/kreditplus.js"></script>
+
+    <script src="js/controllers/secured.js"></script>
+    
+    <script src="js/controllers/cashier.js"></script>
+    <script src="js/controllers/cashier-ppob.js"></script>
+    <script src="js/controllers/cashier-bankless.js"></script>
+    
+    
+    <script src="js/controllers/accounting-refund.js"></script>
+    <script src="js/controllers/accounting-summary.js"></script>
+    <script src="js/controllers/accounting-transaksi.js"></script>
+
+
+    <script src="js/controllers/refund-transaksi.js"></script>
+    <script src="js/controllers/refund-product.js"></script>
+    
+    <script src="js/controllers/settings.js"></script>
+    <script src="js/controllers/employe.js"></script>
+
+    <script src="js/controllers/book-open.js"></script>
+    <script src="js/controllers/book-close.js"></script>
+    <script src="js/controllers/book-setoran.js"></script>
+
+    <script src="js/controllers/control-stores.js"></script>
+    <script src="js/controllers/control-products.js"></script>
+    <script src="js/controllers/control-groups.js"></script>
+    <script src="js/controllers/control-perangkat.js"></script>
+    <script src="js/controllers/control-dompetutama.js"></script>
+    <script src="js/controllers/control-dompettoko.js"></script>
+    <script src="js/controllers/control-depositppob.js"></script>
+
+    <script src="js/controllers/log.js"></script>
+    <script src="js/controllers/wellcome.js"></script>
+    <script src="js/controllers/maintenance.js"></script>
+    <script src="js/controllers/kreditplus.js"></script>
+
+    <script src="js/factory/server/secured.js"></script>
+    <script src="js/factory/server/transaksis.js"></script>
+    <script src="js/factory/server/stores.js"></script>
+    <script src="js/factory/server/httpinceptor.js"></script>
+    <script src="js/factory/server/karyawans.js"></script>
+    <script src="js/factory/server/customers.js"></script>
+    <script src="js/factory/server/products.js"></script>
+    <script src="js/factory/server/provinsis.js"></script>
+    <script src="js/factory/server/merchants.js"></script>
+    <script src="js/factory/server/openclosebooks.js"></script>
+    <script src="js/factory/server/polling.js"></script>
+    <script src="js/factory/server/ppob.js"></script>
+    <script src="js/factory/server/perangkat.js"></script>
+
+    
+    <script src="js/factory/sqlite/transaksis.js"></script>
+    <script src="js/factory/sqlite/shopcart.js"></script>
+    <script src="js/factory/sqlite/savetobill.js"></script>
+    <script src="js/factory/sqlite/openclosebooks.js"></script>
+    <script src="js/factory/sqlite/summary.js"></script>
+    <script src="js/factory/sqlite/customers.js"></script>
+    <script src="js/factory/sqlite/merchants.js"></script>
+    <script src="js/factory/sqlite/karyawans.js"></script>
+    <script src="js/factory/sqlite/products.js"></script>
+    <script src="js/factory/sqlite/product-stock.js"></script>
+    <script src="js/factory/sqlite/provinsis.js"></script>
+    <script src="js/factory/sqlite/stores.js"></script>
+    <script src="js/factory/sqlite/ppob.js"></script>
+    <script src="js/factory/sqlite/perangkat.js"></script>
+    <script src="js/factory/sqlite/useroperasional.js"></script>
+
+    <script src="js/factory/comb/products.js"></script>
+    <script src="js/factory/comb/karyawans.js"></script>
+    <script src="js/factory/comb/transaksi.js"></script>
+    <script src="js/factory/comb/customers.js"></script>
+    <script src="js/factory/comb/provinsis.js"></script>
+    <script src="js/factory/comb/merchants.js"></script>
+    <script src="js/factory/comb/stores.js"></script>
+    <script src="js/factory/comb/openclosebooks.js"></script>
+    <script src="js/factory/comb/ppob.js"></script>
+    <script src="js/factory/comb/perangkat.js"></script>
+    <script src="js/factory/comb/useroperasional.js"></script>
+
+    <script src="js/factory/checkkoneksi.js"></script>
+    <script src="js/factory/synclocaltoserver.js"></script>
+    <script src="js/factory/offline.js"></script>
+    <script src="js/factory/initstores.js"></script>
+
+    <script src="js/services/util.js"></script>
+    <script src="js/services/storage.js"></script>
+    <script src="js/services/constructor.js"></script>
+    <script src="js/services/menu.js"></script>
+    <script src="js/services/chartservice.js"></script>
+    <script src="js/services/polling.js"></script>
+    <script src="js/services/template.js"></script>
+    <script src="js/services/providerprefix.js"></script>
+    <script src="js/services/toast.js"></script>
+    <script src="js/services/maintenance.js"></script>
+
+    <script src="js/filter/capitalize.js"></script>
+    <script src="js/filter/cut-text.js"></script>
+    <script src="js/filter/split.js"></script>
+    <script src="js/filter/chunk.js"></script>
+
+    <script src="js/directives/groupradio.js"></script>
+    <script src="js/directives/format.js"></script>
+    <script src="js/directives/searchbar.js"></script>
+    <script src="js/directives/passwordsameas.js"></script>
+    <script src="js/directives/autotab.js"></script>
+    <script src="js/directives/imageload.js"></script>
+
+  </head>
+  <body ng-app="starter">
+    <ion-nav-bar class="bar-dark">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

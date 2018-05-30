@@ -1,0 +1,213 @@
+<ion-view view-title="TRANSAKSI {{namaoutlet|uppercase}}">
+  <ion-nav-title>
+      <div class="page-title" ng-click="openstorepopup(store)"  ng-if="profileops.ACCESS_LEVEL == 'OWNER'">
+          REFUND {{store.STORE_NM|uppercase}}
+        <i class="icon ion-ios-arrow-down placeholder-icon" style="color: #fff"></i>
+      </div>
+      <div class="page-title" ng-if="profileops.ACCESS_LEVEL == 'OPS'">
+          REFUND {{store.STORE_NM|uppercase}}
+      </div>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+      <button class="button button-icon icon ion-android-print" ng-click="printtransaksifunction()" ng-if="screenbesar">
+      </button>
+  </ion-nav-buttons>
+  <ion-content scroll="false" ng-class="{'fullsaja-trans':screenbesar == true,'has-footer':screenbesar == false,'layerbackground':datatransaksiheader.length == 0}">
+    <style>
+        i.icon.xxx {font-size: 16px;padding-left: 1vh;padding-right: 2vh}
+        .item-icon-left.xxx {padding-left:5vh;}
+        .itemx {padding-top: 10px;padding-bottom: 10px;}
+        .col{padding: 1px}
+    </style>
+    <ion-list ng-if="screenbesar">
+      <div class="row" ng-if="datatransaksiheader.length > 0">
+        <div class="col col-33"  style="height:100vh;margin-top:-0.3vh;">
+          <div class="item item-calm">
+            TRANSAKSI REFUND
+          </div>
+          <ion-scroll class="listtrans-scroll">
+            <ion-item class="item itemx"  ng-repeat="transaksiheader in datatransaksiheader | orderBy:'-TRANS_DATE'  track by $index" ng-click="showdetail(transaksiheader)" ng-class="[isGroupShown(transaksiheader) ? 'active':'']">
+                <div class="item-icon-left xxx">
+                    <i class="icon xxx">{{$index + 1}}.</i>
+                    <h2 ng-if="transaksiheader.SPLIT_TRANS_ID">{{transaksiheader.SPLIT_TRANS_ID| split:'.':1}}</h2>
+                </div>
+                <div class="item-icon-right">
+                    <i class="icon xxx">{{transaksiheader.TOTAL_HARGA|number}}</i>
+                </div>
+            </ion-item>
+            <div class="header text-center" ng-if="datatransaksiheader.length == 0"  style="margin-top: 10vh">
+                <i class="icon ion-coffee" style="font-size: 30vw;color:#b2b2b2;"></i>
+            </div>
+          </ion-scroll>
+          <div style="position:absolute;bottom:7.2vh;width: 32.7%">
+            <button class="button button-calm button-block button-full">
+              <span style="float: left;margin-left: 2vw;">TOTAL</span>
+              <span style="float: right;margin-right: 2vw;"> {{datatransaksiheader|sumByKey:'TOTAL_HARGA'|number}}</span>
+              <span ng-if="datas.length == 0" style="float: right">0</span>
+            </button>
+          </div>
+        </div>
+        <div class="col col-66 layerbackground" style="margin-left:-0.3vw;margin-top:-1vh;height:100vh;" ng-if="headerdetail">
+          <ion-item class="item item-stable" style="padding-top:1px;padding-bottom: 0px;box-sizing: border-box;">
+            <div class="row">
+              <div class="col col-80 col-offset-10">
+                <div class="row">
+                  <div class="col col-50">
+                    Nomor
+                  </div>
+                  <div class="col col-50" ng-if="headerdetail.SPLIT_TRANS_ID">
+                  : {{headerdetail.SPLIT_TRANS_ID| split:'.':1}}
+                  </div>
+                </div>
+                <div class="row" ng-if="headerdetail.TRANS_REF != 'undefined' ">
+                  <div class="col col-50">
+                    Referensi
+                  </div>
+                  <div class="col col-50">
+                  : {{headerdetail.TRANS_REF|split:'.':4}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col col-50">
+                    Waktu Transaksi
+                  </div>
+                  <div class="col col-50">
+                  : {{headerdetail.TRANS_DATE}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col col-50">
+                    Pembayaran
+                  </div>
+                  <div class="col col-50">
+                  : {{headerdetail.TYPE_PAY_NM}} 
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col col-50">
+                    Cashier
+                  </div>
+                  <div class="col col-50">
+                  : {{headerdetail.CASHIER_NAME}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col col-50">
+                    Shift
+                  </div>
+                  <div class="col col-50">
+                  : {{headerdetail.OPENCLOSE_ID|split:'.':2}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col col-50">
+                    Customer
+                  </div>
+                  <div class="col col-50">
+                  : {{headerdetail.CONSUMER_EMAIL}}
+                  </div>
+                </div>
+              </div>
+              <div class="rubber_stamp">
+                <span ng-if="headerdetail.DCRP_DETIL == 'REFUND' ">REFUND</span>
+              </div>
+            </div>
+          </ion-item>
+          <ion-item class="item-stable" style="padding-top:0px;box-sizing: border-box;">
+            <div class="row padding">
+              <div class="col my-col" style="max-width:10px">
+                #.
+              </div>
+              <div class="col my-col">
+                <div style="float:left;padding-left:25px;width: 35vw;">
+                  NAMA
+                </div>
+              </div>
+              <div class ="my-col">
+                HARGA
+              </div>
+              <div class ="my-col">
+                QTY
+              </div>
+              <div class ="my-col">
+                <div style="float:right">
+                  SUB
+                </div>
+              </div>
+            </div>
+            <ion-scroll class="detailtrans-scroll">
+              <div class="row  padding" style='padding-top:5px;padding-bottom:5px;border-top: 1px solid rgba(1, 1, 1, 0.1);' ng-repeat="product in datayangdibeli | filter: filterproduct track by $index">
+                <div class="col my-col" style="max-width:10px">
+                  {{$index + 1}}.
+                </div>
+                <div class="col my-col">
+                  <div style="float:left;padding-left:25px;width:35vw;">
+                    {{product.PRODUCT_NM|cuttext:true:32:'...'}}
+                    <br><span ng-if="product.PPN > 0">PPN ({{product.PPN}}%)</span>
+                  </div>
+                </div>
+                <div class="my-col">
+                  {{product.HARGA_JUAL|number}}
+                </div>
+                <div class="my-col">
+                  x {{product.QTY_INCART}}
+                </div>
+                <div class="my-col">
+                  <div style="float:right">
+                    {{product.HARGA_JUAL * product.QTY_INCART|number}}<br/>
+                    <span style="float: right;" ng-if="product.PPN>0">
+                      {{product.HARGA_JUAL * product.QTY_INCART * product.PPN / 100 | number}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="row  padding" style='padding-top:5px;padding-bottom:5px;border-top: 2px solid rgba(1, 1, 1, 0.1);border-bottom: 2px solid rgba(1, 1, 1, 0.1);'>
+                <div class="col my-col">
+                  <div style="float:left;width:35vw;">
+                    Sub Total
+                  </div>
+                </div>
+                <div class="my-col">
+                  <div style="float:right">
+                    {{headerdetail.TOTAL_HARGA|number}}
+                  </div>
+                </div>
+              </div>
+            </ion-scroll>
+          </ion-item>
+        </div>
+      </div>
+    </ion-list>
+    <ion-list ng-if="!screenbesar">
+      <div class="row">
+        <div class="col col-100" style="height:100vh;margin-left: -1.5vw;margin-top: -0.9vh;margin-right: -1.5vw;">
+          <ion-scroll class="detailtranskecil-scroll">
+            <ion-item class="item itemx"  ng-repeat="transaksiheader in datatransaksiheader | orderBy:'-TRANS_DATE' track by $index" ng-click="showmodaldetail(transaksiheader)" ng-class="[isGroupShown(transaksiheader) ? 'active':'']">
+                <div class="item-icon-left xxx">
+                    <i class="icon xxx">{{$index + 1}}.</i>
+                    <h2 ng-if="transaksiheader.SPLIT_TRANS_ID">{{transaksiheader.SPLIT_TRANS_ID|split:'.':1}}</h2>
+                </div>
+                <div class="item-icon-right">
+                    <i class="icon xxx">{{transaksiheader.TOTAL_HARGA|number}}</i>
+                </div>
+            </ion-item>
+          </ion-scroll>
+        </div>
+      </div>
+    </ion-list>
+    <div class="row not-found" ng-if="datatransaksiheader.length == 0">
+      <div class="profile">
+          <img ng-src="img/kg.png"/>
+          <h5 style="color: #444;margin-top: -1vh;">Refund Masih Kosong</h5>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer-bar ng-class="theme.headerstyle" ng-if="!screenbesar && datatransaksiheader.length >0">
+      <button class="button button-icon button-clear">
+        TOTAL
+      </button>
+      <button class="button button-icon button-clear" style="margin-right: 0.9vw;">
+          {{datatransaksiheader|sumByKey:'TOTAL_HARGA'|number}}
+      </button>
+  </ion-footer-bar>
+</ion-view>

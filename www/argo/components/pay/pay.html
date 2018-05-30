@@ -1,0 +1,15 @@
+<form name="formPay" class="form">
+    <label class="item" for="amount">
+        <i class="icon-dollar"></i>
+        <input id="amount" type="number" name="amount" placeholder="Amount" maxlength="9" tabindex="1"
+               onchange="return argo.payService.inputChange(event);"/>
+    </label>
+    <label class="item">
+        <button id="submitForm" type="button" tabindex="2" class="button btn-submit btn-long" disabled="disabled">
+            Confirm
+        </button>
+    </label>
+    <label class="note" >
+        <p>NOTE: Please make sure you have downloaded Master Key via Mother POS and Pin Key in API test list before you start the process.</p>
+    </label>
+</form>

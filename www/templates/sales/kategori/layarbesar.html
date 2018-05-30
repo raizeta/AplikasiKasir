@@ -1,0 +1,22 @@
+<div class="row" style="flex-wrap: wrap;">
+  <div class="col col-20">
+    <div class="list">
+      <div class="item item-image" style="padding-right:0px;background:#f8f8f8" ng-click="chooseproductgroup(itemgroup)">
+        <img  ng-src="img/save-image.png" width="100%" height="121px"/>
+      </div>
+      <div class="backcoloritem" style="padding:3px;border-top:none;border-bottom:none;background:#444">
+        <h4 class="category-product">&nbsp;SEMUA</h4>
+      </div>
+    </div>
+  </div>
+  <div class="col col-20" ng-repeat="itemgroup in productgroups|orderBy:'GROUP_NM' " >
+    <div class="list">
+      <div class="item item-image" style="padding-right:0px;background:#f8f8f8" ng-click="chooseproductgroup(itemgroup)">
+        <ng-letter-avatar data="{{itemgroup.GROUP_NM}}" charCount="30" width="100%" height="121" fontSize="12"></ng-letter-avatar>
+      </div>
+      <div class="backcoloritem" style="padding:3px;border-top:none;border-bottom:none;background:#444">
+        <h4 class="category-product">&nbsp;</h4>
+      </div>
+    </div>
+  </div>
+</div>

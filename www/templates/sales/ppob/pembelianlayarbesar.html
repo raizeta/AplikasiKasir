@@ -1,0 +1,21 @@
+<div ng-repeat="group in groupsmenu">
+  <ion-item class="item-light" nav-clear ng-click="toggleheaderGroup(group)" ng-class="{active: isheaderGroupShown(group)}" ng-if="group.items" style="border:0px solid rgba(0,0,0,0.1)">
+    <div class="item-icon-left">
+      <i class="icon {{group.icons}}"></i>
+      <h2>{{group.KELOMPOK|uppercase}}</h2>
+    </div>
+    <div class="item-icon-right">
+        <i class="icon" ng-class="isheaderGroupShown(group) ? 'ion-ios-arrow-down' : 'ion-ios-arrow-right'"></i>
+    </div>
+  </ion-item>
+  <div class="row" style="flex-wrap: wrap;margin-top: -10px;" ng-show="isheaderGroupShown(group)">
+    <div class="col col-25"  ng-repeat="item in group.items" ng-click="openformpembelian(item)">
+      <div class="list">
+        <div class="item item-image" style="border: 0px;">
+          <ng-letter-avatar data="{{item.KTG_NM}}" charCount="20" width="100%" height="40" fontSize="10" fontWeight="100" avatarcustomborder="border:1px solid black"></ng-letter-avatar>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

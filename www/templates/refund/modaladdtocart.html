@@ -1,0 +1,40 @@
+<ion-modal-view class="mymodaladdtocart" hide-nav-bar="false">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <button class="button button-clear left" ng-click="CancelModalAddToCart()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <h1 class="title">{{itemdimodal.PRODUCT_NM}}</h1>
+  </ion-header-bar>
+
+ <ion-content scroll="false">
+    <div class="list card">
+      <div class="item item-body" >
+        <div class="button-bar" style="box-shadow: none;">
+          <!-- <button ng-click="clearquantity()" class="button button-assertive button-block button-small icon ion-android-delete right">
+          </button> -->
+          <button class="button button-assertive button-block  icon ion-minus" ng-click="incdec('dec')" ></button>
+          <button class="button button-stable button-clear button-block button-small">  
+            {{itemdimodal.QTY_INCART|number}}
+          </button>
+          <button class="button button-balanced button-block icon ion-plus" ng-click="incdec('inc')"></button><!-- 
+          <button ng-click="CloseModalAddToCart()" class="button button-balanced button-block button-small icon ion-checkmark-round left" >
+          </button> -->
+        </div>
+      </div>
+      <div class="item item-body" >
+        <label class="item item-input item-stacked-label border-bottom" ng-click="pilihalasanrefund()">
+         <span class="input-label">Alasan Refund</span>
+          <input type="text" placeholder="Pilih Alasan Refund" ng-model="alasanrefund.PILIH_ALASAN" class="custom-success"  ng-disabled="true" ng-readonly="true" style="background-color: white">
+        </label>
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Alasan Lain</span>
+          <input type="text" placeholder="Masukkan Alasan Refund Disini" ng-model="alasanrefund.ALASAN_LAIN" class="custom-success">
+        </label>
+        <button ng-click="CloseModalAddToCart()" class="button button-balanced button-block ">
+          Submit
+        </button>
+      </div>
+    </div>
+  </ion-content>
+  <div class="bar bar-footer" ng-class="theme.headerstyle" ></div>
+</ion-modal-view>

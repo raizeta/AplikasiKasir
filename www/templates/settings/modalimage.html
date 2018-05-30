@@ -1,0 +1,18 @@
+<ion-modal-view hide-nav-bar="false" class="mymodalpembayarannotifikasi">
+  <ion-header-bar class="bar bar-header bar-assertive">
+    <h1 class="title">AKTIFKAN SEBAGAI DEFAULT?</h1>
+    <button class="button button-clear right" ng-click="closemodalimage()">
+      <i class="icon ion-backspace"></i>
+    </button>
+    <button class="button button-clear left" ng-click="pilihtemplate()">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content class="padding">
+	<div class="modal image-modal transparent" on-swipe-down="closemodalimage()" on-swipe-left="closemodalimage()" on-swipe-right="closemodalimage()">
+        <ion-slide>
+            <img ng-src="{{viewtemplate.img_display}}" class="fullscreen-image"/>
+        </ion-slide>
+	</div>
+  </ion-content>
+</ion-modal-view>

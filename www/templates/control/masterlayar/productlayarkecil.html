@@ -1,0 +1,25 @@
+<style>
+    /*i.icon.xxx {font-size: 16px;}*/
+    /*.item-icon-left.xxx {padding-left: 30px;}*/
+    /*.itemx {padding-top: 10px;padding-bottom: 10px;}*/
+</style>
+<div class="row">
+  <div class="col col-100 layerbackground" style="height:100vh;margin-top: -1vh;margin-left: -1vh;margin-right: -1vh">
+    <ion-scroll class="infoproduct-kecil-scroll">
+      <ion-item ng-repeat="product in dataproducts| filter: filterproduct track by $index" ng-class="isGroupShown(product) ? 'custom-active':''" >
+          <div class="item-avatar" on-tap="modaldetailproductlayarkecilopen(product)" style="min-height: 0px;">
+              <img ng-src="https://image.kontrolgampang.com/produk/{{product.IMG_FILE}}">
+              <h4>{{product.PRODUCT_NM|cuttext:true:19:'...'}}</h4>
+              <h4 ng-if="product.HARGA_JUAL">Rp {{product.HARGA_JUAL|number}}</h4>
+          </div>
+          <div class="item-icon-right">
+            <i style="font-size: 35px;">
+              <span class="badge badge-balanced icon-badge" style="right:10px;">
+                {{product.CURRENT_STOCK|number}}
+              </span>
+            </i>
+          </div>
+      </ion-item>
+    </ion-scroll>
+  </div>
+</div>

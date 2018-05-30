@@ -1,0 +1,193 @@
+<ion-modal-view hide-nav-bar="true">
+	<ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+	 <button class="button button-clear left" ng-click="closemodaltransaksidetail()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <h1 class="title">DETAIL TRANSAKSI</h1>
+    <button class="button button-clear right" ng-click="printtransaksifunction()">
+      <i class="icon ion-android-print"></i>
+    </button>
+    
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+  		<ion-item class="item-stable" style="padding-top:1px;">
+        <style>
+          div{font-size: 0.9em}
+        </style>
+        <div class="col col-100">
+          <div class="row">
+            <div class="col col-33">
+              Nomor
+            </div>
+            <div class="col col-50">
+            : {{headerdetail.SPLIT_TRANS_ID|split:'.':1}}
+            </div>
+          </div>
+          <div class="row" ng-if="headerdetail.TRANS_REF != 'undefined' ">
+            <div class="col col-33">
+              Refund Ref
+            </div>
+            <div class="col col-50">
+            : {{headerdetail.TRANS_REF|split:'.':4}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-33">
+              Waktu
+            </div>
+            <div class="col col-50">
+            : {{headerdetail.TRANS_DATE|date:dd-MM-YY}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-33">
+              Pembayaran
+            </div>
+            <div class="col col-50">
+            : {{headerdetail.TYPE_PAY_NM}} 
+            <!-- {{headerdetail.BANK_NM}} -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-33">
+              Cashier
+            </div>
+            <div class="col col-50">
+            : {{headerdetail.CASHIER_NAME}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-33">
+              Shift
+            </div>
+            <div class="col col-50">
+            : {{headerdetail.OPENCLOSE_ID|split:'.':2}}
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col col-33">
+              Customer
+            </div>
+            <div class="col col-50">
+            : {{headerdetail.CONSUMER_EMAIL}}
+            </div>
+          </div>
+        </div>
+        <div class="rubber_stamp">LUNAS</div>
+      </ion-item>
+      <ion-item class="item-stable" style="padding-bottom: 5px">
+          <div class="row padding">
+            <div class="col my-col" style="max-width:10px">
+              #.
+            </div>
+            <div class="col my-col">
+              <div style="float:left;padding-left:10px;width:25vh;">
+                Nama
+              </div>
+            </div>
+            <div class ="my-col">
+              <div style="float:right">
+                <!-- Harga -->
+              </div>
+            </div>
+            <div class ="my-col">
+              <div style="float:right;padding-right:15px;">
+                
+              </div>
+            </div>
+            <div class ="my-col">
+              <div style="float:right">
+                Sub
+              </div>
+            </div>
+          </div>
+        	<div class="row" ng-repeat="product in datayangdibeli | filter: filterproduct track by $index" style='padding-top:5px;padding-bottom:5px;border-top: 1px solid rgba(1, 1, 1, 0.1);'>
+                <div class="col my-col" style="max-width:10px">
+                  {{$index + 1}}.
+                </div>
+                <div class="col my-col">
+                  <div style="float:left;padding-left:10px;width:25vh">
+                    {{product.PRODUCT_NM|cuttext:true:20:'...'}}
+                    <br><span ng-if="product.PPN > 0">PPN ({{product.PPN}}%)</span>
+                  </div>
+                </div>
+                <div class="col my-col">
+                  <div style="float:right;">
+                    {{product.HARGA_JUAL|number}}
+                  </div>
+                </div>
+                <div class="col my-col">
+                  <div style="float:left;padding-left:5px;">
+                    x {{product.QTY_INCART}}
+                  </div>
+                </div>
+                <div class="my-col">
+                  <div style="float:right">
+                    {{product.HARGA_JUAL * product.QTY_INCART|number}}<br/>
+                    <span style="float: right;" ng-if="product.PPN>0">
+                      {{product.HARGA_JUAL * product.QTY_INCART * product.PPN / 100 | number}}
+                    </span>
+                  </div>
+                </div>
+        	</div>
+    	</ion-item>
+      <ion-item class="item-stable" style="padding-top: 5px;padding-bottom:0px">
+        <div class="row">
+            <div class="my-col">
+              <h2>Sub Total </h2>
+            </div>
+            <div class="my-col">
+              <div style="float:right">
+                <h2>{{headerdetail.TOTAL_PRODUCT}} Item</h2>
+              </div>
+            </div>
+            <div class="my-col">
+              <div style="float:right;padding-right: 0px;">
+                <h2>{{headerdetail.TOTAL_HARGA|number}}</h2>
+              </div>
+            </div>
+        </div>
+      </ion-item>
+      <ion-item></ion-item>
+      <ion-item class="item-light" style="padding-top:0px;padding-bottom:0px;border: 0px;">
+        <div class="row">
+            <div class="my-col">
+              <h2>Dibayarkan </h2>
+            </div>
+            <div class="my-col">
+              <div style="float:right;padding-right: 0px;">
+                <h2>{{headerdetail.TOTAL_HARGA + headerdetail.DO_KEM|number}}</h2>
+              </div>
+            </div>
+        </div>
+      </ion-item>
+      <ion-item class="item-light" style="padding-top:0px;padding-bottom: 5px;border: 0px;">
+        <div class="row">
+            <div class="my-col">
+              <h2>Sub Total </h2>
+            </div>
+            <div class="my-col">
+              <div style="float:right;padding-right: 0px;">
+                <h2>{{headerdetail.TOTAL_HARGA|number}}</h2>
+              </div>
+            </div>
+        </div>
+      </ion-item>
+      <ion-item class="item-stable" style="padding-top: 5px;padding-bottom: 5px;">
+        <div class="row">
+            <div class="my-col">
+              <h2 ng-if="headerdetail.DO_KEM_TYPE == 0">Kembalian </h2>
+              <h2 ng-if="headerdetail.DO_KEM_TYPE == 1">Donasi </h2>
+            </div>
+            <div class="my-col">
+              <div style="float:right;padding-right: 0px;">
+                <h2>{{headerdetail.DO_KEM|number}}</h2>
+              </div>
+            </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

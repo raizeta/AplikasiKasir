@@ -1,0 +1,51 @@
+<!-- Tampilan Design Menu I -->
+<div class="button-bar bar-calm" ng-class="theme.headerstyle" id="mybar" >
+  <style>
+    #mybar .button {line-height:40px;font-size:12px;}
+  </style>
+  <a class="button button-small text" ng-click="showproductfavorite()">
+    FAVORITE
+  </a>
+  <a class="button button-small text" ng-click="showproductgroup()">
+    KATEGORI
+  </a>
+  <a class="button button-small text" ng-click="scanbarcode()">
+      BARCODE
+  </a>
+  <a class="button button-small text" ng-click="showpopovermenuppob($event)">
+    PPOB
+  </a>
+  
+  <a class="button button-small text" ng-click="showpopovermenumore($event)">
+    MORE
+  </a>
+</div>
+
+<!-- Tampilan Design Menu II -->
+<!-- <ion-item class="item" ng-class="theme.itemstyle" style="padding-top: 1px;padding-bottom: 1px;height:40px">
+  <div class="item-icon-left">
+    <div ng-click="showproductgroup()">
+      <i class="icon" style="padding-left:8vw;padding-top:2px;" ng-if="!displayproductgroup">G</i>
+       <i class="icon" style="padding-left:8vw;padding-top:2px;color : rgb(200, 200, 100);" ng-if="displayproductgroup">G</i>
+    </div>
+    <div ng-click="showproductfavorite()" >
+      <i class="icon ion-ios-star" ng-if="!displayproductfavorite" style="padding-left:2vw;"></i>
+      <i class="icon ion-ios-star" style="color : rgb(200, 200, 100);padding-left:2vw;" ng-if="displayproductfavorite"></i>
+    </div>
+  </div>
+  <label class="item item-input" style="width:50%;top:8px;margin-left: 25%;border-radius:25px;">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="text" style="height:16px;" ng-model="xxx.string" ng-change="changefilter(xxx.string)">
+    <a ng-if="xxx.string != ''" on-touch="changefilter(xxx.string = '') ">
+      <i class="icon ion-ios-close placeholder-icon"></i>
+    </a>
+  </label>
+  <div class="item-icon-right" >
+    <div ng-click="showpopovermenuppob($event)" >
+      <i class="icon ion-flash" style="padding-right:7vw;"></i>
+    </div>
+    <div ng-click="showpopovermenumore($event)" >
+        <i  class="icon ion-more" style="padding-right:2vw;"></i>
+    </div>
+  </div>
+</ion-item>

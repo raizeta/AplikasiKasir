@@ -1,0 +1,209 @@
+<ion-modal-view class="mymodalpembayaran">
+<form novalidate="true">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <button class="button button-icon icon ion-chevron-left" ng-click="closemodalpembayaran()" style="left:-10px;"></button>
+    <h1 class="title">Rp. {{totalpembayaran|number}}</h1>
+  </ion-header-bar>
+  
+  <ion-content>
+    <ion-list>
+      <div>
+        <div class="row"  style="flex-wrap: wrap;margin-top: -15px;margin-bottom: -20px;">
+          <div class="col col-50" ng-repeat="item in alasan" style="border:0px;">
+            <ion-checkbox  ng-model="item.checked" ng-checked="item.checked" ng-click="updateSelection($index, alasan, item.todo)"  style="border:0px;">
+              {{ item.todo }}
+            </ion-checkbox>
+          </div>
+        </div>
+        <style type="text/css">
+          label#lblround{border-radius:15px; margin-bottom: 10px;};
+        </style>
+        
+        <div ng-show="pelangganradio.valuechoose == 'MEMBER'" class="list list-inset">
+          <label id="lblround" class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" ng-model="searchpelanggan.string" ng-change="changefilterpelanggan(searchpelanggan.string)" placeholder="Cari Pelanggan">
+            <a ng-if="searchpelanggan.string != ''" on-touch="changefilterpelanggan(searchpelanggan.string = '') ">
+              <i class="icon ion-ios-close placeholder-icon"></i>
+            </a>
+          </label>
+          <ion-item ng-repeat="customer in datacustomers | filter: filterpelanggan as results track by $index" ng-class="isGroupShown(customer) ? 'custom-active':''" on-tap="tapcustomer(customer)" ng-if="showdatapelanggan">
+            <div class="row">
+                <div class="my-col" style="min-width:160px">
+                  {{$index + 1}}.&nbsp;&nbsp;{{customer.NAME}}
+                </div>
+                <div class="my-col">
+                  {{customer.EMAIL}}
+                </div>
+                <div class="my-col" ng-if="screenbesar">
+                  <div style="float:right">
+                    {{customer.PHONE}}
+                  </div>
+                </div>
+            </div>
+            
+          </ion-item>
+          <div class="row" ng-if="results.length == 0">
+            Data Pelanggan Tidak Ditemukan
+          </div>
+        </div>
+      </div>
+      <div class="row" style="flex-wrap: wrap;" ng-if="screenbesar">
+        <div class="col col-60">
+          <div style="padding-left: 15px;padding-right: 15px;padding-top: 5px;">
+            <ion-item class="item-stable item-icon-right text-center" ng-click="selecttypepembayaran(choicetypepembayarandefault)">
+                <h2>{{choicetypepembayarandefault.TYPE_PAY_NM}}</h2>
+                  <i class="icon ion-ios-arrow-down"></i>
+            </ion-item>
+          </div>
+          <div class="row padding" style="flex-wrap: wrap;" ng-if="choicetypepembayarandefault.TYPE_PAY_ID != 1">
+            <div class="col col-33" ng-repeat="merchant in listmerchants | filter:{'TYPE_PAY_ID':choicetypepembayarandefault.TYPE_PAY_ID}:true as filtermerchant track by $index" >
+              <div class="button-bar">
+                <a grouped-radio="merchant" class="rcorners4" ng-model="provider.valuechoose">
+                    {{merchant.MERCHANT_NM}}
+                </a>
+              </div>
+            </div>
+            <div class="col" ng-if="filtermerchant.length == 0">
+              <ion-item class="item-assertive text-center" >
+                Belum Ada Merchant Yang Terdaftar
+              </ion-item>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col" style="padding-top:0px;padding-bottom: 0px;">
+                <div class="row">
+                  <div class="button-bar" style="padding-top: 10px;border-top: 1px solid rgba(0,0,0,0.2)">
+                    <a grouped-radio="yangdibayarkan.yangdibayar" ng-model="pembayaran.uang" ng-change='radiopembayaranchange({{yangdibayarkan.yangdibayar}})' ng-repeat="yangdibayarkan in yangdibayarkan" class="rcorners3">
+                      {{yangdibayarkan.yangdibayar|number}}
+                    </a>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div style="padding-left: 15px;padding-right: 15px;padding-top: 5px;" ng-if="choicetypepembayarandefault.TYPE_PAY_ID == 1">
+            <label  class="item item-input" style="background-color: #f8f8f8">
+              <span class="input-label">Nilai</span>
+              <input type="tel" format="number" ng-model="pembayaran.uang" min="{{totalpembayaran}}" ng-change='changemanual()' class="float-right">
+            </label>
+          </div>
+        </div>
+        <div class="col col-40">
+          <div class="col col-100"> 
+            <label  class="item item-input" style="background-color: #f8f8f8">
+              <span class="input-label">Total Belanja</span>
+            <!-- </label>
+            <label  class="item item-input" style="background-color: #f8f8f8"> -->
+              <input type="text" placeholder="Cash In Drawer" ng-model="totalpembayaran" format="number" disabled="true" class="float-right">
+            </label>
+          </div>
+          <div class="col col-100">
+            <label  class="item item-input" style="background-color: #f8f8f8">
+              <span class="input-label">Yang Dibayarkan</span>
+            <!-- </label>
+            <label  class="item item-input" style="background-color: #f8f8f8"> -->
+              <input type="tel" placeholder="Nilai Lain" format="number" ng-model="pembayaran.uang" min="{{totalpembayaran}}" ng-change='changemanual()' class="float-right" readonly="true">
+            </label>
+          </div>
+          <div class="col col-100" ng-if="totalpembayaran > pembayaran.uang">
+            <label  class="item item-input" style="background-color: #f8f8f8">
+              <span class="input-label">Sisa Pembayaran</span>
+            <!-- </label>
+            <label  class="item item-input" style="background-color: #f8f8f8"> -->
+              <input type="tel" placeholder="Nilai Lain" format="number" ng-model="sisapembayaran" class="float-right" readonly="true">
+            </label>
+          </div>
+          <div class="col col-100" ng-if="totalpembayaran <= pembayaran.uang">
+            <label  class="item item-input" style="background-color: #f8f8f8">
+              <span class="input-label">Kembalian</span>
+            <!-- </label>
+            <label  class="item item-input" style="background-color: #f8f8f8"> -->
+              <input type="tel" placeholder="Nilai Lain" format="number" ng-model="sisapembayaran" class="float-right" readonly="true">
+            </label>
+              <ion-toggle ng-model="statusdonasi.checked" ng-if="totalpembayaran < pembayaran.uang">Donasikan Kembalian</ion-toggle>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-if="!screenbesar">
+        <div style="padding-left: 15px;padding-right: 15px;padding-top: 5px;">
+          <ion-item class="item-calm item-icon-right text-center" ng-click="selecttypepembayaran(choicetypepembayarandefault)">
+              <h4>{{choicetypepembayarandefault.TYPE_PAY_NM}}</h4>
+                <i class="icon ion-ios-arrow-down"></i>
+          </ion-item>
+        </div>
+        <div class="row padding" style="flex-wrap: wrap;" ng-if="choicetypepembayarandefault.TYPE_PAY_ID != 1">
+          <div class="col col-33" ng-repeat="merchant in listmerchants | filter:{'TYPE_PAY_ID':choicetypepembayarandefault.TYPE_PAY_ID}:true as filtermerchant" >
+            <div class="button-bar">
+              <a grouped-radio="merchant" class="rcorners4" ng-model="provider.valuechoose">
+                  {{merchant.MERCHANT_NM}}
+              </a>
+            </div>
+          </div>
+          <!--<div class="col" ng-if="filtermerchant.length == 0">-->
+            <!--<ion-item class="item-assertive text-center" >-->
+              <!--Belum Ada Merchant Yang Terdaftar-->
+            <!--</ion-item>-->
+          <!--</div>-->
+        </div>
+        <div class="row">
+          <div class="col" style="padding-top:0px;padding-bottom: 0px;">
+            <div class="row">
+              <div class="button-bar" style="padding-top: 10px;border-top: 1px solid rgba(0,0,0,0.2)">
+                <a grouped-radio="yangdibayarkan.yangdibayar" ng-model="pembayaran.uang" ng-change='radiopembayaranchange({{yangdibayarkan.yangdibayar}})' ng-repeat="yangdibayarkan in yangdibayarkan" class="rcorners3">
+                  {{yangdibayarkan.yangdibayar|number}}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="padding-left: 15px;padding-right: 15px;padding-top: 5px;">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <span class="input-label">Dibayarkan</span>
+            <input type="tel" format="number" ng-model="pembayaran.uang" min="{{totalpembayaran}}" ng-change='changemanual()' class="float-right" ng-disabled="choicetypepembayarandefault.TYPE_PAY_ID != 1">
+          </label>
+        </div>
+        <div style="padding-left: 15px;padding-right: 15px;padding-top: 5px;">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <span class="input-label">Total Belanja</span>
+            <input type="text" ng-model="totalpembayaran" format="number" disabled="true" class="float-right">
+          </label>
+        </div>
+        <div style="padding-left: 15px;padding-right: 15px;padding-top: 5px;" ng-if="totalpembayaran > pembayaran.uang">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <span class="input-label">Sisa</span>
+            <input type="text" format="number" ng-model="sisapembayaran" class="float-right" disabled="true">
+          </label>
+        </div>
+        <div style="padding-left: 15px;padding-right: 15px;padding-top: 5px;" ng-if="totalpembayaran <= pembayaran.uang">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <span class="input-label">Kembalian</span>
+            <input type="text" format="number" ng-model="sisapembayaran" class="float-right" disabled="true">
+          </label>
+        </div>
+        <div style="padding-left: 15px;padding-right: 15px;padding-top: 5px;" ng-if="totalpembayaran < pembayaran.uang">
+          <ion-toggle ng-model="statusdonasi.checked">Donasikan Kembalian</ion-toggle>
+        </div>
+
+      </div>
+
+      <div ng-show="pelangganradio.valuechoose == 'REGULAR'" class="list list-inset" style="margin-bottom: -20px">
+        <label id="lblround" class="item item-input">
+          <span class="input-label">Email</span>
+            <input type="email" ng-model="datapelanggan.EMAIL" class="form-control">
+        </label>
+      </div>
+
+      <div class="row" style="padding-left: 10px;padding-right: 10px;">
+        <button class="button button-block button-full" ng-class="theme.buttonstyle" ng-click="submitmodalpembayaran()" style="border-radius:15px;" ng-if="choicetypepembayaran.TYPE_PAY_ID != 5">
+          BAYAR
+        </button>
+        <button class="button button-block button-full" ng-class="theme.buttonstyle" style="border-radius:15px;" ng-if="choicetypepembayaran.TYPE_PAY_ID == 5" ng-click="openmodalformcicilan()">
+          FORM PENGAJUAN CICILAN
+        </button>
+      </div>
+    </ion-list>
+  </ion-content>
+</form>
+</ion-modal-view>

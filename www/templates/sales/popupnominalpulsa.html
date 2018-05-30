@@ -1,0 +1,6 @@
+<ion-radio class="wrapping-list" ng-model="choicekodenominal.KODE"  ng-value="datanominal.KODE" ng-repeat="datanominal in datanominals" ng-if="datanominals.length > 0">
+  {{datanominal.NOMINAL}}
+</ion-radio>
+<div ng-if="datanominals.length == 0">
+  Belum Ada Nominal Yang Terdaftar
+</div>

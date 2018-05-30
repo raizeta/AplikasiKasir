@@ -1,0 +1,23 @@
+<ion-view>
+	<ion-nav-title>
+        <div class="page-title">EDC MAINTENANCE</div>
+    </ion-nav-title>
+	<ion-content>
+		<ion-list>
+	        <div ng-repeat="menumaintenance in menumaintenances">
+	          <ion-item class="item-light" nav-clear ng-click="toggleGroup(menumaintenance)" ng-class="{active: isGroupShown(menumaintenance)}" ng-if="menumaintenance.items" style="border:0px solid rgba(0,0,0,0.1)">
+	            <div class="item-icon-left">
+	              <i class="icon {{menumaintenance.icons}}"></i>
+	              <h3>{{menumaintenance.name|uppercase}}</h3>
+	            </div>
+	            <div class="item-icon-right">
+	                <i class="icon" ng-class="isGroupShown(menumaintenance) ? 'ion-ios-arrow-down' : 'ion-ios-arrow-right'"></i>
+	            </div>
+	          </ion-item>
+	          <ion-item class="item-accordion" nav-clear menu-close ng-repeat="item in menumaintenance.items" ng-show="isGroupShown(menumaintenance)" ng-click="openfunction(item.aliasfunc)" ng-if="menumaintenance.items">
+	            <h4>{{item.child}}</h4>
+	          </ion-item>
+	        </div>
+        </ion-list>
+	</ion-content>
+</ion-view>

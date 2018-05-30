@@ -1,0 +1,238 @@
+<div class="row">
+  <style>
+      .item-icon-left.xxx {padding-left: 4vh;}
+      i.icon.xxx {font-size:16px;padding-left: 2vh}
+  </style>
+  <div class="col col-33" style="height:100vh;padding:0px;">
+    <ion-item class="item item-calm" style="padding-left:0px;">
+      <div class="item-icon-left">
+        <h2>DAFTAR TOKO</h2>
+      </div>
+      <div class="item-icon-right" ng-click="modalnewstoreopen()">
+          <i class="icon ion-android-add"></i>
+      </div>
+    </ion-item>
+    <ion-scroll class="controltoko-scroll">
+      <ion-item  ng-repeat="store in datastores track by $index" ng-class="isGroupShown(store) ? 'active':''" >
+          <div class="item-icon-left" on-tap="detailstore(store)">
+              <i class="icon xxx">{{$index + 1}}</i>
+              <h2 ng-if="store.STORE_NM == ''">OUTLET {{store.STORE_ID|split:'.':1}}</h2>
+              <h2>{{store.STORE_NM|uppercase}}</h2>
+          </div>
+          <div class="item-icon-right">
+              <i class="icon ion-ios-arrow-right"></i>
+          </div>
+          <ion-option-button class="button-positive" ng-click="modalupdatestoreopen(store)">
+            Edit
+          </ion-option-button>
+      </ion-item>
+    </ion-scroll>
+  </div>
+  <div class="col col-66 layerbackground" style="height:100vh;padding:0px;">
+    <div class="button-bar bar-calm" id="mybar" >
+      <style>
+        #mybar .button {line-height:40px;font-size:12px;}
+      </style>
+      <a class="button button-small text" grouped-radio="'MERCHANT'" ng-model="viewtoshow.valuechoose">
+        MERCHANT ({{datamerchants.length}})
+      </a>
+      <a class="button button-small text" grouped-radio="'KARYAWAN'" ng-model="viewtoshow.valuechoose">
+        KARYAWAN ({{datakaryawans.length}})
+      </a>
+      <a class="button button-small text" grouped-radio="'OPERASIONAL'" ng-model="viewtoshow.valuechoose">
+        OPERASIONAL ({{datauserops.length}})
+      </a>
+      <a class="button button-small text" grouped-radio="'PELANGGAN'" ng-model="viewtoshow.valuechoose">
+        PELANGGAN ({{datacustomers.length}})
+      </a>
+      <a class="button button-small text" grouped-radio="'INFORMASI'" ng-model="viewtoshow.valuechoose">
+        INFORMASI
+      </a>
+    </div>
+    <ion-scroll  class="infotoko-scroll">
+      <div ng-if="viewtoshow.valuechoose == 'MERCHANT' ">
+        <div class="row"  style="flex-wrap: wrap;padding-top: 10px;">
+          <div class="col col-50"  ng-repeat="detailmerchant in datamerchants track by $index">
+            <div class="cardcredit" ng-click="modalupdatemerchantopen(detailmerchant,$index)">
+                <div class="bank-name" title="{{detailmerchant.BANK_NM}}">
+                  {{detailmerchant.BANK_NM}}
+                </div>
+                <div class="chip">
+                    <div class="side left"></div>
+                    <div class="side right"></div>
+                    <div class="vertical top"></div>
+                    <div class="vertical bottom"></div>
+                </div>
+                <div class="data">
+                  <div class="pan" title="{{detailmerchant.MERCHANT_NO}}">
+                    {{detailmerchant.MERCHANT_NO}}
+                  </div>
+                  <div class="pan" title="KARTU DEBIT" >
+                    {{detailmerchant.TYPE_PAY_NM}}
+                  </div>
+                  <div class="name-on-card" title="John Doe" style="font-size: 18px;">  {{detailmerchant.MERCHANT_NM}}
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row not-found" ng-show="datamerchants.length == 0">
+          <div class="profile">
+              <img ng-src="img/kg.png"/>
+              <h4 style="color: #444;margin-top: -1vh;">Belum Ada Merchant Yang Terdaftar</h4>
+          </div>
+        </div>
+      </div>
+      <div ng-if="viewtoshow.valuechoose == 'KARYAWAN'">
+        <div class="row"  style="flex-wrap: wrap;padding-top: 10px;">
+          <div class="col col-25"  ng-repeat="detailkaryawan in datakaryawans track by $index">
+              <div class="center">
+                <div class="profilex">
+                  <div class="image">
+                    <div class="circle-1"></div>
+                    <div class="circle-2"></div>
+                    <!-- <img src="http://100dayscss.com/codepen/jessica-potter.jpg" width="70" height="70"> -->
+                    <ng-letter-avatar data="{{detailkaryawan.NAMA_DPN|capitalize}}" shape="round" height="70" width="70" charCount="3"></ng-letter-avatar>
+                  </div>
+                  
+                  <div class="name">{{detailkaryawan.NAMA_DPN|capitalize}}</div>
+                  
+                  <div class="actions">
+                    <button class="btn">Telp</button>
+                    <button class="btn">Email</button>
+                    <button class="btn" style="width: 100px;" ng-click="modalupdatekaryawanopen(detailkaryawan,$index)">Detail</button>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="row not-found" ng-show="datakaryawans.length == 0">
+          <div class="profile">
+              <img ng-src="img/kg.png"/>
+              <h4 style="color: #444;margin-top: -1vh;">Belum Ada Karyawan Yang Terdaftar</h4>
+          </div>
+        </div>
+      </div>
+      <div ng-if="viewtoshow.valuechoose == 'OPERASIONAL' ">
+        <div class="row"  style="flex-wrap: wrap;padding-top: 10px;">
+          <div class="col col-25"  ng-repeat="detailops in datauserops track by $index">
+            <div class="center">
+                <div class="profilex">
+                  <div class="image">
+                    <div class="circle-1"></div>
+                    <div class="circle-2"></div>
+                    <!-- <img src="http://100dayscss.com/codepen/jessica-potter.jpg" width="70" height="70"> -->
+                    <ng-letter-avatar data="{{detailops.username}}" shape="round" height="70" width="70" charCount="3"></ng-letter-avatar>
+                  </div>
+                  
+                  <div class="name"><h6>{{detailops.username}}</h6></div>
+                  
+                  <div class="actions">
+                    <button class="btn">Telp</button>
+                    <button class="btn">Email</button>
+                    <button class="btn" style="width: 100px;"   ng-click="modalupdateuserloginopen(detailops,$index)">Detail</button>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="row not-found" ng-show="datauserops.length == 0">
+          <div class="profile">
+              <img ng-src="img/kg.png"/>
+              <h4 style="color: #444;margin-top: -1vh;">Belum Ada Operasional Yang Terdaftar</h4>
+          </div>
+        </div>
+      </div>
+      <div ng-if="viewtoshow.valuechoose == 'PELANGGAN'">
+        <div class="row" style="flex-wrap: wrap;padding-top: 10px;">
+          <div class="col col-25"  ng-repeat="customer in datacustomers track by $index">
+            <div class="frame">
+              <div class="center">
+                
+                <div class="profilex">
+                  <div class="image">
+                    <div class="circle-1"></div>
+                    <div class="circle-2"></div>
+                    <!-- <img src="http://100dayscss.com/codepen/jessica-potter.jpg" width="70" height="70"> -->
+                    <ng-letter-avatar data="{{customer.NAME}}" shape="round" height="70" width="70" charCount="3"></ng-letter-avatar>
+
+                  </div>
+                  
+                  <div class="name">{{customer.NAME}}</div>
+                  
+                  <div class="actions">
+                    <button class="btn">Call</button>
+                    <button class="btn">Email</button>
+                    <button class="btn" style="width: 100px;" ng-click="modalupdatecustomeropen(customer,$index)">
+                      Detail
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row not-found" ng-show="datacustomers.length == 0">
+          <div class="profile">
+              <img ng-src="img/kg.png"/>
+              <h4 style="color: #444;margin-top: -1vh;">
+                Belum Ada Pelanggan Yang Terdaftar
+              </h4>
+          </div>
+        </div>
+      </div>
+      <div ng-if="viewtoshow.valuechoose == 'INFORMASI'" class="padding">
+        <div style="padding-bottom:5px;">     
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <span>Nama Toko</span>
+          </label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <input type="text" ng-model="datadetail.STORE_NM" readonly="true">
+          </label>
+        </div>
+        <div style="padding-bottom:5px;">
+          <label  class="item item-input" style="background-color: #f8f8f8;">
+            <span>Alamat Toko</span>
+          </label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <span  class="input-label">   
+              {{datadetail.ALAMAT}},Kab.{{datadetail.CITY_NAME}}
+            </span>
+          </label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <span  class="input-label">   
+              {{datadetail.PROVINCE_NM}}
+            </span>
+          </label>
+        </div>
+        <div style="padding-bottom:5px;">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <span>PIC Toko</span>
+          </label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <input type="text" ng-model="datadetail.PIC" readonly="true">
+          </label>
+        </div>
+        <div style="padding-bottom:5px;">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <span>Telp Toko</span>
+          </label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <input type="text" ng-model="datadetail.TLP" readonly="true">
+          </label>
+        </div>
+        <div style="padding-bottom:5px;">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <span>Fax Toko</span>
+          </label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <input type="text" ng-model="datadetail.FAX" readonly="true">
+          </label>
+        </div>
+        <ng-map zoom="20" center="-6.228912,106.659945" style="display:block; width:100%; height:300px"  scrollwheel="false">
+          <marker position="-6.228912,106.659945"></marker>
+        </ng-map>
+      </div>
+    </ion-scroll>
+  </div>
+</div>

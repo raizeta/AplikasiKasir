@@ -1,0 +1,14 @@
+<ion-view>
+	<ion-nav-title>
+        <div class="page-title">SETTING TOKO</div>
+    </ion-nav-title>
+	
+	<ion-content>
+		<ion-list>
+			<ion-toggle ng-repeat="item in settingsList" ng-model="item.checked" ng-change="toggleChange(item,$index)">
+	          {{ item.text }}
+	        </ion-toggle>
+		</ion-list>
+	</ion-content>
+</ion-view>
+

@@ -1,0 +1,31 @@
+<div class="row"  style="flex-wrap: wrap;padding-top: 10px;">
+    <div class="col col-50"  ng-repeat="itemproduct in databarangpenjualan | filter: {GROUP_ID:filtergroup||undefined,PRODUCT_NM:filterproductbyname||undefined,IS_FAVORITE:filterfavorite||undefined} as filtering track by $index">
+        <ion-list>
+            <ion-item class="item-stable" style="padding-bottom: 15px;">
+                <div class="item-avatar" ng-click="tambahqtyitem(itemproduct,$index)" style="min-height: 0px;">
+                    <img ng-src="https://image.kontrolgampang.com/produk/{{itemproduct.IMG_FILE}}" alt="{{itemproduct.PRODUCT_NM|capitalize}}" imageonload/>
+                    <h4>{{itemproduct.PRODUCT_NM|cuttext:true:15:'...'}}</h4>
+                    <h5>Rp. {{itemproduct.HARGA_JUAL|number}}</h5>
+                    <h5>{{itemproduct.CURRENT_STOCK|number}} Item</h5>
+                </div>
+                <div class="item-icon-right" ng-click="OpenModalAddToCart(itemproduct,'fromlist')">
+                    <i style="font-size: 35px; margin-right:0px;right:1px;"   class="icon ion-ios-cart">
+                        <span class="badge badge-balanced icon-badge" style="right:0px;" ng-if="itemproduct.QTY_INCART > 0">{{itemproduct.QTY_INCART|number}}</span>
+                        <span class="badge badge-positive icon-badge" style="right:0px;"  ng-if="itemproduct.QTY_INCART == 0">{{itemproduct.QTY_INCART|number}}</span>
+                    </i>
+                </div>
+            </ion-item>
+        </ion-list>
+    </div>
+</div>
+<div class="row not-found" style="top: 35vh;" ng-if="filtering.length == 0">
+  <div class="profile">
+      <img ng-src="img/kg.png"/>
+      <h5 style="color: #444;margin-top: -1vh;" ng-if="modefavorit">
+        Belum Ada Produk Favorite Yang Terdaftar
+      </h5>
+      <h5 style="color: #444;margin-top: -1vh;" ng-if="modegroup && namagroup">
+        Produk Untuk Kategori {{namagroup}} Masih Kosong
+      </h5>
+  </div>
+</div>

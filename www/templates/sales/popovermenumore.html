@@ -1,0 +1,23 @@
+<ion-popover-view>
+  <ion-content>
+    <div class="list">
+    	 <div class="item item-icon-left" ng-click="switchmodegridorlistfunction();closepopovermenumore()">
+        	<i class="icon ion-navicon" ng-if="gridornot.grid"></i>
+        	<span ng-if="gridornot.grid">Tampilan Teks</span>
+        	<i class="icon ion-grid" ng-if="!gridornot.grid"></i>
+        	<span ng-if="!gridornot.grid">Tampilan Gambar</span>
+      	</div>
+		    <div class="item item-icon-left" ng-click="turnofonsoundfunction();closepopovermenumore()">
+        	<i class="icon ion-android-notifications" ng-if="soundon.on"></i>
+        	<span ng-if="soundon.on">Matikan Suara</span>
+        	<i class="icon ion-android-notifications-off" ng-if="!soundon.on"></i>
+        	<span ng-if="!soundon.on">Hidupkan Suara</span>
+      	</div>
+        <div class="item item-icon-left" ng-click="openstorepopup()" ng-if="profileops.ACCESS_LEVEL == 'OWNER' ">
+          <i class="icon ion-pull-request"></i>
+          <span>Ganti Toko</span>
+        </div>
+    </div>
+    
+  </ion-content>
+</ion-popover-view>

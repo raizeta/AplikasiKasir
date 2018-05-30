@@ -1,0 +1,153 @@
+<ion-view view-title="KONTROL GRUP PRODUK">
+  <ion-nav-title>
+      <div class="page-title" ng-click="openstorepopup(store)"  ng-if="profileops.ACCESS_LEVEL == 'OWNER'">
+          {{store.STORE_NM|uppercase}}
+        <i class="icon ion-ios-arrow-down placeholder-icon" style="color: #fff"></i>
+      </div>
+      <div class="page-title" ng-if="profileops.ACCESS_LEVEL == 'OPS'">
+          {{store.STORE_NM|uppercase}}
+      </div>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+    <div class="buttons">
+<!--       <button class="button button-icon icon ion-search" ng-click="changesearchshow()" ng-if="groupsproducts.length > 10">
+      </button> -->
+      <button class="button button-icon icon ion-android-add" ng-click="modaltambahgroupopen()" ng-if="!screenbesar || groupsproducts.length == 0">
+      </button>
+    </div>
+  </ion-nav-buttons>
+  <ion-content ng-class="has-subheader" scroll="false">
+<!--     <label class="item item-input  sticky-search" style="width: 100%;background-color: #f8f8f8" ng-show="showsearch">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" ng-model="xxx.string" ng-change="changefilter(xxx.string)">
+      <a ng-if="xxx.string != ''" on-touch="changefilter(xxx.string = '')">
+        <i class="icon ion-ios-close placeholder-icon"></i>
+      </a>
+    </label> -->
+    <ion-list  ng-if="screenbesar && groupsproducts.length > 0">
+      <style>
+          i.icon.xxx {font-size:16px;}
+      </style>
+      <div class="row">
+        <div class="col col-33" style="height:100vh">
+          <ion-item class="item-assertive" >
+            <div class="item-icon-left">
+              <i class="icon ion-ios-chatboxes-outline"></i>
+              <h2>GRUP PRODUK</h2>
+            </div>
+            <div class="item-icon-right" ng-click="modaltambahgroupopen()">
+                <i class="icon ion-android-add"></i>
+            </div>
+          </ion-item>
+          <ion-scroll class="controlproduct-scroll">
+            <ion-item  ng-repeat="group in groupsproducts |filter: filterproduct track by $index" ng-class="isGroupShown(group) ? 'active':''" >
+                <div class="item-icon-left" on-tap="detailgroupproduct(group)">
+                    <i class="icon xxx">{{$index + 1}}</i>
+                    <h2>{{group.GROUP_NM|uppercase}}</h2>
+                </div>
+                <div class="item-icon-right">
+                    <i class="icon ion-ios-arrow-right"></i>
+                </div>
+                <ion-option-button class="button-positive" ng-click="modalupdategroupopen(group,$index)">
+                  Edit
+                </ion-option-button>
+            </ion-item>
+          </ion-scroll>
+        </div>
+        <div class="col col-66" style="height:100vh">
+          <!-- <ion-item class="item-assertive">
+            <div class="item-icon-left" ng-click="toggleGroup('infogroup')">
+              <i class="icon" ng-class="showinfogroup ? 'ion-ios-arrow-down' : 'ion-ios-arrow-right'"></i>
+              <h2>INFORMASI GROUP</h2>
+            </div>
+            <div class="item-icon-right" ng-click="modalupdategroupopen(datadetailgroup)">
+              <i class="icon ion-ios-compose"></i>
+            </div>
+          </ion-item> -->
+          <div ng-show="showinfogroup">
+            <div class="col col-100">
+              <label class="item item-input item-stacked-label labeldark">
+               <span class="input-label">NAMA GROUP</span>
+                <input type="text" ng-model="datadetailgroup.GROUP_NM" ng-readonly="true">
+              </label>
+            </div>
+            <div class="col col-100">
+              <label class="item item-input item-stacked-label labeldark">
+               <span class="input-label">CATATAN</span>
+                <input type="text" ng-model="datadetailgroup.NOTE" ng-readonly="true">
+              </label>
+            </div>
+          </div>
+          <ion-item class="item-assertive">
+            <div class="item-icon-left" ng-click="toggleGroup('infoproduct')">
+              <i class="icon" ng-class="showinfoproduct ? 'ion-ios-arrow-down':'ion-ios-arrow-right'"></i>
+              <h2>DATA PRODUK</h2>
+            </div>
+          </ion-item>
+          <div ng-show="showinfoproduct">
+            <ion-scroll ng-if="dataproducts.length > 0">
+              <ion-slide-box>
+                <ion-slide ng-repeat="products in dataproducts|chunked: 20">
+                  <div class="row"  style="flex-wrap: wrap;padding-top: 10px;">
+                    <div class="col col-50"  ng-repeat="product in products track by $index">
+                      <ion-list>
+                        <ion-item class="item item-stable" style="padding-top: 5px;padding-bottom: 5px">
+                          <div class="item-icon-left" style="padding-left:34px" ng-click="modalupdateproductopen(products,$index)">
+                              <i class="icon ion-ios-compose"></i>
+                              <span style="font-size: 12px;text-align:left;">
+                                {{product.PRODUCT_NM|cuttext:true:19:'...'}}
+                              </span></br>
+                              <span style="font-size:12px;font-weight: bold;" ng-if="product.HARGA_JUAL"> 
+                                {{product.HARGA_JUAL|number}}
+                              </span>
+                          </div>
+                          <div class="item-icon-right">
+                            <i style="font-size: 35px; margin-right:0px;right:1px;">
+                              <span class="badge badge-balanced icon-badge" style="right:10px;">
+                                {{product.CURRENT_STOCK|number}}
+                              </span>
+                            </i>
+                          </div>
+                        </ion-item>
+                      </ion-list>
+                    </div>
+                  </div>
+                </ion-slide>
+              </ion-slide-box>
+            </ion-scroll>
+            <div style="position: relative;" ng-if="dataproducts.length == 0">
+              <div class="row not-found-detail" >
+                <div class="profile">
+                    <img ng-src="img/kg.png"/>
+                    <h5 style="color: #444;margin-top: -1vh;">Belum Ada Product Terdaftar Untuk Group Ini</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-list>
+    <ion-list  ng-if="!screenbesar && groupsproducts.length > 0">
+      <ion-scroll direction="y" style="height: 90vh">
+        <ion-item  ng-repeat="group in groupsproducts |filter: filterproduct track by $index" >
+            <div class="item-icon-left" on-tap="detailgroupproductlayarkecil(group)">
+                <i class="icon xxx">{{$index + 1}}</i>
+                <h2>{{group.GROUP_NM|uppercase}}</h2>
+            </div>
+            <div class="item-icon-right">
+                <i class="icon ion-ios-arrow-right"></i>
+            </div>
+            <ion-option-button class="button-positive" ng-click="modalupdategroupopen(group)">
+              Edit
+            </ion-option-button>
+        </ion-item>
+      </ion-scroll>
+    </ion-list>
+    <div class="row not-found" ng-if="groupsproducts.length == 0">
+      <div class="profile">
+          <img ng-src="img/kg.png"/>
+          <h2 style="color: #444;margin-top: -1vh;">Produk Group Kosong</h2>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

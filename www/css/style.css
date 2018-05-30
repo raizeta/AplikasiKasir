@@ -1,0 +1,575 @@
+/*.nav-bar-block,.bar {
+  background-color: inherit !important;
+}*/
+
+fieldset {
+    font-family: sans-serif;
+    border: 2px solid #1F497D;
+    background: #ddd;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+fieldset legend {
+    background: #1F497D;
+    color: #fff;
+    padding: 5px 5px;
+    border-radius: 5px;
+    /*box-shadow: 0 0 0 5px #ddd;*/
+    margin-left: 20px;
+    width: auto;
+    font-size: 18px;
+    line-height: 1;
+}
+
+
+h4.category-product
+{
+  color:white;font-size:12px;
+}
+p.label-error
+{
+  color:red;
+}
+.border-bottom
+{
+  border-top:0px;border-right:0px;border-left:0px;border-bottom: 0px;
+}
+
+input.custom-success {
+  border-bottom: 1px solid #1abc9c;
+  -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 99%, #1abc9c 1%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 99%, #1abc9c 1%);
+  background-repeat: no-repeat;
+}
+
+.bg-dark
+{
+  background-color: #f8f8f8;
+}
+
+.has-errors {
+  border: 1px solid rgba(255,0,0,0.5);
+}
+
+.no-errors {
+  
+  border: 1px solid rgba(0,255,0,0.3);
+}
+
+.not-found
+{
+  position:absolute;
+  left: 0;
+  right: 0;
+  margin:0 auto;
+  top:45vh;
+  transform:translateY(-50%);
+  background: transparent;
+}
+
+.not-found-cashier
+{
+  position:absolute;
+  left: 0;
+  right: 0;
+  margin:0 auto;
+  top:25vh;
+  transform:translateY(-50%);
+  background: #f8f8f8;
+}
+
+.not-found-detail
+{
+  position:absolute;
+  left: 0;
+  right: 0;
+  margin:0 auto;
+  top:25vh;
+  transform:translateY(-50%);
+  background: #f8f8f8;
+}
+
+.padding-x
+{
+  padding-left: -15px;
+  padding-bottom: 5px;
+}
+.labeldark
+{
+  background-color: #f8f8f8
+}
+.strlbl-div
+{
+  background-color: #f8f8f8;
+  margin-bottom: 1.5vh;
+}
+.fullsaja-cashier
+{
+  margin: -15px;
+  margin-right: -2.5vw;
+}
+
+.fullsaja-ctrlstore
+{
+  margin-top: -15px;
+  margin-left: -15px;
+  /*margin-bottom: -15px;*/
+  margin-right: -8px;
+  /*margin-left: -15px;*/
+  /*margin-left: -15px;*/
+  /*margin-right: -2.5vh;*/
+}
+
+.fullsaja-trans
+{
+  margin-left: -1vh;
+  margin-top: -1vh;
+  margin-right: -1vh;
+}
+
+.fullsaja-setoran
+{
+  margin-left: -1vw;
+  margin-top: -2vh;
+  margin-right: -2.5vw;
+}
+.custom-active
+{
+    border-color: #e65c5c;
+    background-color: #e67070;
+    z-index: 99999;
+}
+.thumbnail-custom 
+{
+  float: left;
+  width: 100px;
+  margin-right: 15px;
+  margin-left: -5px;
+}
+
+#login 
+{
+  /*background: #1c2627 url("../img/login_bg.jpg") no-repeat center center;*/
+  /*background: #55c2ed;*/
+  background: teal;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  /*.scroll-content 
+  {
+    display: table !important;
+    width: 100% !important;
+    height: 100% !important;
+
+    form 
+    {
+      display: table-cell;
+      vertical-align: middle;
+
+      .header 
+      {
+        padding-bottom: 20px;
+
+        img 
+        {
+          display: block;
+          width: 80%;
+          margin: 0 auto;
+        }
+      }
+
+      .button.button-light.active, .button.button-light.activated 
+      {
+        color: #fff;
+        opacity: inherit;
+      }
+    }
+  }*/
+
+}
+
+
+.fullwidth {
+width:100%;
+margin-left:0;
+margin-right:0;
+padding-left:0;
+padding-right:0;
+display:block;
+text-align:center; /*This will result in centering the link text, which is probably what you want -brianjohnsondesign.com*/
+}
+
+html, body, 
+.scroll /* because the <ion-content> content is placed inside a div.scroll */
+{
+  height: 100%;
+}
+
+.container {
+  min-height: 60%;
+  display: flex;
+  flex-direction: column;  
+}
+
+.container > .cell-row {
+  flex: 1;
+  display: flex;
+}
+.cell-row > div {
+  flex: 1;
+  flex-grow: 1;
+  color: #fff;
+  
+  /* Flex for these containers (cells) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.container i[class^="ion-"] {
+  font-size: 90px;
+}
+
+
+
+
+
+/* doesn't matter */
+/*.bar-header {
+  background-color: #241D54 !important;
+  border-bottom: 0 !important;
+}
+.bar-header h1 {
+  color: #fff !important;
+  font-size: 20px !important;
+}*/
+
+.cell-row-1 {
+  /*background-color: #000;*/
+  margin-bottom: 5px;
+}
+.cell-row-2 {
+  /*background-color: #ccc;*/
+  margin-bottom: 5px;
+}
+.cell-row-3 {
+  /*background-color: #eee;*/
+  margin-bottom: 5px;
+}
+.cell-row-4 {
+  /*background-color: #eee;*/
+  margin-bottom: 5px;
+}
+.cell-row-5 {
+  /*background-color: #eee;*/
+  margin-bottom: 5px;
+}
+
+.cell-1 {
+  background-color: #d71149;
+  margin-right: 5px;
+}
+.cell-2 {
+  background-color: #2AA5AD;
+}
+.cell-3 {
+  background-color: #03b2e7;
+  margin-right: 5px;
+}
+.cell-4 {
+  background-color: #B3D0FC;
+}
+.cell-5 {
+  background-color: #73A7F9;
+  margin-right: 5px;
+}
+.cell-6 {
+  background-color: #2AA5AD;
+}
+.cell-7 {
+  background-color: #A0C5FA;
+  margin-right: 5px;
+}
+.cell-8 {
+  background-color: #03b2e7;
+}
+
+.profile-item {
+  text-align: center;
+}
+
+.profile-picture {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 3px;
+  border-radius: 100%;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.profile-picture img {
+  width: 128px;
+  border-radius: 100%;
+}
+
+.profile-name {
+  padding-top: 20px;
+  font-size: x-large !important;
+  font-weight: bold !important;
+  text-transform: capitalize;
+}
+
+.item-avatarx :first-child, .item-avatar .item-img {
+    position: absolute;
+    top: 40%;
+    left: 5px;
+    font-size: 36px;
+    max-width: 40px;
+    max-height: 40px;
+    width: 100%;
+    border-radius: 50%;
+}
+.item-icon-left-x {
+    padding-left: 64px;
+}
+
+.item-avatary > img:first-child, .item-avatar .item-image, .item-avatar .item-content > img:first-child, .item-avatar .item-content .item-image, .item-avatar-left > img:first-child, .item-avatar-left .item-image, .item-avatar-left .item-content > img:first-child, .item-avatar-left .item-content .item-image {
+    position: absolute;
+    top: 40%;
+    left: 16px;
+    max-width: 40px;
+    max-height: 40px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.item-avatarz > img:first-child, .item-avatar .item-image, .item-avatar .item-content > img:first-child, .item-avatar .item-content .item-image, .item-avatar-left > img:first-child, .item-avatar-left .item-image, .item-avatar-left .item-content > img:first-child, .item-avatar-left .item-content .item-image {
+    position: absolute;
+    top: 35%;
+    left: 5px;
+    max-width: 40px;
+    max-height: 40px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.item-avatarissue > img:first-child, .item-avatar .item-image, .item-avatar .item-content > img:first-child, .item-avatar .item-content .item-image, .item-avatar-left > img:first-child, .item-avatar-left .item-image, .item-avatar-left .item-content > img:first-child, .item-avatar-left .item-content .item-image {
+    position: absolute;
+    top: 33%;
+    left: 5px;
+    max-width: 40px;
+    max-height: 40px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.item-avatar-promo :first-child, .item-avatar .item-img {
+    position: absolute;
+    top: 23%;
+    left: 5px;
+    font-size: 36px;
+    max-width: 40px;
+    max-height: 40px;
+    width: 100%;
+    border-radius: 50%;
+}
+.item-icon-left-promo {
+    padding-left: 64px;
+}
+
+.image-list-thumb {
+    padding: 2px 2px 2px 2px;
+    height: 100px;
+}
+ 
+.image-modal {
+    width: 100% !important;
+    height: 100%;
+    top: 0 !important;
+    left: 0 !important;
+}
+ 
+.transparent {
+    background: transparent !important;
+}
+ 
+.fullscreen-image {
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+ 
+.slider {
+    width: 100%;
+    height: 100%;
+}
+
+.contentcenter {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.pane.left-view {
+  left: 0;
+  width: 33%;
+}
+
+.pane.right-view {
+  left: 33%;
+  width: 67%;
+}
+
+@media (min-width: 680px) {
+  .mymodalpembayaran 
+  {  
+     width: 100%; 
+     height: 100%; 
+     top: 0px; 
+     left: 0px; 
+     right: 0px; 
+     bottom: 0px;
+     overflow: hidden;
+  }
+
+  .mymodalpembayarannotifikasi 
+  {  
+     width: 100%; 
+     height: 100%; 
+     top: 0px; 
+     left: 0px; 
+     right: 0px; 
+     bottom: 0px;
+     overflow: hidden;
+  }
+
+  .mymodalsavetobill 
+  {  
+     width: 33%; 
+     height: 100%; 
+     top: 0px; 
+     left: 0px; 
+     bottom: 1px;
+     overflow: hidden;
+  }
+  .mymodaladdtocart 
+  {  
+     width: 35%; 
+     height: 5%; 
+	   overflow: none;
+     left: 35%; 
+  }
+
+  .mymodalcustnewtransaksi 
+  {  
+     width: 100%; 
+     height: 99%;
+     left:0px;  
+     top:0px;
+     overflow: hidden;
+     border-bottom: 1px solid green;
+  }
+
+  .mymodalstock 
+  {  
+     width: 67vw; 
+     height: 99%;
+     left:33.1vw;  
+     top:87px;
+     overflow: hidden;
+     border-bottom: 1px solid green;
+  }
+
+}
+.my-col
+{
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: block;
+  padding: 0px;
+  width: 100%;
+}
+
+.item > h1
+{
+  font-size: 24px;
+  text-align:center;
+  position:relative;
+  transform: translateY(-50%);
+}
+.list:last-child.card 
+{
+    margin-bottom: 0px;
+}
+
+
+@media (min-width: 1200px) 
+{ 
+
+}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) 
+{
+
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) 
+{
+
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) 
+{
+
+}

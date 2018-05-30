@@ -1,0 +1,83 @@
+<ion-modal-view class="mymodalpembayarannotifikasi">
+  <form name="updatestoreForm" novalidate="true">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <h1 class="title">UPDATE TOKO</h1>
+    <button class="button button-clear right" ng-click="modalupdatestoreclose()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <button class="button button-clear left" ng-click="modalupdatestoresubmit()" ng-disabled="updatestoreForm.$invalid">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item style="border:0px;">
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Nama Store</span>
+          <input type="text" name="storenm" ng-model="updatestore.STORE_NM" class="custom-success" placeholder="Masukkan Nama Toko Disini" required>
+          <p ng-show="updatestoreForm.storenm.$error.required" style="color:red;">
+            Nama Toko Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom" ng-click="opengroupindustripopup()" style="background-color: #f8f8f8">
+         <span class="input-label">Group Industri</span>
+          <input type="text" name="grpindustri" placeholder="Pilih Group Industri" ng-model="updatestore.INDUSTRY_GRP_NM" class="custom-success" placeholder="Masukkan Alamat Toko Disini" required ng-readonly="true" >
+          <p ng-show="updatestoreForm.grpindustri.$error.required" style="color:red;">
+            Group Industri Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom" ng-hide="!updatestore.INDUSTRY_GRP_NM" ng-click="openindustripopup()" style="background-color: #f8f8f8">
+         <span class="input-label">Industri</span>
+          <input type="text" name="industri" placeholder="Pilih Industri" ng-model="updatestore.INDUSTRY_NM" class="custom-success" required ng-readonly="true">
+          <p ng-show="updatestoreForm.industri.$error.required" style="color:red;">
+            Industri Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Alamat Store</span>
+          <input type="text" name="alamat" ng-model="updatestore.ALAMAT" class="custom-success" placeholder="Masukkan Alamat Toko Disini" required>
+          <p ng-show="updatestoreForm.alamat.$error.required" style="color:red;">
+            Alamat Toko Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom" style="background-color: #f8f8f8">
+         <span class="input-label">Propinsi Store</span>
+          <input type="text" name="propinsi" ng-model="updatestore.PROVINCE_NM" class="custom-success" required ng-readonly="true" ng-click="openprovinsipopup()">
+          <p ng-show="updatestoreForm.propinsi.$error.required" style="color:red;">
+            Propinsi Toko Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom" style="background-color: #f8f8f8">
+         <span class="input-label">Kota Store</span>
+          <input type="text" name="kota" ng-model="updatestore.CITY_NAME" placeholder="Pilih Kota" class="custom-success" required ng-readonly="true" ng-click="openkotapopup()">
+          <p ng-show="updatestoreForm.kota.$error.required" style="color:red;">
+            Kota Toko Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">PIC Store</span>
+          <input type="text" name="pic" ng-model="updatestore.PIC" placeholder="Masukkan PIC Toko Disini" class="custom-success">
+          <p ng-show="updatestoreForm.pic.$error.required" style="color:red;">
+            PIC Toko Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Telp Store</span>
+          <input type="tel" name="telp" ng-model="updatestore.TLP" class="custom-success" placeholder="Masukkan Nomor Telepon Toko Disini">
+          <p ng-show="updatestoreForm.telp.$error.required" style="color:red;">
+            Telepon Toko Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">FAX Store</span>
+          <input type="tel" ng-model="updatestore.FAX" class="custom-success" placeholder="Masukkan Fax Toko Disini">
+        </label>
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Deskripsi</span>
+          <input type="text" ng-model="updatestore.DCRP_DETIL" class="custom-success" placeholder="Masukkan Deskripsi Toko Disini">
+        </label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  </form>
+</ion-modal-view>

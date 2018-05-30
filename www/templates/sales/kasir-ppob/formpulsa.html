@@ -1,0 +1,68 @@
+<ion-view hide-nav-bar="false" cache-view="true" view-title="{{paramurl|uppercase}}">
+  <ion-content>
+    <div class="list card no-padding" style="margin: 0px;">
+      <ion-item class="item" style="padding-left:0px;">
+        <div class="item-icon-left">
+      <i class="icon ion-bag"></i>
+          <h2>SISA SALDO</h2>
+          <h3>Rp 1.000.000</h3>
+        </div>
+        <div class="item-icon-right" ng-click="modalnewstoreopen()">
+            <i class="icon" style="font-size: 16px;">ISI SALDO</i>
+        </div>
+      </ion-item>
+    </div>
+    <form name="pulsaForm"  novalidate="true">
+      <style>
+        i.icon.ion-android-phone-portrait
+        {
+          padding-right: 30px;
+          font-size: 30px;
+          color: teal;
+        }
+        i.icon.ion-flash
+        {
+          padding-right: 30px;
+          font-size: 30px;
+          color: teal;
+        }
+        i.icon.ion-cash
+        {
+          padding-right: 20px;
+          font-size: 30px;
+          color: teal;
+        }
+        label{line-height: 50%;}
+      </style>
+      <div style="margin:0px;padding-top: 20px;">
+        <div>
+          <label  class="item item-input">
+            <i class="icon ion-android-phone-portrait placeholder-icon"></i>
+            <input type="tel" ng-model="datapembelianppob.MSISDN" maxlength="12" required ng-change="nomorteleponchange()" placeholder="Masukkan Nomor Telepon Disini">
+          </label>
+        </div>
+        <div  ng-show="datapembelianppob.PROVIDER">
+          <label  class="item item-input">
+            <i class="icon ion-flash placeholder-icon"></i>
+            <input type="text" ng-model="datapembelianppob.PROVIDER" ng-readonly="true" style="background-color: white;" required>
+          </label>
+        </div>
+        <div  ng-show="datapembelianppob.PROVIDER && datapembelianppob.MSISDN.length > 10">
+          <label  class="item item-input">
+            <i class="icon ion-android-phone-portrait placeholder-icon"></i>
+            <input type="text" placeholder="Masukkan Nilai Nominal Disini" ng-model="datapembelianppob.NAME" readonly="true" ng-click="inputnominalpulsa(datapembelianppob)" required style="background-color: white;">
+          </label>
+          <label  class="item item-input" ng-if="datapembelianppob.NAME">
+            <i class="icon ion-cash placeholder-icon"></i>
+            <input type="tel" format="number" placeholder="Harga Jual" ng-model="datapembelianppob.HARGA_JUAL" readonly="true" style="background-color: white;">
+          </label>
+        </div>
+        <div class="padding">
+          <button class="button button-block button-full" ng-class="theme.buttonstyle" ng-click="openmodalpembayaran()">
+            Bayar
+          </button>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

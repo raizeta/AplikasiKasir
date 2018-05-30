@@ -1,0 +1,41 @@
+<ion-modal-view class="mymodalpembayarannotifikasi">
+  <form name="updateperangkatForm">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <h1 class="title">UBAH PERANGKAT</h1>
+    <button class="button button-clear right" ng-click="modalupdateperangkatclose()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <button class="button button-clear left" type="submit" ng-click="modalupdateperangkatsubmit()" ng-disabled="updateperangkatForm.$invalid" tabindex="5">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item style="border:0px;">
+        <div class="list">
+          <label class="item item-input item-stacked-label border-bottom">
+            <span class="input-label">NAMA TOKO</span>
+            <input type="text" name="storeid" ng-model="updateperangkat.STORE_NM" class="custom-success" ng-readonly="true" style="background-color: white">
+            <p ng-show="updateperangkatForm.storeid.$error.required" style="color:red;">
+              UUID Perangkat Tidak Boleh Kosong
+            </p>
+          </label>
+          <label class="item item-input item-stacked-label border-bottom">
+            <span class="input-label">UUID Perangkat</span>
+            <input type="text" name="uuidperangkat" ng-model="updateperangkat.PERANGKAT_UUID" class="custom-success" placeholder="Masukkan UUID Perangkat Disini" required ng-readonly="true" style="background-color: white;">
+            <p ng-show="updateperangkatForm.uuidperangkat.$error.required" style="color:red;">
+              UUID Perangkat Tidak Boleh Kosong
+            </p>
+          </label>
+          <label class="item item-input item-stacked-label border-bottom">
+            <span class="input-label">Ganti Perangkat</span>
+            <input type="text" name="uuidbaruperangkat" ng-model="updateperangkat.PERANGKAT_UUID_BARU" class="custom-success" placeholder="Masukkan UUID Perangkat Disini" ng-click="pilihswitchperangkat()">
+          </label>
+          
+          
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  </form>
+</ion-modal-view>

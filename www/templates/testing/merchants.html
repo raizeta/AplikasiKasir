@@ -1,0 +1,45 @@
+<ion-view view-title="MERCHANTS TESTING">
+	<ion-nav-buttons side="right">
+      <button class="button button-icon icon ion-plus" ng-click='modalnewmerchantopen()'></button>
+  	</ion-nav-buttons>
+	<ion-content ion-sticky>
+		<ion-list>
+			<div class="item item-divider item-calm">
+                DEBIT
+          	</div>
+			<ion-item class="item-stable" ng-repeat="merchant in datamerchants track by $index" 
+				ng-if="merchant.STATUS != 3 && merchant.TYPE_PAY_ID == 2">
+				<div class="item-icon-left">
+					<i class="icon ion-loop"></i>
+					<h2>{{merchant.MERCHANT_NM|uppercase}}</h2>
+				</div>
+				<div class="item-icon-right">
+					<i class="icon ion-ios-arrow-right"></i>
+				</div>
+				<ion-option-button class="button-assertive icon ion-trash-b" ng-click="modaldeletemerchantopen(merchant,$index)">
+				</ion-option-button>
+				<ion-option-button class="button-positive icon ion-loop" ng-click="modalupdatemerchantopen(merchant,$index)">
+				</ion-option-button>
+			</ion-item>
+			<div class="item item-divider item-calm">
+                KREDIT
+          	</div>
+			<ion-item class="item-stable" ng-repeat="merchant in datamerchants track by $index" 
+				ng-if="merchant.STATUS != 3 && merchant.TYPE_PAY_ID == 3">
+				<div class="item-icon-left">
+					<i class="icon ion-loop"></i>
+					<h2>{{merchant.MERCHANT_NM|uppercase}}</h2>
+				</div>
+				<div class="item-icon-right">
+					<i class="icon ion-ios-arrow-right"></i>
+				</div>
+				<ion-option-button class="button-assertive icon ion-trash-b" ng-click="modaldeletemerchantopen(merchant,$index)">
+				</ion-option-button>
+				<ion-option-button class="button-positive icon ion-loop" ng-click="modalupdatemerchantopen(merchant,$index)">
+				</ion-option-button>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>
+
+

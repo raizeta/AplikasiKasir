@@ -1,0 +1,93 @@
+<ion-view class="mymodalcustnewtransaksi">
+<form name="cicilanForm" novalidate="true">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <h1 class="title">PENGAJUAN CICILAN</h1>
+    <button class="button button-clear left" ng-click="closemodalformcicilan()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <button class="button button-clear right">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">NIK KTP</span>
+        <input type="text" name="IDNumber" ng-model="newcicilan.IDNumber" class="custom-success" placeholder="Masukkan NIK Disini" ng-minlength="16" maxlength="16" required>
+        <p ng-show="cicilanForm.IDNumber.$error.required" style="color:red;">
+          NIK Tidak Boleh Kosong
+        </p>
+        <p ng-show="cicilanForm.IDNumber.$error.minlength" style="color:red;">
+          Masukkan 16 Digit NIK Anda
+        </p>
+      </label> 
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Nama Lengkap</span>
+        <input type="text" name="CustomerName" ng-model="newcicilan.CustomerName" class="custom-success" placeholder="Masukkan Nama Lengkap Disini" ng-required="true">
+        <p ng-show="cicilanForm.CustomerName.$error.required" style="color:red;">
+          Nama Lengkap Tidak Boleh Kosong
+        </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Jenis Kelamin</span>
+        <input type="text" name="Gender" ng-model="newcicilan.Gender" class="custom-success" placeholder="Masukkan Jenis Kelamin Disini" ng-required="true">
+        <p ng-show="cicilanForm.Gender.$error.required" style="color:red;">
+          Jenis Kelamin Tidak Boleh Kosong
+        </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Tempat Lahir</span>
+        <input type="text" name="BirthPlace" ng-model="newcicilan.BirthPlace" class="custom-success" placeholder="Masukkan Tempat Lahir Disini" ng-required="true">
+        <p ng-show="cicilanForm.BirthPlace.$error.required" style="color:red;">
+          Tempat Lahir Tidak Boleh Kosong
+        </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Tanggal Lahir</span>
+        <input type="text" name="BirthDate" ng-model="newcicilan.BirthDate" class="custom-success" placeholder="Masukkan Tanggal Lahir Disini" ng-required="true">
+        <p ng-show="cicilanForm.BirthDate.$error.required" style="color:red;">
+          Tanggal Lahir Tidak Boleh Kosong
+        </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Status Pernikahan</span>
+        <input type="text" name="MaritalStatus" ng-model="newcicilan.MaritalStatus" class="custom-success" placeholder="Masukkan Status Pernikahan Disini" ng-required="true">
+        <p ng-show="cicilanForm.MaritalStatus.$error.required" style="color:red;">
+          Status Pernikahan Tidak Boleh Kosong
+        </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Jumlah Tanggungan</span>
+        <input type="tel" format="number" name="NumOfDependence" ng-model="newcicilan.NumOfDependence" class="custom-success" placeholder="Masukkan Jumlah Tanggungan Disini" ng-required="true">
+        <p ng-show="cicilanForm.NumOfDependence.$error.required" style="color:red;">
+          Jumlah Tanggungan Tidak Boleh Kosong
+        </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Alamat Email</span>
+          <input type="email" name="Email" ng-model="newcicilan.Email" class="custom-success" placeholder="Masukkan Alamat Email Disini"  ng-required="true">
+          <p ng-show="cicilanForm.Email.$error.required" style="color:red;">
+          Email Tidak Boleh Kosong
+        </p>
+        <p ng-show="cicilanForm.Email.$error.email" style="color:red;">
+          Email Tidak Valid
+        </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Nomor Telp/HP</span>
+          <input type="text" name="MobilePhone" ng-model="newcicilan.MobilePhone" class="custom-success" placeholder="Masukkan Nomor Telp/HP Disini" ng-required="true">
+          <p ng-show="cicilanForm.MobilePhone.$error.required" style="color:red;">
+            Nomor Telepon/HP Tidak Boleh Kosong
+          </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Pendidikan Terakhir</span>
+          <input type="text" name="Education" ng-model="newcicilan.Education" class="custom-success" placeholder="Masukkan Pendidikan Terakhir Disini" ng-required="true">
+          <p ng-show="cicilanForm.Education.$error.required" style="color:red;">
+            Pendidikan Terakhir Tidak Boleh Kosong
+          </p>
+      </label>
+    </ion-list>
+  </ion-content>
+</form>
+</ion-view>

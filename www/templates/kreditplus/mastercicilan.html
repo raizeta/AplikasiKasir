@@ -1,0 +1,32 @@
+<ion-view>
+  <ion-nav-title>
+        <div class="page-title">DEVICE INFO</div>
+    </ion-nav-title>
+  <ion-content>
+    <section id="cd-timeline" class="cd-container">
+          <div ng-repeat="activity in timeline">
+            <div class="cd-timeline-block" ng-click="gotodetailform(activity.url)">
+              <div class="cd-timeline-icon royal">
+                <i class="ion-image timelineIcon" ng-if="(activity.type=='picture')"></i>
+                <i class="ion-ios-videocam timelineIcon" ng-if="activity.type=='video' "></i>
+                <i class="ion-location timelineIcon" ng-if="activity.type=='location'"></i>
+                <i class="ion-android-textsms timelineIcon" ng-if="activity.type=='text'"></i>
+              </div>
+              <!-- cd-timeline-img -->
+              <div class="cd-timeline-content royal">
+                <h5 class="marginBottom0 marginTop0">{{activity.title}}</h5>
+              </div>
+            </div>
+          </div>
+          <div class="cd-timeline-block" ng-click="gotodetailform(activity.url)">
+              <div class="cd-timeline-icon royal">
+                <i class="ion-image timelineIcon"></i>
+              </div>
+              <!-- cd-timeline-img -->
+              <div class="cd-timeline-content royal">
+                <h5 class="marginBottom0 marginTop0">Finish</h5>
+              </div>
+            </div>
+        </section>
+  </ion-content>
+</ion-view>

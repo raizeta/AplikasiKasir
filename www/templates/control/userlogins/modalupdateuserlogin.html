@@ -1,0 +1,46 @@
+<ion-modal-view class="mymodalpembayarannotifikasi">
+<form name="updateuserloginForm" novalidate="true">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <button class="button button-clear left" ng-click="modalupdateuserloginclose()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <h1 class="title">UPDATE OPERASIONAL</h1>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <div class="row responsive-md">
+        <div class="col col-50 col-offset-25">
+          <div class="list">
+            <label class="item item-input item-stacked-label border-bottom">
+              <span class="input-label">Email</span>
+              <input type="email" name="alamatemail" ng-model="updateuserlogin.username" class="custom-success" placeholder="Masukkan Email Disini" required>
+              <p ng-show="updateuserloginForm.alamatemail.$error.required" style="color:red;">
+                Email Tidak Boleh Kosong
+              </p>
+              <p ng-show="updateuserloginForm.alamatemail.$error.email" style="color:red;">
+                Email Tidak Valid
+              </p>
+            </label>
+            
+            <label class="item item-input item-stacked-label border-bottom" style="margin-bottom:-20px;z-index:999999">
+              <span class="input-label">Password</span>
+            </label>
+            <label class="item item-input border-bottom">
+                <input type="password" name="pass" ng-model="updateuserlogin.password" class="custom-success" placeholder="Masukkan Password Disini" ui-show-password required="true" minlength="3">
+                
+            </label>
+            <label class="item item-input item-stacked-label border-bottom" style="margin-top:-15px;">
+              <p ng-show="updateuserloginForm.pass.$error.required" style="color:red;">
+                Password Tidak Boleh Kosong
+              </p>
+            </label>
+            <button class="button button-block button-balanced rcorners2" type="submit" ng-click="modalupdateuserloginsubmit()" ng-disabled="updateuserloginForm.$invalid">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </ion-list>
+  </ion-content>
+</form>
+</ion-modal-view>

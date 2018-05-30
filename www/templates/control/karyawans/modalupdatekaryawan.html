@@ -1,0 +1,121 @@
+<ion-modal-view class="mymodalpembayarannotifikasi">
+  <form name="updatekaryawanForm" novalidate="true" >
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <h1 class="title">UPDATE KARYAWAN</h1>
+    <button class="button button-clear right" ng-click="modalupdatekaryawanclose()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <button class="button button-clear left" ng-click="modalupdatekaryawansubmit()" ng-disabled="updatekaryawanForm.$invalid">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+  <ion-list>
+    <div class="row" style="flex-wrap: wrap;">
+      <div class="col col-50">
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Nama Depan</span>
+          <input type="text" name="namadpn" ng-model="updatekaryawan.NAMA_DPN" class="custom-success" placeholder="Masukkan Nama Depan Disini" required>
+          <p ng-show="updatekaryawanForm.namadpn.$error.required" style="color:red;">
+            Nama Depan Tidak Boleh Kosong
+          </p>
+        </label>
+      </div>
+      <div class="col col-50">
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Nama Tengah</span>
+          <input type="text" ng-model="updatekaryawan.NAMA_TGH" class="custom-success" placeholder="Masukkan Nama Tengah Disini">
+        </label>
+      </div>
+      <div class="col col-50">
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Nama Belakang</span>
+          <input type="text" ng-model="updatekaryawan.NAMA_BLK" class="custom-success" placeholder="Masukkan Nama Belakang Disini">
+        </label>
+      </div>
+      <div class="col col-50">
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Nomor KTP</span>
+          <input type="text" name="noktp" ng-model="updatekaryawan.KTP" class="custom-success" placeholder="Masukkan Nomor KTP Disini"required>
+          <p ng-show="updatekaryawanForm.noktp.$error.required" style="color:red;">
+            Nomor KTP Tidak Boleh Kosong
+          </p>
+        </label>
+      </div>
+      <div class="col col-50">
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Alamat Email</span>
+          <input type="email" name="emails" ng-model="updatekaryawan.EMAIL" class="custom-success" placeholder="Masukkan Alamat Email Disini" required>
+          <p ng-show="updatekaryawanForm.emails.$error.required" style="color:red;">
+            Email Tidak Boleh Kosong
+          </p>
+          <p ng-show="updatekaryawanForm.emails.$error.email" style="color:red;">
+            Email Tidak Valid
+          </p>
+        </label>
+      </div>
+      <div class="col col-50">
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Nomor Handphone</span>
+          <input type="tel" name="nohp" ng-model="updatekaryawan.HP" class="custom-success"  placeholder="Masukkan Nomor Handphone Disini" required>
+          <p ng-show="updatekaryawanForm.nohp.$error.required" style="color:red;">
+            Nomor Handphone Tidak Boleh Kosong
+          </p>
+        </label>
+      </div>
+      <div class="col col-50">
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Nomor Telepon</span>
+          <input type="tel" ng-model="updatekaryawan.TLP" class="custom-success" placeholder="Masukkan Nomor Telepon Disini">
+        </label>
+      </div>
+      <div class="col col-50">
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Tempat Lahir</span>
+          <input type="text" name="tptlhr" ng-model="updatekaryawan.TMP_LAHIR" class="custom-success" placeholder="Masukkan Tempat Lahir Disini" required>
+          <p ng-show="updatekaryawanForm.tptlhr.$error.required" style="color:red;">
+            Tpt Lahir Tidak Boleh Kosong
+          </p>
+        </label>
+      </div>
+      <div class="col col-50">
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Tanggal Lahir</span>
+          <input type="date" name="tgllhr" ng-model="updatekaryawan.TGL_LAHIR" class="custom-success" placeholder="Masukkan Tanggal Lahir Disini" required>
+          <p ng-show="updatekaryawanForm.tgllhr.$error.required" style="color:red;">
+            Tgl Lahir Tidak Boleh Kosong
+          </p>
+        </label>
+      </div>
+      <div class="col col-50">
+        <label class="item item-input item-stacked-label border-bottom" ng-click="pilihjeniskelamin('update')">
+         <span class="input-label">Jenis Kelamin</span>
+          <input type="text" name="jenkel" ng-model="updatekaryawan.GENDER" class="custom-success" placeholder="Masukkan Jenis Kelamin Disini" required>
+          <p ng-show="updatekaryawanForm.jenkel.$error.required" style="color:red;">
+            Jenis Kelamin Tidak Boleh Kosong
+          </p>
+        </label>
+      </div>
+      <div class="col col-50">
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Alamat Lengkap</span>
+          <input type="text" name="alamat" ng-model="updatekaryawan.ALAMAT" class="custom-success" placeholder="Masukkan Alamat Lengkap Disini" required>
+          <p ng-show="updatekaryawanForm.alamat.$error.required" style="color:red;">
+            Alamat Tidak Boleh Kosong
+          </p>
+        </label>
+      </div>
+      <div class="col col-50">
+        <label class="item item-input item-stacked-label border-bottom" ng-click="pilihstatuspernikahan('update')">
+         <span class="input-label">Status Pernikahan</span>
+          <input type="text" name="stspernikahan" ng-model="updatekaryawan.STS_NIKAH" class="custom-success" placeholder="Masukkan Status Pernikahan Disini" required>
+          <p ng-show="updatekaryawanForm.stspernikahan.$error.required" style="color:red;">
+            Status Pernikahan Tidak Boleh Kosong
+          </p>
+        </label>
+      </div>
+    </div>
+  </ion-list>
+  </ion-content>
+  </form>
+</ion-modal-view>

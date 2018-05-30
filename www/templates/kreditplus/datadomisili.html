@@ -1,0 +1,60 @@
+<ion-view class="mymodalcustnewtransaksi">
+<form name="cicilanForm" novalidate="true">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <h1 class="title">Data Pekerjaan</h1>
+    <button class="button button-clear left" ng-click="closemodalformcicilan()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <button class="button button-clear right">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Status Tempat Tinggal</span>
+        <input type="text" name="HomeStatus" ng-model="newcicilan.HomeStatus" class="custom-success" placeholder="Masukkan Status Tempat Tinggal Disini" required>
+        <p ng-show="cicilanForm.HomeStatus.$error.required" style="color:red;">
+          Status Tempat Tinggal Tidak Boleh Kosong
+        </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Berdomisili Sejak</span>
+        <input type="text" name="StaySinceYear" ng-model="newcicilan.StaySinceYear" class="custom-success" placeholder="Masukkan Lama Tinggal Disini" required>
+        <p ng-show="cicilanForm.StaySinceYear.$error.required" style="color:red;">
+          Lama Tinggal Tidak Boleh Kosong
+        </p>
+      </label> 
+
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">No Telp</span>
+        <input type="text" name="ResidencePhone" ng-model="newcicilan.ResidencePhone" class="custom-success" placeholder="Masukkan No Telp Disini" ng-required="true">
+        <p ng-show="cicilanForm.ResidencePhone.$error.required" style="color:red;">
+          No Telp Tidak Boleh Kosong
+        </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Propinsi</span>
+        <input type="text" name="ResidenceProvinsi" ng-model="newcicilan.ResidenceProvinsi" class="custom-success" placeholder="Masukkan Propinsi Disini" ng-required="true">
+        <p ng-show="cicilanForm.ResidenceProvinsi.$error.required" style="color:red;">
+          Propinsi Tidak Boleh Kosong
+        </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Alamat Lengkap</span>
+          <input type="text" name="ResidenceAddress" ng-model="newcicilan.ResidenceAddress" class="custom-success" placeholder="Masukkan Nomor Telp/HP Disini" ng-required="true">
+          <p ng-show="cicilanForm.ResidenceAddress.$error.required" style="color:red;">
+            Alamat Lengkap Tidak Boleh Kosong
+          </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Kode Pos</span>
+          <input type="text" name="ResidenceZipCode" ng-model="newcicilan.ResidenceZipCode" class="custom-success" placeholder="Masukkan Nomor Telp/HP Disini" ng-required="true">
+          <p ng-show="cicilanForm.ResidenceZipCode.$error.required" style="color:red;">
+            Kode Pos Tidak Boleh Kosong
+          </p>
+      </label>
+    </ion-list>
+  </ion-content>
+</form>
+</ion-view>

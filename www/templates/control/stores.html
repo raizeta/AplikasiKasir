@@ -1,0 +1,25 @@
+<ion-view>
+  <ion-nav-title>
+    <div class="page-title" ng-click="openstorepopup(datadetail)" ng-if="!screenbesar">
+        KONTROL {{datadetail.STORE_NM|uppercase}}
+      <i class="icon ion-ios-arrow-down placeholder-icon" style="color: #fff"></i>
+    </div>
+    <div class="page-title" ng-if="screenbesar">
+        KONTROL {{datadetail.STORE_NM|uppercase}}
+    </div>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+      <button class="button button-icon icon ion-android-add" ng-click="modalnewstoreopen()" ng-if="!screenbesar">
+      </button>
+  </ion-nav-buttons>
+    
+  <ion-content class="fullsaja-ctrlstore" padding="false" scroll="false">
+    <ion-list >
+      <div ng-include="'templates/control/masterlayar/storeslayarbesar.html'" ng-if="screenbesar"></div>
+      <div ng-include="'templates/control/masterlayar/storeslayarkecil.html'" ng-if="!screenbesar"></div>
+    </ion-list>
+  </ion-content>
+  <button class="button button-float-control" ng-click="openmodalactive(viewtoshow.valuechoose)">
+    <i class="icon ion-plus"></i>
+  </button>
+</ion-view>

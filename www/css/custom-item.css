@@ -1,0 +1,54 @@
+.aitem {
+    border-color: #ddd;
+    background: #3398CC; 
+    background-color: #dc4225;
+    background-image: -webkit-linear-gradient(135deg, #dc4225,#002f4b);
+    background-image: -moz-linear-gradient(135deg, #dc4225,#002f4b);
+    background-image: -o-linear-gradient(135deg, #dc4225,#002f4b);
+    background-image: linear-gradient(135deg, #dc4225,#002f4b);
+    color: #fff;
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: -1px;
+    padding-left: 10px; 
+    border-width: 1px;
+    border-style: solid;
+    font-size: 12px;
+/*    margin-top: -20px;*/
+}
+
+.aitem .icon .icon-badge {
+  position: absolute;
+  top: 5px;
+  right: 1px;
+  font-size: 14px;
+}
+
+.button .icon-badge {
+  position: absolute;
+  top: 0px;
+  right: 3px;
+  font-size: 12px;
+}
+
+.backcoloritem {
+    border-color: #ddd;
+    background: #3398CC;
+    background-color: #dc4225;
+    background-image: -webkit-linear-gradient(135deg, #dc4225,#002f4b);
+    background-image: -moz-linear-gradient(135deg, #dc4225,#002f4b);
+    background-image: -o-linear-gradient(135deg, #dc4225,#002f4b);
+    background-image: linear-gradient(135deg, #dc4225,#002f4b);
+    color: #fff;
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: -1px;
+    padding-left: 10px; 
+    border-width: 1px;
+    border-style: solid;
+    font-size: 12px;
+    margin-top: -30px;
+}
+

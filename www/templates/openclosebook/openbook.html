@@ -1,0 +1,59 @@
+<ion-view hide-nav-bar="false" view-title="BUKA BUKU" name="login-view" class="mymodalpembayarannotifikasi">
+<!--     <ion-header-bar class="bar bar-header bar-assertive">
+    <h1 class="title">BUKA BUKU {{openbookdata.OPENCLOSE_ID}}</h1>
+  </ion-header-bar> -->
+  <ion-content scroll="true" class="has-header padding layerbackground">
+    <ion-list >
+        <form name="openForm" ng-submit="openbooksubmit()" novalidate="true">
+          <div class="col col-100">      
+            <div class="padding">
+              <label  class="item item-input" style="background-color: #f8f8f8">
+              <span>ID Buka Buku</span>
+                <input type="text" ng-model="openbookdata.SPLIT_OPENCLOSE_ID" ng-readonly="true" class="float-right ">
+              </label>
+              <label  class="item item-input" style="background-color: #f8f8f8">
+              <span>Tgl Buka Buku</span>
+                <input type="text" ng-model="openbookdata.TGL_INPUT" ng-readonly="true" class="float-right ">
+              </label>
+              <label  class="item item-input" style="background-color: #f8f8f8">
+              <span>Nama Kasir</span>
+                <input type="text" ng-model="openbookdata.NM_DEPAN" ng-readonly="true" class="float-right ">
+              </label>
+            </div>
+          </div>
+          <div style="padding: 0px 15px 0px 15px;">
+            <div style="border-bottom:1px solid rgba(1, 1, 1, 0.1);"></div>
+          </div>
+          <div class="col col-100">      
+            <div class="padding">
+              <label  class="item item-input" style="background-color: #f8f8f8">
+              <span>Uang Di Laci</span></label>
+              <label  class="item item-input" style="background-color: #f8f8f8">
+                <i class="icon ion-card placeholder-icon float-right custom-success"></i>
+                <input type="tel" placeholder="Sisa Uang Dilaci" ng-model="openbookdata.CASHINDRAWER" format="number" ng-readonly="sudahopen" class="float-right ">
+              </label>
+            </div>
+          </div>
+          <div style="padding: 0px 15px 0px 15px;">
+            <div style="border-bottom:1px solid rgba(1, 1, 1, 0.1);"></div>
+          </div>
+          <div class="col col-100">      
+            <div class="padding">
+              <label  class="item item-input" style="background-color: #f8f8f8">
+              <span>Tambahkan Uang</span></label>
+              <label  class="item item-input" style="background-color: #f8f8f8">
+                <i class="icon ion-card placeholder-icon float-right"></i>
+                <input type="tel" placeholder="Uang Ditambahkan" ng-model="openbookdata.ADDCASH" format="number" 
+                ng-readonly="sudahopen" required class="float-right">
+              </label>
+            </div>
+          </div>
+          <div class="row" style="padding:0px 15px">
+            <button type="submit" class="button button-block button-assertive" ng-click="checkin()" ng-disabled="openForm.$invalid || sudahopen">
+              CHECK IN
+            </button>
+          </div>
+        </form>
+    </ion-list>
+  </ion-content>
+</ion-view>

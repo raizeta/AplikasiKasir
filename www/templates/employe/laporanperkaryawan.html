@@ -1,0 +1,23 @@
+<ion-view view-title="LAPORAN ABSENSI">
+  <ion-nav-title>
+      <div class="page-title" ng-click="openstorepopup(store)"  ng-if="profileops.ACCESS_LEVEL == 'OWNER'">
+          {{store.STORE_NM|uppercase}}
+        <i class="icon ion-ios-arrow-down placeholder-icon" style="color: #fff"></i>
+      </div>
+      <div class="page-title" ng-if="profileops.ACCESS_LEVEL == 'OPS'">
+          {{store.STORE_NM|uppercase}}
+      </div>
+  </ion-nav-title>
+  <ion-content padding="false" scroll="true" style="background-size: cover;background-color:#f8f8f8;">
+    <ion-list>
+      <div class="row" style="flex-wrap: wrap;">
+        <div class="col col-33" ng-repeat="karyawan in datakaryawans" ng-click="openmodallaporanabsensi(karyawan)">
+          <div class="profile">
+              <img class="profile-picture" src="img/adam.jpg" />
+              <h3 class="name" style="color:#444">{{karyawan.NAMA_DPN|capitalize}}</h3>
+          </div>
+        </div>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

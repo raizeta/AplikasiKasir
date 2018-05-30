@@ -1,0 +1,57 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content drag-content="false">
+    <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button></ion-nav-back-button>
+      <ion-nav-buttons side="left" >
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="view-content"></ion-nav-view>
+  </ion-side-menu-content>
+  <ion-side-menu side="left" class="menu" width="250">
+    <ion-content  style="background: url(img/login_bg.jpg) no-repeat center center;">
+      <div class="profile" >
+            <img class="profile-picture" data-ng-src="{{userimages}}" ng-click="changeprofile(userimages)"/>
+            <h4 class="name">{{userusername}}</h4>
+        </div>
+      <ion-list>
+        <div ng-repeat="group in groups">
+          <ion-item nav-clear ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}" ng-if="!group.items" menu-close href="{{group.path}}" style="background: #f8f8f7;border:0px solid rgba(0,0,0,0.1)">
+            <div class="item-icon-left">
+              <i class="icon {{group.icons}}"></i>
+              <h3>{{group.name|uppercase}}</h3>
+            </div>
+            <div class="item-icon-right">
+                <i class="icon ion-ios-arrow-right"></i>
+            </div>
+          </ion-item>
+
+          <ion-item class="item-light" nav-clear ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}" ng-if="group.items" style="border:0px solid rgba(0,0,0,0.1)">
+            <div class="item-icon-left">
+              <i class="icon {{group.icons}}"></i>
+              <h3>{{group.name|uppercase}}</h3>
+            </div>
+            <div class="item-icon-right">
+                <i class="icon" ng-class="isGroupShown(group) ? 'ion-ios-arrow-down' : 'ion-ios-arrow-right' "></i>
+            </div>
+          </ion-item>
+          <ion-item class="item-accordion" nav-clear menu-close ng-repeat="item in group.items" ng-show="isGroupShown(group)" href="{{item.path}}" ng-if="group.items">
+            <h4>{{item.child}}</h4>
+          </ion-item>
+        </div>
+        <ion-item class="item" nav-clear menu-close ng-click="logout()">
+            <div class="item-icon-left">
+              <i class="icon ion-log-out"></i>
+              <h3>{{'LOG OUT'|uppercase}}</h3>
+            </div>
+            <div class="item-icon-right">
+                <i class="icon ion-ios-arrow-right"></i>
+            </div>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
+
+

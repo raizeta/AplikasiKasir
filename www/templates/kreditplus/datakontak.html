@@ -1,0 +1,38 @@
+<ion-view class="mymodalcustnewtransaksi" view-title="KONTAK">
+  <ion-content>
+    <ion-list>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Ayah/Ibu</span>
+        <input type="text" name="nik" ng-model="newcicilan.NIK" class="custom-success" placeholder="Masukkan Nama Ayah/Ibu Anda Disini" required>
+        <p ng-show="cicilanForm.nik.$error.required" style="color:red;">
+          NIK Tidak Boleh Kosong
+        </p>
+      </label> 
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label"></span>
+        <input type="text" name="namalengkap" ng-model="newcicilan.NAME" class="custom-success" placeholder="Masukkan Nomor Kontak Ayah/Ibu Anda Disini" ng-required="true">
+        <p ng-show="cicilanForm.namalengkap.$error.required" style="color:red;">
+          Nama Lengkap Tidak Boleh Kosong
+        </p>
+      </label>
+
+      <label class="item item-input item-stacked-label border-bottom" style="padding-top: 30px;">
+        <span class="input-label">Saudara Tidak Serumah</span>
+        <input type="text" name="alamatlengkap" ng-model="newcicilan.ALAMAT_LENGKAP" class="custom-success" placeholder="Masukkan Namanya Disini" ng-required="true">
+        <p ng-show="cicilanForm.alamatlengkap.$error.required" style="color:red;">
+          Alamat Lengkap Tidak Boleh Kosong
+        </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Alamat Email</span>
+          <input type="email" name="alamatemail" ng-model="newcicilan.EMAIL" class="custom-success" placeholder="Masukkan Nomor Kontak Ayah/Ibu Anda Disini"  ng-required="true">
+          <p ng-show="cicilanForm.alamatemail.$error.required" style="color:red;">
+          Email Tidak Boleh Kosong
+        </p>
+        <p ng-show="cicilanForm.alamatemail.$error.email" style="color:red;">
+          Email Tidak Valid
+        </p>
+      </label>
+    </ion-list>
+  </ion-content>
+</ion-view>

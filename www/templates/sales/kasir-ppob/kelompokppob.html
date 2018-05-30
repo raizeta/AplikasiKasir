@@ -1,0 +1,16 @@
+<!-- <ion-view hide-nav-bar="false" view-title="{{splitnomortransaksi}}"> -->
+<ion-view hide-nav-bar="false" cache-view="true" view-title="PPOB">
+  <ion-content>
+    <ion-list>
+      <div class="row" style="flex-wrap: wrap;">
+	    <div class="col col-50"  ng-repeat="item in group">
+	      <div class="list"   ng-click="gotoformppob(item)">
+	        <div class="item item-image" style="border: 0px;">
+	          <ng-letter-avatar data="{{item.KTG_NM}}" charCount="20" width="100%" height="100" fontSize="14" fontWeight="100" avatarcustomborder="border:1px solid black"></ng-letter-avatar>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

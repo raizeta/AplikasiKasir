@@ -1,0 +1,46 @@
+<ion-modal-view class="mymodalstock">
+<form name="newdiscountForm" novalidate="true">
+  <!-- <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    
+    <button class="button button-clear left" ng-click="modaltambahproductdiscountclose()">
+      <i class="icon ion-backspace"></i>
+    </button>
+    <h1 class="title">DISKON PRODUK</h1>
+  </ion-header-bar> -->
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-stable">
+        <div class="padding">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+          <span>DISKON PRODUK</span></label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <i class="icon ion-card placeholder-icon float-right"></i>
+            <input type="tel" format="number" min="0" ng-model="newdiscount.DISCOUNT" class="float-right" required="true">
+          </label>
+        </div>
+        <div class="padding">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+          <span>TGL BERLAKU</span></label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <i class="icon ion-card placeholder-icon float-right"></i>
+            <input type="date" ng-model="newdiscount.PERIODE_TGL1" class="float-right" required="true">
+          </label>
+        </div>
+        <div class="padding">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+          <span>TGL BERAKHIR</span></label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <i class="icon ion-card placeholder-icon float-right"></i>
+            <input type="date" ng-model="newdiscount.PERIODE_TGL2" class="float-right" required="true">
+          </label>
+        </div>
+        <div class="row" style="padding:0px 8px">
+          <button type="submit" class="button button-block button-assertive" ng-click="tambahdiskon(newdiscount)" ng-disabled="newdiscountForm.$invalid">
+            SUBMIT
+          </button>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</form>
+</ion-modal-view>

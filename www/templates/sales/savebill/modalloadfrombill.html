@@ -1,0 +1,33 @@
+<ion-modal-view class="mymodalpembayaran">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <button type="submit" class="button button-clear left" ng-click="closemodalsavetobill()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <h1 class="title">ANTRIAN PEMBAYARAN</h1>
+    
+  </ion-header-bar>
+  <ion-content>
+      <ion-item class="item" ng-class="{'custom-active':itembill.TRANS_ID == billidentity,'item-stable':itembill.TRANS_ID != billidentity}" ng-repeat="itembill in listbill| orderBy:'-TRANS_ID'" ng-click="submitloadfrombill(itembill)" ng-if="listbill.length > 0">
+        <div class="item-icon-left">
+            <i class="icon ion-ios-compose" ng-if="itembill.TRANS_ID != billidentity"></i>
+            <i class="icon ion-checkmark-round" ng-if="itembill.TRANS_ID == billidentity"></i>
+            <h2> {{itembill.TRANS_ID | split:'.':4}}
+                  <span ng-if="itembill.NOMOR_MEJA != 'undefined' ">
+                      #{{itembill.NOMOR_MEJA}}
+                  </span>
+            </h2>
+        </div>
+        <div class="item-icon-right">
+          <i class="icon ion-ios-arrow-right">
+          </i>
+        </div>
+      </ion-item>
+      <div class="row not-found" ng-if="listbill.length == 0">
+        <div class="profile">
+            <img ng-src="img/kg.png"/>
+            <h5 style="color: #444;margin-top: -1vh;">Antrian Pembayaran Kosong</h5>
+        </div>
+    </div>
+  </ion-content>
+</div>
+</ion-modal-view>

@@ -1,0 +1,49 @@
+<ion-modal-view class="mymodalpembayarannotifikasi">
+  <form name="newcustomerForm">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <h1 class="title">PELANGGAN BARU</h1>
+    <button class="button button-clear right" ng-click="modalnewcustomerclose()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <button class="button button-clear left" type="submit" ng-click="modalnewcustomersubmit()" ng-disabled="newcustomerForm.$invalid" tabindex="5">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item style="border:0px;">
+        <div class="list">
+          <label class="item item-input item-stacked-label border-bottom">
+            <span class="input-label">Nama Lengkap</span>
+            <input type="text" name="namalengkap" ng-model="newcustomer.NAME" class="custom-success" placeholder="Masukkan Nama Lengkap Disini" required>
+            <p ng-show="newcustomerForm.namalengkap.$error.required" style="color:red;">
+              Nama Lengkap Tidak Boleh Kosong
+            </p>
+          </label>
+          <label class="item item-input item-stacked-label border-bottom">
+            <span class="input-label">Email</span>
+            <input type="email" name="alamatemail" ng-model="newcustomer.EMAIL" class="custom-success" placeholder="Masukkan Email Lengkap Disini" required>
+            <p ng-show="newcustomerForm.alamatemail.$error.required" style="color:red;">
+              Email Tidak Boleh Kosong
+            </p>
+            <p ng-show="newcustomerForm.alamatemail.$error.email" style="color:red;">
+              Email Tidak Valid
+            </p>
+          </label>
+          <label class="item item-input item-stacked-label border-bottom">
+            <span class="input-label">Telp/HP</span>
+            <input type="tel" name="nomortelp" ng-model="newcustomer.PHONE" class="custom-success" placeholder="Masukkan Nomor Telp/HP Disini" required>
+            <p ng-show="newcustomerForm.nomortelp.$error.required" style="color:red;">
+              Nomor Telepon/HP Tidak Boleh Kosong
+            </p>
+          </label>
+          <label class="item item-input  item-stacked-label border-bottom">
+            <span class="input-label">Deskripsi</span>
+            <input type="text"  ng-model="newcustomer.DCRP_DETIL" class="custom-success" placeholder="Masukkan Deskripsi Pelanggan Disini" >
+          </label>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  </form>
+</ion-modal-view>

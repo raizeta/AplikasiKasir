@@ -1,0 +1,56 @@
+<ion-item class=" item-calm" style="border:0px solid rgba(0,0,0,0.1)">
+  <!-- <div class="item-icon-left"  ng-click="openmodepembelian()">
+    <i class="icon ion-ios-arrow-left"></i>
+  </div> -->
+  <h2 style="text-align: center;">FORM GAME ONLINE</h2>
+</ion-item>
+<form name="pulsaForm"  novalidate="true">
+  <style>
+    i.icon.ion-card 
+    {
+      font-size: 30px;
+      padding-right: 50px
+    }
+    input {text-align: right;text-transform: uppercase;}
+    label{line-height: 50%;}
+  </style>
+
+  <div class="padding">
+    <label  class="item item-input bg-dark">
+      <i class="icon ion-card placeholder-icon"></i>
+      <input type="tel" placeholder="Masukkan Nomor HP Disini" ng-model="datapembelianppob.MSISDN" ng-pattern="regex" ng-minlength="10" ng-maxlength="12" required name="nomorhp">
+    </label>
+  </div>
+  <div class="padding">
+    <label  class="item item-input bg-dark">
+      <i class="icon ion-card placeholder-icon"></i>
+      <input type="text" placeholder="Masukkan Nilai Nominal Disini" ng-model="datapembelianppob.CODE" readonly="true" ng-click="inputnominalpulsa(datapembelianppob)" required>
+    </label>
+  </div>
+  <div class="padding">
+    <label  class="item item-input bg-dark">
+      <i class="icon ion-card placeholder-icon"></i>
+      <input type="text" placeholder="Nama Produk" ng-model="datapembelianppob.NAME" readonly="true">
+    </label>
+  </div>
+  <div class="padding">
+    <label  class="item item-input bg-dark">
+      <i class="icon ion-card placeholder-icon"></i>
+      <input type="tel" format="number" placeholder="Harga Jual" ng-model="datapembelianppob.HARGA_JUAL" readonly="true">
+    </label>
+  </div>
+  <div class="padding">
+    <div class="row" style="padding:0px;">
+      <div class="col col-50" style="padding:0px;" ng-click="openmodepembelian()">
+        <button class="button button-assertive button-block button-full">
+          Batal
+        </button>
+      </div>
+      <div class="col col-100" style="padding:0px;">
+        <button class="button button-block button-full" ng-class="theme.buttonstyle" ng-disabled="pulsaForm.$invalid" ng-click="submitpembelianpulsa()">
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

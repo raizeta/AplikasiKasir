@@ -1,0 +1,252 @@
+<div class="row">
+  <style>
+      .item-icon-left.xxx {padding-left: 4vh;}
+      i.icon.xxx {font-size:16px;padding-left: 2vh}
+  </style>
+  <div class="col col-33" style="height:100vh;padding: 0px;">
+    <ion-item class="item-calm" >
+      <div class="item-icon-left">
+        <i class="icon ion-ios-chatboxes-outline"></i>
+        <h2>DAFTAR PRODUK</h2>
+      </div>
+      <div class="item-icon-right" ng-click="modaltambahproductopen()">
+          <i class="icon ion-android-add"></i>
+      </div>
+    </ion-item>
+    <ion-scroll class="controlproduct-scroll">
+      <ion-item  ng-repeat="product in dataproducts |filter: filterproduct track by $index" on-tap="detailproduct(product)" ng-class="isGroupShown(product) ? 'active':''" >
+        <div class="item-icon-left" on-tap="detailstore(store)">
+            <i class="icon xxx">{{$index + 1}}</i>
+            <h2>{{product.PRODUCT_NM|uppercase}}</h2>
+        </div>
+        <div class="item-icon-right">
+            <i class="icon ion-ios-arrow-right"></i>
+        </div>
+        <ion-option-button class="button-positive" ng-click="modalupdateproductopen(product)">
+          Edit
+        </ion-option-button>
+      </ion-item>
+      <ion-item  ng-repeat="store in datastores track by $index" ng-class="isGroupShown(store) ? 'active':''" >
+          <div class="item-icon-left" on-tap="detailstore(store)">
+              <i class="icon xxx">{{$index + 1}}</i>
+              <h2 ng-if="store.STORE_NM == ''">OUTLET {{store.STORE_ID|split:'.':1}}</h2>
+              <h2>{{store.STORE_NM|uppercase}}</h2>
+          </div>
+          <div class="item-icon-right">
+              <i class="icon ion-ios-arrow-right"></i>
+          </div>
+          <ion-option-button class="button-positive" ng-click="modalupdatestoreopen(store)">
+            Edit
+          </ion-option-button>
+      </ion-item>
+    </ion-scroll>
+  </div>
+  <div class="col col-66" style="height:100vh;padding: 0px;">
+    <div class="button-bar bar-calm" id="mybar" >
+      <style>
+        #mybar .button {line-height:40px;font-size:12px;}
+      </style>
+      <a class="button button-small text" grouped-radio="'RADIOINFORMASI'" ng-model="viewtoshow.valuechoose">
+        INFORMASI
+      </a>
+      <a class="button button-small text" grouped-radio="'RADIOHARGA'" ng-model="viewtoshow.valuechoose">
+        HARGA
+      </a>
+      <a class="button button-small text" grouped-radio="'RADIOSTOCK'" ng-model="viewtoshow.valuechoose">
+        STOK
+      </a>
+      <a class="button button-small text" grouped-radio="'RADIODISKON'" ng-model="viewtoshow.valuechoose">
+        DISKON
+      </a>
+      <a class="button button-small text" grouped-radio="'RADIOGAMBAR'" ng-model="viewtoshow.valuechoose">
+        GAMBAR
+      </a>
+    </div>
+    <ion-scroll class="infoproduct-scroll">
+      <div class="row padding" style="flex-wrap: wrap;" ng-show="viewtoshow.valuechoose == 'RADIOINFORMASI' ">
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Kode QR</span>
+            <input type="text" ng-model="datadetailproduct.PRODUCT_QR" ng-disabled="true" class="custom-success">
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Harga</span>
+            <input type="tel" format="number" ng-model="datadetailproduct.HARGA_JUAL" ng-disabled="true" class="custom-success">
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Nama Produk</span>
+            <input type="text" ng-model="datadetailproduct.PRODUCT_NM" ng-disabled="true" class="custom-success">
+          </label>
+        </div>
+        <div class="col col-30">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Stok</span>
+            <input type="tel" format="number" ng-model="datadetailproduct.CURRENT_STOCK" ng-disabled="true" class="custom-success">
+          </label>
+        </div>
+        <div class="col col-20">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Nama Unit Produk</span>
+            <input type="text" ng-model="datadetailproduct.UNIT_NM" ng-disabled="true" class="custom-success">
+          </label>
+        </div>
+
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Group</span>
+            <input type="text" ng-model="datadetailproduct.GROUP_NM" ng-disabled="true" class="custom-success">
+          </label>
+        </div>
+        
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Stock Level</span>
+            <input type="text" ng-model="datadetailproduct.STOCK_LEVEL" ng-disabled="true" class="custom-success">
+          </label>
+        </div>
+
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Warna</span>
+            <input type="text" ng-model="datadetailproduct.PRODUCT_WARNA" ng-disabled="true" class="custom-success">
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">PPN (%)</span>
+            <input type="text" ng-model="datadetailproduct.CURRENT_PPN" ng-disabled="true" class="custom-success">
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Diskon (%)</span>
+            <input type="text" ng-model="datadetailproduct.CURRENT_DISCOUNT" ng-disabled="true" class="custom-success">
+          </label>
+        </div>
+        <div class="col col-30">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Ukuran</span>
+            <input type="text" ng-model="datadetailproduct.PRODUCT_SIZE" ng-disabled="true" class="custom-success">
+          </label>
+        </div>
+        <div class="col col-20">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Satuan/Unit</span>
+            <input type="text" ng-model="datadetailproduct.PRODUCT_SIZE_UNIT" ng-disabled="true" class="custom-success">
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Headline</span>
+            <input type="text" ng-model="datadetailproduct.PRODUCT_HEADLINE" ng-disabled="true" class="custom-success">
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Catatan Produk</span>
+            <input type="text" ng-model="datadetailproduct.DCRP_DETIL" ng-disabled="true" class="custom-success">
+          </label>
+        </div>
+      </div>
+      <div class="padding" ng-show="viewtoshow.valuechoose == 'RADIOHARGA'">
+        <table class="pure-table pure-table-horizontal" width="100%" ng-if="producthargas.length > 0">
+            <thead>
+                <tr>
+                    <th style="width: 10px;">#</th>
+                    <th>Harga</th>
+                    <th>Tanggal Berlaku</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="dataharga in producthargas|orderBy:'-ID' track by $index" ng-class="$index % 2 == 1 ? 'pure-table-odd' :'' ">
+                    <td style="width: 10px;">{{$index + 1}}</td>
+                    <td>Rp.{{dataharga.HARGA_JUAL|number}}</td>
+                    <td>{{dataharga.PERIODE_TGL1}} s/d {{dataharga.PERIODE_TGL2}}</td>
+                    <td>AKTIF</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row not-found" ng-if="producthargas.length == 0">
+          <div class="profile">
+              <img ng-src="img/kg.png"/>
+              <h4 style="color: #444;margin-top: -1vh;">
+                Belum Pernah Mengalami Perubahan Harga
+              </h4>
+          </div>
+        </div>
+      </div>
+      <div class="padding" ng-show="viewtoshow.valuechoose == 'RADIOSTOCK'">
+        <table class="pure-table pure-table-horizontal" width="100%" ng-if="productstocks.length > 0">
+          <thead>
+              <tr>
+                  <th style="width: 10px;">#</th>
+                  <th style="padding-left: 30px;">TGL INPUT</th>
+                  <th align="center">INPUT STOK</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr ng-repeat="datastock in productstocks|orderBy:'-INPUT_DATE' track by $index" ng-class="$index % 2 == 1 ? 'pure-table-odd' :'' ">
+                  <td style="width: 10px;">{{$index + 1}}</td>
+                  <td style="padding-left: 30px;">{{datastock.INPUT_DATE|date:'dd-MM-yyyy'}}</td>
+                  <td align="center">{{datastock.INPUT_STOCK}}</td>
+              </tr>
+          </tbody>
+        </table>
+        <div class="row not-found" ng-if="productstocks.length == 0">
+          <div class="profile">
+              <img ng-src="img/kg.png"/>
+              <h4 style="color: #444;margin-top: -1vh;">
+                Belum Pernah Mengalami Penambahan Stok
+              </h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="padding" ng-show="viewtoshow.valuechoose == 'RADIODISKON'">
+        <table class="pure-table pure-table-horizontal" width="100%" ng-if="productdiscounts.length > 0">
+          <thead>
+              <tr>
+                  <th style="width: 10px;">#</th>
+                  <th style="padding-left: 30px;">DISKON</th>
+                  <th align="center">TGL BERLAKU</th>
+                  <th align="center">STATUS</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr ng-repeat="datadiscount in productdiscounts|orderBy:'-ID' track by $index" ng-class="$index % 2 == 1 ? 'pure-table-odd' :'' ">
+                  <td style="width: 10px;">{{$index + 1}}</td>
+                  <td style="padding-left: 30px;">{{datadiscount.DISCOUNT|number}} %</td>
+                  <td align="center">{{datadiscount.PERIODE_TGL1}} s/d {{datadiscount.PERIODE_TGL2}}</td>
+                  <td align="center">AKTIF</td>
+              </tr>
+          </tbody>
+        </table>
+        <div class="row not-found" ng-if="productdiscounts.length == 0">
+          <div class="profile">
+              <img ng-src="img/kg.png"/>
+              <h4 style="color: #444;margin-top: -1vh;">
+                Produk Ini Belum Pernah Diberikan Diskon
+              </h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="padding" ng-show="viewtoshow.valuechoose == 'RADIOGAMBAR'">
+        <ion-item class="item-stable" style="padding-top: 0px">     
+            <div class="padding" ng-click="modalviewgambaropen()">
+              <label class="item item-input item-stacked-label">
+                <div class="col col-50 col-offset-25">
+                  <img id="myImage" ng-src="http://image.kontrolgampang.com/produk/{{datadetailproduct.IMG_FILE}}" width="100%" imageonload>
+                </div>
+              </label>
+            </div>
+        </ion-item>
+      </div>
+    </ion-scroll>
+  </div>
+</div>

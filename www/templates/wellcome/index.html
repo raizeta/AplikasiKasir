@@ -1,0 +1,21 @@
+<ion-view hide-nav-bar="true">
+	<ion-nav-title>
+        <div class="page-title">Wellcome Page</div>
+    </ion-nav-title>
+	<ion-content class="layerbackground">
+		<ion-list>
+			<div class="row not-found">
+		      <div class="profile">
+		          <img ng-src="img/kg.png"/>
+		          <h5 style="color: #444;margin-top: -1vh;">Loading {{datasukses}}</h5>
+		      </div>
+		    </div>
+	    </ion-list>
+	    <ion-list ng-if="!sudahikutipanduan && datasukses == 'Sukses' ">
+			<div class="row no-padding" style="height: 93vh">
+				<iframe width="100%" src="http://www.youtube.com/embed/ZjPRj2Vp74U" frameborder="2" allowfullscreen></iframe>
+			</div>
+		</ion-list>
+	</ion-content>
+</ion-view>
+

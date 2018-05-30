@@ -1,0 +1,24 @@
+<ion-view view-title="PRODUCT-GROUPS TESTING">
+	<ion-nav-buttons side="right">
+      <button class="button button-icon icon ion-plus" ng-click='modaltambahgroupopen()'></button>
+  	</ion-nav-buttons>
+	<ion-content>
+		<ion-list>
+			<ion-item class="item-stable" ng-repeat="productgroup in dataproductgroups">
+				<div class="item-icon-left">
+					<i class="icon ion-loop"></i>
+					<h2>{{productgroup.GROUP_NM|uppercase}}</h2>
+				</div>
+				<div class="item-icon-right">
+					<i class="icon ion-ios-arrow-right"></i>
+				</div>
+				<ion-option-button class="button-assertive icon ion-trash-b" ng-click="modaldeletegroupopen(productgroup,$index)">
+				</ion-option-button>
+				<ion-option-button class="button-positive icon ion-loop" ng-click="modalupdategroupopen(productgroup,$index)">
+				</ion-option-button>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>
+
+

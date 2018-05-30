@@ -1,0 +1,177 @@
+<div class="row" ng-if="screenbesar">
+  <style>
+      .item-icon-left.xxx {padding-left: 4vh;}
+      i.icon.xxx {font-size:16px;padding-left: 2vh}
+  </style>
+  <div class="col col-33" style="height:100vh;padding:0px;">
+    <ion-item class="item item-calm" style="padding-left:0px;">
+      <div class="item-icon-left">
+        <h2>DAFTAR AKSI</h2>
+      </div>
+    </ion-item>
+    <ion-scroll class="controltoko-scroll">
+      <ion-item ng-click="chooseviewtodisplayfunction('TOPUP') ">
+          <div class="item-icon-left">
+              <i class="icon xxx">1</i>
+              <h2>TOPUP</h2>
+          </div>
+          <div class="item-icon-right">
+              <i class="icon ion-ios-arrow-right"></i>
+          </div>
+      </ion-item>
+<!--       <ion-item ng-click="chooseviewtodisplayfunction('TRANSFER') ">
+          <div class="item-icon-left">
+              <i class="icon xxx">2</i>
+              <h2>TRANSFER</h2>
+          </div>
+          <div class="item-icon-right">
+              <i class="icon ion-ios-arrow-right"></i>
+          </div>
+      </ion-item> -->
+      <ion-item ng-click="chooseviewtodisplayfunction('TARIK') ">
+          <div class="item-icon-left">
+              <i class="icon xxx">3</i>
+              <h2>TARIK</h2>
+          </div>
+          <div class="item-icon-right">
+              <i class="icon ion-ios-arrow-right"></i>
+          </div>
+      </ion-item>
+    </ion-scroll>
+  </div>
+  <div class="col col-66 layerbackground" style="height:100vh;padding:0px;">
+    <ion-scroll  class="infotoko-scroll" style="height: 87vh;">
+      <div class="list card no-padding" style="margin: 0px;margin-bottom: 1px;">
+          <ion-item class="item">
+            <div class="item-icon-left">
+              <i class="icon ion-bag"></i>
+              <h2>SISA SALDO</h2>
+              <h3>Rp 1.000.000</h3>
+            </div>
+            <div class="item-icon-right" ng-click="modalnewstoreopen()">
+                <i class="icon" style="font-size: 16px;">ISI SALDO</i>
+            </div>
+          </ion-item>
+      </div>
+      <ion-list ng-if="chooseviewtodisplay.viewtodisplay == 'TOPUP' ">
+        <ion-item style="border:0px;">
+          <fieldset style="background-color: white">
+            <legend style="font-size: 14px;color: white">METODE PEMBAYARAN</legend>
+            <div class="list">
+              <ion-radio ng-model="topupsaldo.METHODE_BAYAR" ng-value="'0'" style="border: 0px;" name="METHOD_BAYAR">
+                <h5>TRANSFER</h5>
+              </ion-radio>
+              <ion-radio ng-model="topupsaldo.METHODE_BAYAR" ng-value="'1'" style="border: 0px;" name="METHOD_BAYAR">
+                <h5>KARTU KREDIT</h5>
+              </ion-radio>
+            </div>
+          </fieldset>
+        </ion-item>
+        <ion-item style="border:0px;padding-top: 0px;" ng-if="topupsaldo.METHODE_BAYAR == 0 ">
+            <fieldset style="background-color: white">
+              <legend style="font-size: 14px;color: white">TRANSFER </legend>
+              <ion-radio ng-model="topupsaldo.TRANSFER_BANK" ng-value="'0'" style="border: 0px;" name="TRANSFER_BANK">  
+                <h5>BANK BCA</h5>
+              </ion-radio>
+              <ion-radio ng-model="topupsaldo.TRANSFER_BANK" ng-value="'1'" style="border: 0px;" name="TRANSFER_BANK">
+                <h5>BANK BNI</h5>
+              </ion-radio>
+          </fieldset>
+        </ion-item>
+
+        <ion-item style="border:0px;padding-top: 0px;" ng-if="topupsaldo.METHODE_BAYAR == 0 && topupsaldo.TRANSFER_BANK">
+            <fieldset style="background-color: white">
+              <legend style="font-size: 14px;color: white">PANDUAN TRANSFER </legend>
+              <ion-item style="border:0px;font-size: 10px;padding: 0px;">1.Masukkan Kartu ATM Anda Ke Mesin ATM</ion-item>
+              <ion-item style="border:0px;font-size: 10px;padding: 0px;">2.Masukkan PIN ATM Anda</ion-item>
+              <ion-item style="border:0px;font-size: 10px;padding: 0px;">3.Pilih Menu Virtual Pada Menu ATM</ion-item>
+              <ion-item style="border:0px;font-size: 10px;padding: 0px;">4.Masukkan Nomor Virtual Account Anda</ion-item>
+              <ion-item style="border:0px;font-size: 10px;padding: 0px;">5.Masukkan Nominal Rupiah Yang Ingin Anda Transfer</ion-item>
+          </fieldset>
+        </ion-item>
+
+            <ion-item style="border:0px;padding-top: 0px;" ng-if="topupsaldo.METHODE_BAYAR == 1 ">
+                <fieldset style="background-color: white">
+                  <legend style="font-size: 14px;color: white">KARTU KREDIT </legend>
+                  <div class="list">
+                    <label class="item item-input item-stacked-label border-bottom" ng-click="pilihpaketperangkat('new')">
+                     <span class="input-label">Nomor Kartu</span>
+                      <input type="text" placeholder="Masukkan Nomor Kartu" ng-model="iuranyangharusdibayar.PAKET_NM" class="custom-success" required style="background-color: white">
+                    </label>
+                    <label class="item item-input item-stacked-label border-bottom" ng-click="pilihpaketperangkat('new')">
+                     <span class="input-label">Expired</span>
+                      <input type="date" fplaceholder="Masukkan Tanggal Expired" ng-model="iuranyangharusdibayar.HARGA_PAKET" class="custom-success" required style="background-color: white">
+                    </label>
+                    <label class="item item-input item-stacked-label border-bottom" ng-click="pilihpaketperangkat('new')">
+                     <span class="input-label">VCC</span>
+                      <input type="text" format="number" placeholder="Masukkan VCC Code Disini" ng-model="iuranyangharusdibayar.HARGA_PAKET" class="custom-success" required style="background-color: white">
+                    </label>
+                  </div>
+              </fieldset>
+            </ion-item>
+
+        <ion-item style="padding-top: 0px;">
+          <button class="button button-block" type="submit" ng-class="theme.buttonstyle"   style="border-radius: 50px;">
+            TOP-UP SALDO
+          </button>
+        </ion-item>
+      </ion-list>
+<!--       <ion-list ng-if="chooseviewtodisplay.viewtodisplay == 'TRANSFER' ">
+        <ion-item style="border:0px;">
+          <fieldset style="background-color: white">
+            <legend>TRANSFER SALDO</legend>
+            <div class="list">
+              <label class="item item-input item-stacked-label border-bottom" ng-click="openstorepopup(datadetail)">
+               <span class="input-label">Transfer Ke</span>
+                <input type="text" ng-value="DOMPET UTAMA" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+              </label>
+              <label class="item item-input item-stacked-label border-bottom">
+               <span class="input-label">Nominal Transfer</span>
+                <input type="text" format="number" ng-model="iuranyangharusdibayar.PAKET_DURATION" class="custom-success" required style="background-color: white">
+              </label>
+            </div>
+          </fieldset>
+        </ion-item>
+        <ion-item>
+          <button class="button button-block" type="submit" ng-class="theme.buttonstyle"   style="border-radius: 50px;">
+            TRANSFER SALDO
+          </button>
+        </ion-item>
+      </ion-list> -->
+      <ion-list ng-if="chooseviewtodisplay.viewtodisplay == 'TARIK' ">
+        <ion-item style="border:0px;">
+          <fieldset style="background-color: white">
+            <legend>TARIK SALDO</legend>
+            <div class="list">
+              <label class="item item-input item-stacked-label border-bottom" ng-click="openstorepopup(datadetail)">
+               <span class="input-label">Nomor Rekening</span>
+                <input type="text" ng-model="tariksaldo.NOMOR_REK" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+              </label>
+              <label class="item item-input item-stacked-label border-bottom" ng-click="openstorepopup(datadetail)">
+               <span class="input-label">Nama Pemilik</span>
+                <input type="text" ng-model="tariksaldo.NAMAPEMILIK_REK" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+              </label>
+              <label class="item item-input item-stacked-label border-bottom" ng-click="openstorepopup(datadetail)">
+               <span class="input-label">Nama Bank</span>
+                <input type="text" ng-model="tariksaldo.NAMABANK_REK" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+              </label>
+              <label class="item item-input item-stacked-label border-bottom" ng-click="openstorepopup(datadetail)">
+               <span class="input-label">Cabang Bank</span>
+                <input type="text" ng-model="tariksaldo.CABBANK_REK" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+              </label>
+              <label class="item item-input item-stacked-label border-bottom">
+               <span class="input-label">Nominal Penarikan</span>
+                <input type="text" format="number" ng-model="tariksaldo.NOMINAL_TARIK" class="custom-success" required style="background-color: white">
+              </label>
+            </div>
+          </fieldset>
+        </ion-item>
+        <ion-item>
+          <button class="button button-block" type="submit" ng-class="theme.buttonstyle"   style="border-radius: 50px;">
+            TARIK SALDO
+          </button>
+        </ion-item>
+      </ion-list>
+    </ion-scroll>
+  </div>
+</div>

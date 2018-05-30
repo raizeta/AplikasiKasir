@@ -1,0 +1,50 @@
+.box-shadow
+{
+	margin-bottom:10px;
+	-moz-box-shadow:inset 0 0 10px #000000;
+	-webkit-box-shadow: inset 0 0 10px #B3D0FC;
+	box-shadow:5px 5px 5px #B3D0FC;	
+}
+.box-shadow-cashier
+{
+    margin-bottom:10px;
+    margin-top: 7px;
+    -moz-box-shadow:inset 0 0 0 0 #000000;
+    -webkit-box-shadow: inset 0 0 0 0 #B3D0FC;
+    box-shadow:5px 5px 5px 5px #B3D0FC; 
+}
+.box-shadow-red
+{
+    margin-bottom:10px;
+    -moz-box-shadow:inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #03b2e7;
+    box-shadow:5px 5px 5px #A0C5FA; 
+}
+.row-tanggal
+{
+	display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0px; 
+    width: 100%;
+}
+
+.background.scroll-content
+{
+    background: url('../img/logo.png') no-repeat; 
+    background-size: cover; 
+    background-position: center; 
+    margin: auto; 
+    z-index: 2; 
+}
+
+.box-foto
+{
+    margin-bottom:1px;
+    -moz-box-shadow:inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #B3D0FC;
+    box-shadow:5px 5px 5px #B3D0FC; 
+}

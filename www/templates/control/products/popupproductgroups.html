@@ -1,0 +1,9 @@
+<ion-radio class="wrapping-list" ng-model="choiceproductgroups.GROUP_ID"  ng-value="productgroup.GROUP_ID" ng-repeat="productgroup in productgroups" on-hold="updateproductgroup(productgroup,$index)">
+  {{productgroup.GROUP_NM}}
+</ion-radio>
+
+<label class="wrapping-list item item-radio" ng-click="tambahproductgroup()">
+	<a class="button button-light" style="width: 100%;text-align: left">
+		Kategori Baru
+	</a>
+</label>

@@ -1,0 +1,35 @@
+<ion-view view-title="KONTROL PRODUK">
+  <ion-content>
+    <ion-list>
+      <style>
+          i.icon.xxx {font-size: 16px;}
+          .item-icon-left.xxx {padding-left: 30px;}
+          .itemx {padding-top: 10px;padding-bottom: 10px;}
+      </style>
+      <ion-item class="itemx" ng-repeat="product in dataproducts| filter: filterproduct track by $index" >
+          <div class="item-icon-left xxx">
+              <i class="icon xxx">{{$index + 1}}</i>
+              <span style="font-size: 16px;text-align:left;">
+                {{product.PRODUCT_NM|cuttext:true:19:'...'}}
+              </span></br>
+              <span style="font-size:12px;" ng-if="product.HARGA_JUAL"> 
+                Rp {{product.HARGA_JUAL|number}}
+              </span>
+          </div>
+          <div class="item-icon-right">
+            <i style="font-size: 35px;"">
+              <span class="badge badge-balanced icon-badge" style="right:10px;">
+                {{product.CURRENT_STOCK|number}}
+              </span>
+            </i>
+          </div>
+      </ion-item>
+    </ion-list >
+    <div class="row not-found" ng-if="dataproducts.length == 0">
+      <div class="profile">
+          <img ng-src="img/kg.png"/>
+          <h2 style="color: #444;margin-top: -1vh;">Produk Masih Kosong</h2>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

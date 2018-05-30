@@ -1,0 +1,83 @@
+<ion-modal-view class="mymodalpembayarannotifikasi">
+  <form name="newstoreForm" novalidate="true">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <h1 class="title">TOKO BARU</h1>
+    <button class="button button-clear right" ng-click="modalnewstoreclose()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <button class="button button-clear left" ng-click="modalnewstoresubmit()"ng-disabled="newstoreForm.$invalid">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item style="border:0px;">
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Nama Toko</span>
+          <input type="text" name="storenm" ng-model="newstore.STORE_NM" class="custom-success" placeholder="Masukkan Nama Toko Disini" required>
+          <p ng-show="newstoreForm.storenm.$error.required" style="color:red;">
+            Nama Toko Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom" ng-click="opengroupindustripopup('new')" style="background-color: #f8f8f8">
+         <span class="input-label">Group Industri</span>
+          <input type="text" name="grpindustri" placeholder="Pilih Group Industri" ng-model="newstore.INDUSTRY_GRP_NM" class="custom-success" required ng-readonly="true" >
+          <p ng-show="newstoreForm.grpindustri.$error.required" style="color:red;">
+            Group Industri Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom" ng-hide="!newstore.INDUSTRY_GRP_NM" ng-click="openindustripopup('new')" style="background-color: #f8f8f8">
+         <span class="input-label">Industri</span>
+          <input type="text" name="industri" placeholder="Pilih Industri" ng-model="newstore.INDUSTRY_NM" class="custom-success" required ng-readonly="true">
+          <p ng-show="newstoreForm.industri.$error.required" style="color:red;">
+            Industri Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Alamat</span>
+          <input type="text" name="alamat" ng-model="newstore.ALAMAT" class="custom-success" placeholder="Masukkan Alamat Toko Disini" required>
+          <p ng-show="newstoreForm.alamat.$error.required" style="color:red;">
+            Alamat Toko Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom" ng-click="openprovinsipopup('new')" style="background-color: #f8f8f8">
+         <span class="input-label">Propinsi</span>
+          <input type="text" name="propinsi" placeholder="Pilih Propinsi" ng-model="newstore.PROVINCE_NM" class="custom-success" required ng-readonly="true">
+          <p ng-show="newstoreForm.propinsi.$error.required" style="color:red;">
+            Propinsi Toko Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom" ng-hide="!newstore.PROVINCE_NM" ng-click="openkotapopup('new')" style="background-color: #f8f8f8">
+         <span class="input-label">Kota</span>
+          <input type="text" name="kota" placeholder="Pilih Kabupate/Kota"  ng-model="newstore.CITY_NAME" class="custom-success" required ng-readonly="true">
+          <p ng-show="newstoreForm.kota.$error.required" style="color:red;">
+            Kota Toko Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">PIC Toko</span>
+          <input type="text" name="pic" ng-model="newstore.PIC" class="custom-success" placeholder="Masukkan PIC Toko Disini" required>
+          <p ng-show="newstoreForm.pic.$error.required" style="color:red;">
+            PIC Toko Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Telp Toko</span>
+          <input type="tel" name="telp" ng-model="newstore.TLP" class="custom-success" placeholder="Masukkan Nomor Telepon Toko Disini" required>
+          <p ng-show="newstoreForm.telp.$error.required" style="color:red;">
+            Nomor Telepon Toko Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">FAX Toko</span>
+          <input type="tel" ng-model="newstore.FAX" class="custom-success" placeholder="Masukkan Fax Toko Disini">
+        </label>
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Deskripsi</span>
+          <input type="text" ng-model="newstore.DCRP_DETIL" class="custom-success" placeholder="Masukkan Deskripsi Toko Disini">
+        </label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  </form>
+</ion-modal-view>

@@ -1,0 +1,43 @@
+
+<div class="row">
+  <div class="col col-33" style="padding-left:10px;height:100vh;">
+    <div ng-include="'templates/sales/addtocart/shopcartlayarbesar.html'"></div>
+  </div>
+  <div class="col col-66"  style="margin-left:-1vw;height:100vh;background:#f8f8f8">
+    <div ng-include="'templates/sales/masterlayar/menulayarbesar.html'"></div>
+    <ion-scroll class="shopcart-scroll">
+      <div ng-if="modelayar.cashier">
+        <div ng-if="displayproductgroup"> 
+          <div ng-include="'templates/sales/kategori/layarbesar.html'"></div>
+        </div>
+        <div ng-if="!displayproductgroup">
+          <div ng-if="databarangpenjualan.length > 0">
+            <div ng-include="'templates/sales/addtocart/modegridlayarbesar.html'" ng-if="gridornot.grid">
+            </div>
+            <div ng-include="'templates/sales/addtocart/modelistlayarbesar.html'" ng-if="!gridornot.grid">
+            </div>
+          </div>
+          <div ng-if="databarangpenjualan.length == 0">
+            <div class="row not-found-cashier">
+              <div class="profile">
+                  <img ng-src="img/kg.png"/>
+                  <h4 style="color: #444;margin-top: -1vh;">Produk Untuk Dijual Masih Kosong</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div ng-if="modelayar.pembelian">
+        <div ng-include="'templates/sales/ppob/pembelianlayarbesar.html'"></div>
+      </div>
+      <ion-list ng-if="showformpembelian">
+          <div ng-include="'templates/sales/formisian/pembelianpulsa.html'" ng-if="showform == 'PULSA' "></div>
+          <div ng-include="'templates/sales/formisian/pembelianpascabayar.html'" ng-if="showform == 'PASCABAYAR' "></div>
+          <div ng-include="'templates/sales/formisian/pembeliangameonline.html'" ng-if="showform == 'GAMEONLINE' "></div>
+          <div ng-include="'templates/sales/formisian/pembelianplnprepaid.html'" ng-if="showform == 'PLNPREPAID' "></div>
+          <div ng-include="'templates/sales/formisian/pembeliantvvoucher.html'" ng-if="showform == 'TVVOUCHER' "></div>
+      </ion-list>
+    </ion-scroll>
+  </div>
+</div>

@@ -1,0 +1,124 @@
+<ion-modal-view class="mymodalpembayarannotifikasi">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <h1 class="title">NOTIFIKASI PEMBAYARAN</h1>
+  </ion-header-bar>
+  <ion-content padding="true">
+    <style>
+      input {text-align: right}
+      i.icon.ion-card {font-size: 36px;padding-right: 50px}
+    </style>
+    <ion-list ng-if="screenbesar">
+      <div class="col col-75 col-offset-10">
+          <div class="row">
+              <div class="col col-25">
+              <h4 class="padding left">Total Belanja</h4>
+              </div>
+              <div class="col col-75">      
+                <div class="padding">
+                  <label  class="item item-input" style="background-color: #f8f8f8">
+                  
+                    <i class="icon ion-card placeholder-icon"></i>
+                    <input type="text" placeholder="Cash In Drawer" ng-model="totalpembayaran" format="number" disabled="true">
+                  </label>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col col-25">
+              <h4 class="padding left">Yang Dibayarkan</h4>
+              </div>
+              <div class="col col-75">      
+                <div class="padding">
+                  <label  class="item item-input" style="background-color: #f8f8f8">
+                    <i class="icon ion-card placeholder-icon"></i>
+                    <input type="text" ng-model="pembayaran.uang" format="number" disabled="true" ng-if="methodpembayaran.valuechoose.TYPE_PAY_ID == 1">
+                    <input type="text" format="number" disabled="true" ng-if="methodpembayaran.valuechoose.TYPE_PAY_ID != 1" value="PEMBAYARAN DENGAN {{provider.valuechoose.MERCHANT_NM}}">
+                  </label>
+                </div>
+              </div>
+          </div>
+          <div class="row" ng-if="methodpembayaran.valuechoose.TYPE_PAY_ID == 1">
+              <div class="col col-25">
+              <h4 class="padding left">Kembalian</h4>
+              </div>
+              <div class="col col-75">      
+                <div class="padding">
+                  <label  class="item item-input" style="background-color: #f8f8f8">
+                    <i class="icon ion-card placeholder-icon"></i>
+                    <input type="text" placeholder="Cash In Drawer" ng-model="sisapembayaran" format="number" disabled="true" >
+                  </label>
+                </div>
+              </div>
+          </div>
+          <button type="submit" class="button button-block button-balanced" ng-click="modalnotifikasipembayaranclose()">
+            PRINT BILL
+          </button>
+          <button type="submit" class="button button-block button-assertive" ng-click="modalnotifikasipembayaranclose()">
+            Tidak.Terima Kasih.
+          </button>
+      </div>
+      <div class="col col-10"></div>
+      </div>
+    </ion-list>
+    <ion-list ng-if="!screenbesar">
+      <div class="col col-100">
+        <div class="padding">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+                <span>Total Belanja</span>
+          </label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <i class="icon ion-card placeholder-icon"></i>
+            <input type="text" placeholder="Cash In Drawer" ng-model="totalpembayaran" format="number" disabled="true">
+          </label>
+        </div>
+      </div>
+      <div style="padding: 0px 15px 5px 15px;">
+        <div style="border-bottom:1px solid rgba(1, 1, 1, 0.1);"></div>
+      </div>
+      <div class="col col-100">
+        <div class="padding"  ng-if="methodpembayaran.valuechoose.TYPE_PAY_ID == 1">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <span>Yang Dibayarkan</span>
+          </label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <i class="icon ion-card placeholder-icon" ></i>
+            <input type="text" ng-model="pembayaran.uang" format="number" disabled="true">
+          </label>
+        </div>
+        <div class="padding"  ng-if="methodpembayaran.valuechoose.TYPE_PAY_ID != 1">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <span>Methode Pembayaran</span>
+          </label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+              PEMBAYARAN DENGAN {{provider.valuechoose.MERCHANT_NM}}
+          </label>
+        </div>
+      </div>
+      <div style="padding: 0px 15px 5px 15px;">
+        <div style="border-bottom:1px solid rgba(1, 1, 1, 0.1);"></div>
+      </div>
+      <div class="col col-100" ng-if="methodpembayaran.valuechoose.TYPE_PAY_ID == 1">
+        <div class="padding">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+                <span>Kembalian</span>
+          </label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <i class="icon ion-card placeholder-icon"></i>
+            <input type="text" placeholder="Cash In Drawer" ng-model="sisapembayaran" format="number" disabled="true" >
+          </label>
+        </div>
+      </div>
+      <div style="padding: 0px 15px 5px 15px;">
+        <div style="border-bottom:1px solid rgba(1, 1, 1, 0.1);"></div>
+      </div>
+      <div class="padding">
+        <button type="submit" class="button button-block button-balanced" ng-click="modalnotifikasipembayaranclose()">
+          PRINT BILL
+        </button>
+        <button type="submit" class="button button-block button-assertive" ng-click="modalnotifikasipembayaranclose()">
+          Tidak.Terima Kasih.
+        </button>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

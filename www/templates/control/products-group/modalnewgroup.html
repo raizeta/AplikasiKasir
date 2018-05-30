@@ -1,0 +1,29 @@
+<ion-modal-view class="mymodalpembayarannotifikasi">
+  <form name="newgroupForm" novalidate="">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <h1 class="title">GRUP BARU</h1>
+    <button class="button button-clear right" ng-click="modaltambahgroupclose()">
+      <i class="icon ion-backspace"></i>
+    </button>
+    <button class="button button-clear left" ng-click="modaltambahgroupsubmit(newgroupForm)" ng-disabled="newgroupForm.$invalid">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+        <div class="col col-100">
+          <label class="item item-input item-stacked-label">
+           <span class="input-label">NAMA GROUP</span>
+            <input type="text" ng-model="newgroupproduct.GROUP_NM" required >
+          </label>
+        </div>
+        <div class="col col-100">
+          <label class="item item-input item-stacked-label">
+           <span class="input-label">CATATAN</span>
+            <input type="text" ng-model="newgroupproduct.NOTE">
+          </label>
+        </div>
+    </ion-list>
+  </ion-content>
+  </form>
+</ion-modal-view>

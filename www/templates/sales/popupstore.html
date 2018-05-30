@@ -1,0 +1,4 @@
+<ion-radio class="wrapping-list" ng-model="choice.STORE_ID" ng-value="store.STORE_ID" ng-repeat="store in stores">
+<!-- <ion-radio class="wrapping-list" ng-model="choice.STORE_ID" ng-value="store.STORE_ID" ng-repeat="store in stores" ng-if="store.STATUS == 1 || store.STATUS == 'Enabled' || store.STATUS == 'Enabled' "> -->
+  {{store.STORE_NM|uppercase}}
+</ion-radio>

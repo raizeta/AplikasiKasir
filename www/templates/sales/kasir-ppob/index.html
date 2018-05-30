@@ -1,0 +1,234 @@
+<!-- <ion-view hide-nav-bar="false" view-title="{{splitnomortransaksi}}"> -->
+<ion-view hide-nav-bar="false" cache-view="true" view-title="PPOB">
+  <ion-content class="layerbackground">
+    <div class="list card no-padding" style="margin: 0px;">
+        <ion-item class="item" style="padding-left:0px;">
+	        <div class="item-icon-left">
+			  <i class="icon ion-bag"></i>
+	          <h2>SISA SALDO</h2>
+	          <h3>Rp 1.000.000</h3>
+	        </div>
+	        <div class="item-icon-right" ng-click="modalnewstoreopen()">
+	            <i class="icon" style="font-size: 16px;">ISI SALDO</i>
+	        </div>
+      	</ion-item>
+  	</div>
+  	<ion-item class="item item-divider">
+  		<h5>Prabayar</h5>
+  	</ion-item>
+  	<style>
+  		h2 > i {font-size: 28px;color: teal;}
+  	</style>
+	<div class="row" style="flex-wrap: wrap;">
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;" ng-click="gotoformisian('paketdata')">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;"><i class="icon ion-ios-world-outline"></i></h2>
+              <h5 style="text-align: center;">Paket Data</h5>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;" ng-click="gotoformisian('pakettelepon')">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;"><i class="icon ion-social-whatsapp-outline"></i></h2>
+              <h5 style="text-align: center;">Paket Telepon</h5>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;" ng-click="gotoformisian('paketsms')">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;"><i class="icon ion-ios-email-outline"></i></h2>
+              <h5 style="text-align: center;">Paket SMS</h5>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;" ng-click="gotoformisian('pulsareguler')">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;"><i class="icon ion-ipad"></i></h2>
+              <h5 style="text-align: center;">Pulsa Seluler</h5>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;" ng-click="gotoformisian('tokenpln')">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;">
+              	<i class="icon ion-ios-bolt-outline"></i>
+              </h2>
+              <h5 style="text-align: center;">Token PLN</h5>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;" ng-click="gotoformisian('vouchergame')">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;">
+              	<i class="icon ion-ios-game-controller-b-outline"></i>
+              </h2>
+              <h5 style="text-align: center;">Voucher Game</h5>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;"><i class="icon ion-cash"></i></h2>
+              <h5 style="text-align: center;">Go-Pay</h5>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;"><i class="icon ion-cash"></i></h2>
+              <h5 style="text-align: center;">Grab-Pay</h5>
+            </div>
+          </div>  
+      </div>
+  	</div>
+  	<ion-item class="item item-divider">
+  		<h5>Pascabayar</h5>
+  	</ion-item>
+	<div class="row" style="flex-wrap: wrap;">
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;" ng-click="gotoformisian('mobilepascabayar')">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;">
+              	<i class="icon ion-android-phone-portrait"></i>
+              </h2>
+              <h5 style="text-align: center;">Seluler</h5>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;" ng-click="gotoformisian('tokenpln')">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;"><i class="icon ion-android-bulb"></i></h2>
+              <h5 style="text-align: center;">Tagihan PLN</h5>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;"><i class="icon ion-bonfire"></i></h2>
+              <h6 style="text-align: center;">PGN</h6>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;">
+              	<i class="icon ion-ios-medkit-outline"></i>
+              </h2>
+              <h5 style="text-align: center;">BPJS</h5>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;"><i class="icon ion-paintbucket"></i></h2>
+              <h5 style="text-align: center;">PDAM</h5>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;"><i class="icon ion-monitor"></i></h2>
+              <h5 style="text-align: center;">TV Berlangganan</h5>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;">
+              	<i class="icon ion-ios-telephone-outline"></i>
+              </h2>
+              <h5 style="text-align: center;">TELKOM</h5>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;"><i class="icon ion-model-s"></i></h2>
+              <h5 style="text-align: center;">Multi Finance</h5>
+            </div>
+          </div>  
+      </div>
+  	</div>
+  	<ion-item class="item item-divider">
+  		<h5>Tiket</h5>
+  	</ion-item>
+	<div class="row" style="flex-wrap: wrap;">
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;">
+              	<i class="icon ion-android-plane"></i>
+              </h2>
+              <h5 style="text-align: center;">Pesawat</h5>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;"><i class="icon ion-outlet"></i></h2>
+              <h5 style="text-align: center;">Kereta Api</h5>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;"><i class="icon ion-android-boat"></i></h2>
+              <h6 style="text-align: center;">Kapal Laut</h6>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;"><i class="icon ion-android-bus"></i></h2>
+              <h6 style="text-align: center;">Bus</h6>
+            </div>
+          </div>  
+      </div>
+      
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;"><i class="icon ion-ios-football"></i></h2>
+              <h5 style="text-align: center;">Sepak Bola</h5>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;"><i class="icon ion-videocamera"></i></h2>
+              <h5 style="text-align: center;">Bioskop</h5>
+            </div>
+          </div>  
+      </div>
+      <div class="col" ng-class="{'col-33':screenbesar == false,'col-25':screenbesar == true}">
+          <div class="list card" style="margin:0px;">
+            <div class="item item-devider" style="padding: 10px;">
+              <h2 style="text-align: center;">
+              	<i class="icon ion-android-microphone"></i>
+              </h2>
+              <h5 style="text-align: center;">Konser</h5>
+            </div>
+          </div>  
+      </div>
+  	</div>
+  </ion-content>
+</ion-view>

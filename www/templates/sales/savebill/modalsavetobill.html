@@ -1,0 +1,35 @@
+<ion-modal-view class="mymodalpembayaran">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <h1 class="title">SIMPAN ANTRIAN PEMBAYARAN</h1>
+    <button type="submit" class="button button-clear left" ng-click="closemodalsavetobill()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <button type="submit" class="button button-clear right" ng-click="submitmodalsavetobill()">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">NOMOR BILL</span>
+        <input type="text" ng-model="billidentity" class="custom-success" ng-readonly="true" style="background-color: white">
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">NOMOR MEJA</span>
+        <input type="text" ng-model="mejaberapa.nomormeja" placeholder="Masukkan Nomor Meja Jika Ada" class="custom-success">
+      </label>
+    </ion-list>
+    <div class="row padding">
+      <div class="col col-50" ng-click="submitmodalsavetobill()">
+        <button class="button button-calm button-block button-full">
+          Simpan
+        </button>
+      </div>
+      <div class="col col-50">
+        <button class="button button-block button-full" ng-class="theme.buttonstyle" ng-click="submitmodalsavetobill('print')">
+          Simpan dan Print
+        </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

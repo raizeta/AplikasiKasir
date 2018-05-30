@@ -1,0 +1,20 @@
+<ion-view>
+	<ion-nav-title>
+        <div class="page-title">SETTING TEMPLATE</div>
+    </ion-nav-title>
+	
+	<ion-content>
+		<ion-list>
+			<div class="row" style="flex-wrap: wrap;">
+            <div class="col col-33" ng-repeat="template in arraytemplate" ng-click="showmodalimage(template)">
+              <div class="list">
+                <div class="item item-image" style="padding-right:0px">
+                  <img  ng-src="{{template.img_display}}" width="100%"/>
+                </div>
+              </div>
+            </div>
+          </div>
+		</ion-list>
+	</ion-content>
+</ion-view>
+

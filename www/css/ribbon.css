@@ -1,0 +1,165 @@
+.ribbon {
+   position: absolute;
+   right: -45px; 
+   top: 0px;
+   z-index: 9999;
+   overflow: hidden;
+   width: 75px; height: 75px; 
+   text-align: left;
+
+}
+.ribbon span {
+   font-size: 12px;
+   color: #fff; 
+   text-transform: uppercase; 
+   text-align: center;
+   font-weight: bold; 
+   line-height: 20px;
+   transform: rotate(0deg);
+   -webkit-transform: rotate(0deg); /* Needed for Safari */
+   width: 30px;
+   height: 20px; 
+   display: block;
+   background: #2BC0E4; /* fallback for old browsers */
+   background: -webkit-linear-gradient(to left, #2BC0E4 , #EAECC6); /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to left, #2BC0E4 , #EAECC6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+   position: absolute;
+
+}
+
+.itmbadge 
+{
+    position:relative;
+    display:inline-block;
+    vertical-align:middle;
+}
+.notify-badge:before 
+{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    background:white; 
+}
+.notify-badge
+{
+    position: absolute;
+    height:2.3rem;
+    top:-5px;
+    right:0.1rem;
+    width:2.3rem;
+    background:#11c1f3;
+    text-align: center;
+    border-radius: 50%;
+    color:white;
+    padding-top:6.5%;
+    font-size:10px;
+    font-family: Cambria;
+    box-shadow: 0 0 0 5px #fff;
+    z-index: 100; 
+}
+
+.notify-kecilbadge
+{
+    position: absolute;
+    height:2.0rem;
+    top:-4px;
+    right:0.0rem;
+    width:2.0rem;
+    background:#11c1f3;
+    border-radius: 50%;
+    font-family: Cambria;
+    box-shadow: 0 0 0 5px #fff;
+    z-index: 100; 
+}
+.notify-kecilbadge>h6
+{
+    vertical-align:middle;
+    font-size:10px;
+    text-align: center;
+    color:white;
+}
+
+.kp-kecilbadge
+{
+    position: absolute;
+    height:2.0rem;
+    bottom:43px;
+    right:0.0rem;
+    width:2.0rem;
+    background:#11c1f3;
+    border-radius: 50%;
+    font-family: Cambria;
+    box-shadow: 0 0 0 5px #fff;
+    z-index: 100; 
+}
+.kp-kecilbadge>h6
+{
+    vertical-align:middle;
+    font-size:10px;
+    text-align: center;
+    color:white;
+}
+
+.favorite-badge
+{
+    position: absolute;
+    height:2.3rem;
+    top:-6px;
+    left:0.0rem;
+    width:2.3rem;
+    /*background:#11c1f3;*/
+    text-align: center;
+    border-radius: 50%;
+    color:white;
+    padding-top:4.5%;
+    font-size:26px;
+    font-family: Cambria;
+    /*box-shadow: 0 0 0 5px #fff;*/
+    z-index: 100; 
+}
+
+.favorite-badgekecil
+{
+    position: absolute;
+    height:1.3rem;
+    top:-4px;
+    left:0.0rem;
+    width:1.3rem;
+    /*background:#000;*/
+    text-align: center;
+    border-radius: 50%;
+    color:white;
+    padding-top:4.5%;
+    font-size:26px;
+    font-family: Cambria;
+    /*box-shadow: 0 0 0 5px #fff;*/
+    z-index: 100; 
+}
+
+.emas
+{
+  color : rgb(200, 200, 100);
+}
+
+.closevideo
+{
+    position: absolute;
+    height:1.8rem;
+    top:-18px;
+    right:-0.7rem;
+    width:2.0rem;
+    background:#11c1f3;
+    /*border-radius: 50%;*/
+    font-family: Cambria;
+    /*box-shadow: 0 0 0 5px #fff;*/
+    z-index: 10000000; 
+}
+
+.closevideo>h6
+{
+    vertical-align:middle;
+    font-size:10px;
+    text-align: center;
+    color:white;
+}

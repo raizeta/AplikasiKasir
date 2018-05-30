@@ -1,0 +1,325 @@
+<ion-modal-view class="mymodalpembayarannotifikasi">
+  <form name="updateproductForm"  novalidate="">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <h1 class="title">PRODUK {{titleup}}</h1>
+    <button class="button button-clear right" ng-click="modalupdateproductclose()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <button class="button button-clear left" ng-click="modalupdateproductsubmit()" ng-disabled="updateproductForm.$invalid">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-header-bar class="bar-subheader bar-assertive">
+    <div class="button-bar" id="mybar">
+      <a class="button button-small text" grouped-radio="'INFO'" ng-model="mode.valuechoose" ng-change='changemode(updateproductForm)'>INFO</a>
+      <a class="button button-small text" grouped-radio="'STOK'" ng-model="mode.valuechoose" ng-change='changemode(updateproductForm)'>STOK</a>
+      <a class="button button-small text" grouped-radio="'HARGA'" ng-model="mode.valuechoose" ng-change='changemode(updateproductForm)'>HARGA</a>
+      <a class="button button-small text" grouped-radio="'DISKON'" ng-model="mode.valuechoose" ng-change='changemode(updateproductForm)'>DISKON</a>
+      <a class="button button-small text" grouped-radio="'GAMBAR'" ng-model="mode.valuechoose" ng-change='changemode(updateproductForm)'>GAMBAR</a>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    
+    <ion-list ng-show="mode.valuechoose == 'INFO'">
+      <div class="row" style="flex-wrap: wrap;">
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Nama Produk</span>
+            <input type="text" placeholder="Masukkan Nama Produk Disini" name="productnama" ng-model="updateitemproduct.PRODUCT_NM" required>
+          </label>
+        </div>
+        <!-- <div class="col col-50">
+          <label class="item item-input item-stacked-label has-errors" ng-class="{ 'no-errors' : updateproductForm.productstock.$valid}">
+           <span class="input-label">Stok</span>
+            <input type="tel" placeholder="Masukkan Nilai Stock Disini" format="number" name="productstock" ng-model="updateitemproduct.CURRENT_STOCK" required>
+          </label>
+        </div> -->
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom" ng-class="{ 'no-errors' : updateproductForm.productharga.$valid}">
+           <span class="input-label">Harga</span>
+            <input type="tel" placeholder="Masukkan Harga Jual Disini" format="number" name="productharga" ng-model="updateitemproduct.HARGA_JUAL" required>
+          </label>
+        </div>
+        <div class="col col-50" >
+          <label class="item item-input item-stacked-label border-bottom" ng-click="openproductunitspop()" style="background-color: #f8f8f8" ng-class="{ 'no-errors' : updateproductForm.productunit.$valid}">
+           <span class="input-label">Unit Jual</span>
+            <input type="text" placeholder="Dijual Dalam Satuan" name="productunit" ng-model="updateitemproduct.UNIT_NM" required ng-readonly="true">
+          </label>
+        </div>
+        <div class="col col-50" >
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Barcode/QR Code</span>
+            <input type="text" placeholder="Masukkan Barcode Disini" name="productqr" ng-model="updateitemproduct.PRODUCT_QR" >
+          </label>
+        </div>
+        
+
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom" ng-click="openproductgroupspop()" style="background-color: #f8f8f8">
+           <span class="input-label">Kategori</span>
+            <input type="text" name="productgroup" ng-model="updateitemproduct.GROUP_NM" placeholder="Pilih Kategori Produk" ng-readonly="true">
+          </label>
+        </div>
+        
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom" ng-class="{ 'no-errors' : updateproductForm.productlevel.$valid}">
+           <span class="input-label">Stock Level</span>
+            <input type="tel" format="number"  name="productlevel" ng-model="updateitemproduct.STOCK_LEVEL">
+          </label>
+        </div>
+
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom" ng-class="{ 'no-errors' : updateproductForm.productwarna.$valid}">
+           <span class="input-label">Warna</span>
+            <input type="text"  name="productwarna" ng-model="updateitemproduct.PRODUCT_WARNA">
+          </label>
+        </div>
+
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom" ng-class="{ 'no-errors' : updateproductForm.productdiskon.$valid}">
+           <span class="input-label">Diskon</span>
+            <input type="tel" format="number" name="productdiskon" ng-model="updateitemproduct.DISCOUNT" >
+          </label>
+        </div>
+        <div class="col col-30">
+          <label class="item item-input item-stacked-label border-bottom" ng-class="{ 'no-errors' : updateproductForm.productukuran.$valid}">
+           <span class="input-label">Ukuran</span>
+            <input type="tel" format="number" name="productukuran" ng-model="updateitemproduct.PRODUCT_SIZE">
+          </label>
+        </div>
+        <div class="col col-20">
+          <label class="item item-input item-stacked-label border-bottom" ng-class="{ 'no-errors' : updateproductForm.productsatuan.$valid}">
+           <span class="input-label">Satuan/Unit</span>
+            <input type="text" name="productsatuan" ng-model="updateitemproduct.PRODUCT_SIZE_UNIT" >
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Headline</span>
+            <input type="text" ng-model="updateitemproduct.PRODUCT_HEADLINE" >
+          </label>
+        </div>
+        <div class="col col-50">
+          <label class="item item-input item-stacked-label border-bottom">
+           <span class="input-label">Catatan Produk</span>
+            <input type="text" ng-model="updateitemproduct.DCRP_DETIL">
+          </label>
+        </div>
+      </div>
+    </ion-list>
+    <ion-list ng-show="mode.valuechoose == 'STOK'">
+      <div class="item item-divider item-calm" ng-if="showformstock.show">
+        TAMBAH STOCK
+      </div>
+      <ion-item class="item item-stable" ng-if="showformstock.show">
+        <div class="padding">
+          <label  class="item item-input labeldark">
+          <span>STOK SAAT INI</span></label>
+          <label  class="item item-input labeldark">
+            <i class="icon ion-card placeholder-icon  float-right"></i>
+            <input  type="tel" format="number" ng-model="newstock.CURRENT_STOCK" class="float-right">
+          </label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+          <span>INPUT STOK</span></label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <i class="icon ion-card placeholder-icon  float-right"></i>
+            <input  type="tel" ng-model="newstock.INPUT_STOCK" format="number" class="float-right">
+          </label>
+        </div>
+        <div class="row" style="padding">
+          <button type="submit" class="button button-block button-assertive" ng-click="tambahstock(newstock)" >
+            SUBMIT
+          </button>
+        </div>
+      </ion-item>
+      <ion-item class="item-stable" style="padding-bottom: 5px">
+        <div class="row padding">
+          <div class="col my-col" style="min-width:10px">
+            #.
+          </div>
+          <div class="col my-col">
+            STOK TERAKHIR
+          </div>
+          <div class ="col my-col">
+            INPUT STOK
+          </div>
+          <div class ="col my-col">
+            TGL INPUT
+          </div>
+        </div>
+        <div class="row  padding" style='border-top: 1px solid rgba(1, 1, 1, 0.1);' ng-repeat="datastock in productstocks|orderBy:'-INPUT_DATE' track by $index">
+          <div class="col my-col" style="min-width:10px">
+            {{$index + 1}}.
+          </div>
+          <div class="col my-col">
+            <span ng-if="datastock.LAST_STOCK">
+              {{datastock.LAST_STOCK|number}}
+            </span>
+            <span ng-if="!datastock.LAST_STOCK">
+              0
+            </span>
+          </div>
+          <div class="col my-col">
+            {{datastock.INPUT_STOCK}}
+          </div>
+          <div class="col my-col">
+            {{datastock.INPUT_DATE}}
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+    <ion-list ng-show="mode.valuechoose == 'HARGA'">
+      <div class="item item-divider item-calm" ng-if="showformharga.show">
+        TAMBAH HARGA
+      </div>
+      <ion-item class="item item-stable" ng-if="showformharga.show">
+        <div class="padding">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+          <span>HARGA PRODUK</span></label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <i class="icon ion-card placeholder-icon float-right"></i>
+            <input type="text" min="0" ng-model="newharga.HARGA_JUAL"  class="float-right">
+          </label>
+        </div>
+        <div class="padding">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+          <span>TGL BERLAKU</span></label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <i class="icon ion-card placeholder-icon float-right"></i>
+            <input type="date" ng-model="newharga.PERIODE_TGL1"  class="float-right">
+          </label>
+        </div>
+        <div class="padding">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+          <span>TGL BERAKHIR</span></label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <i class="icon ion-card placeholder-icon float-right"></i>
+            <input type="date" ng-model="newharga.PERIODE_TGL2"  class="float-right">
+          </label>
+        </div>
+        <div class="padding">
+          <button type="submit" class="button button-block button-assertive" ng-click="tambahharga(newharga)" >
+            SUBMIT
+          </button>
+        </div>
+      </ion-item>
+      <ion-item class="item-stable" style="padding-bottom: 5px">
+        <div class="row padding">
+          <div class="col my-col" style="min-width:10px">
+            #.
+          </div>
+          <div class="col my-col">
+            HARGA PRODUK
+          </div>
+          <div class ="col my-col">
+            TGL BERLAKU
+          </div>
+          <div class ="col my-col">
+            STATUS
+          </div>
+        </div>
+        <div class="row  padding" style='border-top: 1px solid rgba(1, 1, 1, 0.1);' ng-repeat="dataharga in producthargas|orderBy:'-ID' track by $index">
+          <div class="col my-col" style="min-width:10px">
+            {{$index + 1}}.
+          </div>
+          <div class="col my-col">
+              Rp.{{dataharga.HARGA_JUAL|number}}
+          </div>
+          <div class="col my-col">
+            {{dataharga.PERIODE_TGL1}} s/d {{dataharga.PERIODE_TGL2}}
+          </div>
+          <div class="col my-col">
+            AKTIF
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+    <ion-list ng-show="mode.valuechoose == 'DISKON'">
+      <div class="item item-divider item-calm" ng-if="showformdiskon.show">
+        TAMBAH DISKON
+      </div>
+      <ion-item class="item item-stable" ng-if="showformdiskon.show">
+        <div class="padding">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+          <span>DISKON PRODUK</span></label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <i class="icon ion-card placeholder-icon float-right"></i>
+            <input type="number" min="0" ng-model="newdiscount.DISCOUNT"  class="float-right">
+          </label>
+        </div>
+        <div class="padding">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+          <span>TGL BERLAKU</span></label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <i class="icon ion-card placeholder-icon float-right"></i>
+            <input type="date" ng-model="newdiscount.PERIODE_TGL1"  class="float-right">
+          </label>
+        </div>
+        <div class="padding">
+          <label  class="item item-input" style="background-color: #f8f8f8">
+          <span>TGL BERAKHIR</span></label>
+          <label  class="item item-input" style="background-color: #f8f8f8">
+            <i class="icon ion-card placeholder-icon float-right"></i>
+            <input type="date" ng-model="newdiscount.PERIODE_TGL2"  class="float-right">
+          </label>
+        </div>
+        <div class="padding">
+          <button type="submit" class="button button-block button-assertive" ng-click="tambahdiskon(newdiscount)">
+            SUBMIT
+          </button>
+        </div>
+      </ion-item>
+      <ion-item class="item-stable" style="padding-bottom: 5px">
+        <div class="row padding">
+          <div class="col my-col" style="min-width:10px">
+            #.
+          </div>
+          <div class="col my-col">
+            DISKON PRODUK
+          </div>
+          <div class ="col my-col">
+            TGL BERLAKU
+          </div>
+          <div class ="col my-col">
+            STATUS
+          </div>
+        </div>
+        <div class="row  padding" style='border-top: 1px solid rgba(1, 1, 1, 0.1);' ng-repeat="datadiscount in productdiscounts|orderBy:'-ID' track by $index">
+          <div class="col my-col" style="min-width:10px">
+            {{$index + 1}}.
+          </div>
+          <div class="col my-col">
+              {{datadiscount.DISCOUNT|number}} %
+          </div>
+          <div class="col my-col">
+            {{datadiscount.PERIODE_TGL1}} s/d {{datadiscount.PERIODE_TGL2}}
+          </div>
+          <div class="col my-col">
+            AKTIF
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+    <ion-list ng-show="mode.valuechoose == 'GAMBAR'">
+      <div class="col col-100">      
+        <div class="padding"  ng-click="tambahgambar()">
+          <label class="item item-input item-stacked-label" style="padding-left:40%">
+            <div class="col col-33">
+              <img id="myImage" ng-src="http://image.kontrolgampang.com/produk/{{datadetailproduct.IMG_FILE}}" imageonload width="100%">
+            </div>
+          </label>
+        </div>
+      </div>
+    </ion-list>
+  </ion-content>
+  </form>
+  <button class="button button-float" ng-show="mode.valuechoose == 'STOK'" ng-click="showformstock.show = !showformstock.show">
+    <i class="icon ion-plus"></i>
+  </button>
+  <button class="button button-float" ng-show="mode.valuechoose == 'HARGA'" ng-click="showformharga.show = !showformharga.show">
+    <i class="icon ion-plus"></i>
+  </button>
+  <button class="button button-float" ng-show="mode.valuechoose == 'DISKON'" ng-click="showformdiskon.show = !showformdiskon.show">
+    <i class="icon ion-plus"></i>
+  </button>
+</ion-modal-view>

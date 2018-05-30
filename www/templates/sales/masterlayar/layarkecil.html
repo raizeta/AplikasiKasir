@@ -1,0 +1,46 @@
+<ion-list>
+  <!-- <label class="item item-input sticky-search">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="text" style="height:16px" ng-model="xxx.string" ng-change="changefilter(xxx.string)">
+    <a ng-if="xxx.string != ''" on-touch="changefilter(xxx.string = '') ">
+      <i class="icon ion-ios-close placeholder-icon"></i>
+    </a>
+  </label> -->
+  <div class="col col-100 " style="height:100vh;">
+    <ion-scroll class="shopcartkecil-scroll">
+      <div ng-if="modelayar.cashier">
+        <div ng-if="displayproductgroup"> 
+          <div ng-include="'templates/sales/kategori/layarkecil.html'"></div>
+        </div>
+        <div ng-if="!displayproductgroup">
+          <div ng-if="databarangpenjualan.length > 0">
+            <div ng-include="'templates/sales/addtocart/modegridlayarkecil.html'" ng-if="gridornot.grid">
+            </div>
+            <div ng-include="'templates/sales/addtocart/modelistlayarkecil.html'" ng-if="!gridornot.grid">
+            </div>
+          </div>
+          <div ng-if="databarangpenjualan.length == 0">
+            <div class="row not-found-cashier">
+              <div class="profile">
+                  <img ng-src="img/kg.png"/>
+                  <h4 style="color: #444;margin-top: -1vh;">Produk Untuk Dijual Masih Kosong</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Awal Dari Screen Kecil  Mode Pembelian -->
+      <div ng-if="modelayar.pembelian">
+        <div ng-include="'templates/sales/ppob/pembelianlayarkecil.html'"></div>
+      </div>
+      <ion-list ng-if="showformpembelian">
+        <div ng-include="'templates/sales/formisian/pembelianpulsa.html'" ng-if="showform == 'PULSA' "></div>
+          <div ng-include="'templates/sales/formisian/pembelianpascabayar.html'" ng-if="showform == 'PASCABAYAR' "></div>
+          <div ng-include="'templates/sales/formisian/pembeliangameonline.html'" ng-if="showform == 'GAMEONLINE' "></div>
+          <div ng-include="'templates/sales/formisian/pembelianplnprepaid.html'" ng-if="showform == 'PLNPREPAID' "></div>
+          <div ng-include="'templates/sales/formisian/pembeliantvvoucher.html'" ng-if="showform == 'TVVOUCHER' "></div>
+      </ion-list>
+    </ion-scroll>
+  </div>
+</ion-list>

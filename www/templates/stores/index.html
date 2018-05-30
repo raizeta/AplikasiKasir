@@ -1,0 +1,21 @@
+<ion-view id="login" hide-nav-bar="true" view-title="Store Area">
+    <ion-content padding="true" scroll="false">
+        <div class="row responsive-md">
+            <div class="col col-50 col-offset-25">
+                <div class="header padding text-center">
+                    <img src="img/logo.png" alt="Your logo here"/>
+                </div>
+                <div class="list list-inset">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                          LOKASI STORE
+                        </div>
+                        <select ng-model="stores.lokasistore" ng-options="item.OUTLET_NM for item in datastore" required="true" ng-change="choosestore(stores)">
+                          <option value="">-- Pilih Store --</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

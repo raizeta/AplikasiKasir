@@ -1,0 +1,108 @@
+/*https://codepen.io/roydigerhund/pen/OMreoV*/
+.center {
+  position: relative;
+  height: 215px;
+  width: 100%;
+  background: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.3);
+}
+
+.profilex {
+  text-align: center;
+}
+.profilex .image {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  /*left:35%;*/
+  margin: 18px auto 0 auto;
+}
+.profilex .image .circle-1, .profilex .image .circle-2 {
+  position: absolute;
+  box-sizing: border-box;
+  width: 76px;
+  height: 76px;
+  top: -3px;
+  left: -3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #786450 #786450 #786450 transparent;
+  border-radius: 50%;
+  -webkit-transition: all 1.5s ease-in-out;
+  transition: all 1.5s ease-in-out;
+}
+.profilex .image .circle-2 {
+  width: 82px;
+  height: 82px;
+  top: -6px;
+  left: -6px;
+  border-color: #786450 transparent #786450 #786450;
+}
+.profilex .image img {
+  display: block;
+  border-radius: 50%;
+  background: #F5E8DF;
+}
+.profilex .image:hover {
+  cursor: pointer;
+}
+.profilex .image:hover .circle-1, .profilex .image:hover .circle-2 {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+.profilex .image:hover .circle-2 {
+  -webkit-transform: rotate(-360deg);
+          transform: rotate(-360deg);
+}
+
+.profilex .job {
+  font-size: 11px;
+  line-height: 15px;
+}
+.profilex .actions {
+  margin-top: 15px;
+}
+.profilex .actions .btn 
+{
+  display: inline-block;
+  width: 45%;
+  height: 30px;
+  margin: 0 auto 10px auto;
+  background: none;
+  border: 1px solid #786450;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  box-sizing: border-box;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  color: #786450;
+}
+.profilex .actions .btn:hover 
+{
+  background: #786450;
+  color: #fff;
+}
+
+@media (min-width: 360px) and (max-width: 759px) 
+{
+  
+  .profilex .name 
+  {
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+}
+/* Landscape phone to portrait tablet */
+@media (min-width: 760px) 
+{
+  .profilex .name 
+  {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+}

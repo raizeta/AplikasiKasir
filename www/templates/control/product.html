@@ -1,0 +1,41 @@
+<ion-view view-title="KONTROL PRODUK">
+  <ion-nav-title>
+      <div class="page-title" ng-click="openstorepopup(store)"  ng-if="profileops.ACCESS_LEVEL == 'OWNER'">
+          {{store.STORE_NM|uppercase}}
+        <i class="icon ion-ios-arrow-down placeholder-icon" style="color: #fff"></i>
+      </div>
+      <div class="page-title" ng-if="profileops.ACCESS_LEVEL == 'OPS'">
+          {{store.STORE_NM|uppercase}}
+      </div>
+  </ion-nav-title>
+    <ion-nav-buttons side="right">
+    <div class="buttons">
+      <button class="button button-icon icon ion-search" ng-click="changesearchshow()">
+      </button>
+      <button class="button button-icon icon ion-android-add" ng-click="modaltambahproductopen()" ng-if="!screenbesar">
+      </button>
+    </div>
+  </ion-nav-buttons> 
+  <ion-content scroll="false" padding="false" ng-class="{'fullsaja-ctrlstore':screenbesar == true}">
+    <label class="item item-input  sticky-search" style="width: 100%;background-color: #f8f8f8" ng-show="showsearch">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" ng-model="xxx.string" ng-change="changefilter(xxx.string)">
+        <a ng-if="xxx.string != ''" on-touch="changefilter(xxx.string = '')">
+          <i class="icon ion-ios-close placeholder-icon"></i>
+        </a>
+      </label>
+    <ion-list>
+      <div ng-include="'templates/control/masterlayar/productlayarbesar.html'" ng-if="screenbesar"></div>
+      <div ng-include="'templates/control/masterlayar/productlayarkecil.html'" ng-if="!screenbesar"></div>
+    </ion-list >
+  </ion-content>
+  <div class="row not-found" ng-if="!screenbesar && dataproducts.length == 0">
+    <div class="profile">
+        <img ng-src="img/kg.png"/>
+        <h2 style="color: #444;margin-top: -1vh;">Produk Masih Kosong</h2>
+    </div>
+  </div>
+  <button class="button button-float-control" ng-if="screenbesar" ng-click="openmodalactive(viewtoshow.valuechoose)">
+  <i class="icon ion-plus"></i>
+</button>
+</ion-view>

@@ -1,0 +1,16 @@
+i.icon.ion-card.float-right 
+{
+  font-size: 30px;
+  padding-right: 50px
+}
+input.float-right 
+{ 
+	text-align: right;
+
+}
+input.float-right::-webkit-input-placeholder 
+{ 
+	text-align:left; 
+} 
+
+

@@ -1,0 +1,134 @@
+<ion-view view-title="SETORAN {{tglskrg}}">  
+  <ion-content scroll="false" class="layerbackground" ng-class="{'fullsaja-setoran':screenbesar == true}">
+    <ion-list ng-if="screenbesar && datasetorans.length > 0">
+      <div class="row">
+        <div class="col col-33" style="height: 100vh;">
+            <ion-item class="item" ng-class="theme.itemstyle" style="max-height: 9vh;">
+              <div class="item-icon-left">
+                <i class="icon ion-ios-chatboxes-outline"></i>
+                <span style="font-size: 18px">
+                  &nbsp;&nbsp;{{'SETORAN'|uppercase}}
+                </span>
+              </div>
+            </ion-item>
+            <ion-scroll class="listsetoran-scroll">
+              <style>
+                  i.icon.xxx {font-size: 16px;padding-left: 1vh}
+                  .item-icon-left.xxx {padding-left: 4vh;}
+                  .itemx {padding-top: 10px;padding-bottom: 10px;}
+                  i.icon.ion-card {font-size: 26px;padding-right: 50px}
+                  .padding-minimalis{padding: 1px 10px 1px 10px}
+              </style>
+              
+              <div class="item item-divider item-calm" ng-class="theme.itemdividerstyle">
+                SUDAH DISETOR
+              </div>
+              <ion-item class="item itemx"  ng-repeat="setoran in datasetorans track by $index" ng-click="showdetail(setoran)" ng-class="[isGroupShown(setoran) ? 'custom-active':'']" ng-if="setoran.STATUS == 1">
+                  <div class="item-icon-left xxx" >
+                      <i class="icon xxx">{{$index + 1}}.</i>
+                      <h2>{{setoran.SPLIT_OPENCLOSE_ID}}</h2>
+                  </div>
+                  <div class="item-icon-right">
+                    <i class="icon ion-ios-arrow-right"></i>
+                  </div>
+              </ion-item>
+              <div class="item item-divider item-calm" ng-class="theme.itemdividerstyle">
+                BELUM DISETOR
+              </div>
+              <ion-item class="item itemx"  ng-repeat="setoran in datasetorans  track by $index " ng-click="showdetail(setoran)" ng-class="[isGroupShown(setoran) ? 'custom-active':'']" ng-if="setoran.STATUS == 2">
+                  <div class="item-icon-left xxx">
+                      <i class="icon xxx">{{$index + 1}}.</i>
+                      <h2>{{setoran.SPLIT_OPENCLOSE_ID}}</h2>
+                  </div>
+                  <div class="item-icon-right">
+                    <i class="icon ion-ios-arrow-right"></i>
+                  </div>
+              </ion-item>
+            </ion-scroll>
+        </div>
+        <div class="col col-66" style="margin-left: -1.5vh;height:100vh;">
+          <ion-item class="item" ng-class="theme.itemstyle" style="max-height: 9vh;">
+            <div class="item-icon-left">
+              <i class="icon ion-ios-chatboxes"></i>
+              <span style="font-size: 18px">
+                  &nbsp;&nbsp;{{'DETAIL SETORAN'|uppercase}} {{setoran.SPLIT_OPENCLOSE_ID}}
+                </span>
+            </div>
+          </ion-item>
+          <ion-scroll class="detailsetoran-scroll">
+            <ion-item style="border: none">
+              <label  class="item item-input" style="background-color: #f8f8f8">
+                <span>Jumlah Setoran</span>
+              </label>
+              <label  class="item item-input strlbl-div">
+                <i class="icon ion-card placeholder-icon"></i>
+                <input type="tel" format="number" ng-model="setoran.TOTALCASH" required readonly="true" class="float-right">
+              </label>
+              <label  class="item item-input" style="background-color: #f8f8f8">
+                <span>Yang Disetorkan</span>
+              </label>
+              <label  class="item item-input strlbl-div">
+                <i class="icon ion-card placeholder-icon"></i>
+                <input type="tel" format="number" ng-model="setoran.NOMINAL_STORAN" required class="float-right">
+              </label>
+              <label  class="item item-input" style="background-color: #f8f8f8">
+                <span>Sisa Setoran</span>
+              </label>
+              <label  class="item item-input strlbl-div">
+                <i class="icon ion-card placeholder-icon"></i>
+                <input type="tel" format="number" ng-value="setoran.TOTALCASH - setoran.NOMINAL_STORAN" readonly="true" class="float-right">
+              </label>     
+              <label  class="item item-input" style="background-color: #f8f8f8">
+                <span>Foto Bukti Setoran</span>
+              </label>     
+              <label class="item item-input item-stacked-label" style="padding-left:40%" ng-click="fotobuktisetoran()">
+                <div class="col col-33">
+                  <img id="myImage" ng-src="{{setoran.STORAN_IMAGE}}" width="100%">
+                </div>
+              </label>
+            </ion-item>
+          </ion-scroll>
+        </div>
+      </div>
+    </ion-list>
+    <ion-list ng-if="!screenbesar && datasetorans.length > 0">
+      <style>
+          i.icon.xxx {font-size: 16px;padding-left: 0.4vh}
+          .item-icon-left.xxx {padding-left: 4vh}
+          .itemx {padding-top: 10px;padding-bottom: 10px;}
+      </style>
+      <div class="row">
+        <div class="col col-100" style="height: 100vh;margin-left: -1.2vh;margin-right: -1.2vh;margin-top: -1.2vh;">
+          <ion-scroll class="detailsetorankecil-scroll">
+            <ion-item class="item-divider item-calm"> BELUM DISETOR </ion-item>
+            <ion-item class="item itemx"  ng-repeat="itemsetoran in datasetorans  track by $index " ng-click="showmodadetailsetoran(itemsetoran)" ng-class="[isGroupShown(itemsetoran) ? 'custom-active':'']" ng-if="itemsetoran.STATUS == 2">
+                <div class="item-icon-left xxx">
+                    <i class="icon xxx">{{$index + 1}}.</i>
+                    <h2>{{itemsetoran.SPLIT_OPENCLOSE_ID}}</h2>
+                </div>
+                <div class="item-icon-right">
+                  <i class="icon ion-ios-arrow-right"></i>
+                </div>
+            </ion-item>
+            <ion-item class="item-divider item-calm"> SUDAH DISETOR </ion-item>
+            <ion-item class="item itemx"  ng-repeat="itemsetoran in datasetorans track by $index" ng-click="showmodadetailsetoran(itemsetoran)" ng-class="[isGroupShown(itemsetoran) ? 'custom-active':'']" ng-if="itemsetoran.STATUS == 1">
+                <div class="item-icon-left xxx" >
+                    <i class="icon xxx">{{$index + 1}}.</i>
+                    <h2>{{itemsetoran.SPLIT_OPENCLOSE_ID}}</h2>
+                </div>
+                <div class="item-icon-right">
+                  <i class="icon ion-ios-arrow-right"></i>
+                </div>
+            </ion-item>
+          </ion-scroll>
+        </div>
+      </div>
+    </ion-list>
+    <div class="row not-found" ng-if="datasetorans.length == 0">
+      <div class="profile">
+          <img ng-src="img/kg.png"/>
+          <h5 style="color: #444;margin-top: -1vh;">Data Setoran Kosong</h5>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

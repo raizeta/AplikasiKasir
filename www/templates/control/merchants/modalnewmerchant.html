@@ -1,0 +1,51 @@
+<ion-modal-view class="mymodalpembayarannotifikasi">
+  <form name="newmerchantForm" novalidate="">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <h1 class="title">MERCHANT BARU</h1>
+    <button class="button button-clear right" ng-click="modalnewmerchantclose()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <button class="button button-clear left" ng-click="modalnewmerchantsubmit()" ng-disabled="newmerchantForm.$invalid">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item style="border:0px;">
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Nama Merchant</span>
+          <input type="text" name="namamerchant" ng-model="newmerchant.MERCHANT_NM"  class="custom-success" placeholder="Masukkan nama merchant di sini" required>
+          <p ng-show="newmerchantForm.namamerchant.$error.required" style="color:red;">
+            Nama Merchant Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Nomor Merchant</span>
+          <input type="text" name="nomormerchant" ng-model="newmerchant.MERCHANT_NO" class="custom-success" placeholder="Masukkan nomor merchant di sini" required >
+          <p ng-show="newmerchantForm.nomormerchant.$error.required" style="color:red;">
+            Nomor Merchant Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom" class="custom-success" ng-click="openmerchantbankpop('new')">
+         <span class="input-label">Nama Bank</span>
+          <input type="text" name="namabank" ng-model="newmerchant.BANK_NM" class="custom-success" placeholder="Pilih nama bank"  required ng-readonly="true" style="background-color: white;">
+          <p ng-show="newmerchantForm.namabank.$error.required" style="color:red;">
+            Nama Bank Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom" ng-click="openmerchanttypepop('new')">
+         <span class="input-label">Tipe Pembayaran</span>
+          <input type="text" name="tipepemb" ng-model="newmerchant.TYPE_PAY_NM" class="custom-success" placeholder="Pilih tipe pembayaran" required ng-readonly="true" style="background-color: white;">
+          <p ng-show="newmerchantForm.tipepemb.$error.required" style="color:red;">
+            Tipe Pembayaran Tidak Boleh Kosong
+          </p>
+        </label>
+        <label class="item item-input item-stacked-label border-bottom">
+         <span class="input-label">Deskripsi</span>
+          <input type="text" ng-model="newmerchant.DCRP_DETIL" class="custom-success" placeholder="Masukkan deskrip di sini">
+        </label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  </form>
+</ion-modal-view>

@@ -1,0 +1,63 @@
+<ion-modal-view class="mymodalpembayarannotifikasi">
+  <form name="bayariuranForm">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <button class="button button-clear left" ng-click="modalbayariuranclose()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <h1 class="title">FORM PEMBAYARAN</h1>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list card no-padding" style="margin: 0px;">
+      <ion-item class="item" style="padding-left:0px;">
+        <div class="item-icon-left">
+          <i class="icon ion-bag"></i>
+          <h2>SALDO DOMPET</h2>
+          <h3>Rp 1.000.000</h3>
+        </div>
+        <div class="item-icon-right">
+            <i class="icon" style="font-size: 16px;">ISI SALDO</i>
+        </div>
+      </ion-item>
+    </div>
+    <ion-item class="item item-divider">
+      <h3>PILIH JENIS PAKET</h3>
+    </ion-item>
+    <div class="list">
+      <label class="item item-input item-stacked-label border-bottom" ng-click="pilihpaketperangkat('new')">
+       <span class="input-label">Nama Paket</span>
+        <input type="text" placeholder="Pilih Paket Pembayaran" ng-model="iuranyangharusdibayar.PAKET_NM" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+      </label>
+      <label class="item item-input item-stacked-label border-bottom" ng-click="pilihpaketperangkat('new')">
+       <span class="input-label">Harga Paket</span>
+        <input type="text" format="number" placeholder="Pilih Paket Pembayaran" ng-model="iuranyangharusdibayar.HARGA_PAKET" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+      </label>
+      <label class="item item-input item-stacked-label border-bottom" ng-click="pilihpaketperangkat('new')">
+       <span class="input-label">Durasi (Hari)</span>
+        <input type="text" format="number" ng-model="iuranyangharusdibayar.PAKET_DURATION" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+      </label>
+      <label class="item item-input item-stacked-label border-bottom" ng-click="pilihpaketperangkat('new')" ng-if="iuranyangharusdibayar.PAKET_DURATION_BONUS > 0">
+       <span class="input-label">Bonus Durasi (Hari)</span>
+        <input type="text" format="number" ng-model="iuranyangharusdibayar.PAKET_DURATION_BONUS" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+      </label>
+      <label class="item item-input item-stacked-label border-bottom" ng-click="pilihpaketperangkat('new')" ng-if="iuranyangharusdibayar.DATE_END">
+       <span class="input-label">Tanggal Berakhir</span>
+        <input type="text" ng-model="iuranyangharusdibayar.DATE_END" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+      </label>
+    </div>
+    <ion-item class="item item-divider">
+      <h3>PILIH JENIS LANGGANAN</h3>
+    </ion-item>
+    <div class="list padding">
+      <ion-radio ng-model="iuranyangharusdibayar.DOMPET_AUTODEBET" ng-value="'0'" style="border: 0px;" name="TYPE_LANGGANAN">
+        SEKALI SAJA
+      </ion-radio>
+      <ion-radio ng-model="iuranyangharusdibayar.DOMPET_AUTODEBET" ng-value="'1'" style="border: 0px;" name="TYPE_LANGGANAN">
+        LANGGANAN
+      </ion-radio>
+    </div>
+      <button class="button button-block" type="submit" ng-class="theme.buttonstyle" ng-click="modalbayariuransubmit()"  style="border-radius: 50px;" ng-disabled="bayariuranForm.$invalid">
+                  LAKUKAN PEMBAYARAN
+                </button>
+  </ion-content>
+  </form>
+</ion-modal-view>

@@ -1,0 +1,210 @@
+<!--<form name="formCard" class="form">-->
+<!--<label class="item"><i class="icon-credit-card mr3"></i><input type="text" id="card" name="card" placeholder="card number"/></label>-->
+<!--<label class="item"><i class="icon-lock mr3"></i><input type="password" name="password" placeholder="password"/></label>-->
+<!--</form>-->
+
+<ul class="list">
+    <li>
+        <details class="menu">
+            <summary>Card</summary>
+            <ul>
+                <li><a href="javascript:;" id="acquireCardAsyncMag">Swipe Card</a></li>
+                <li><a href="javascript:;" id="acquireCardAsyncIcc">Insert Card</a></li>
+                <li><a href="javascript:;" id="acquireCardAsyncRf">RF Card</a></li>
+                <li><a href="javascript:;" id="stopAcquireCard">Stop Acquiring Cards</a></li>
+                <li><a href="javascript:;" id="acquireCardAsync">Swipe/Insert/RF Card</a></li>
+                <li><a href="javascript:;" id="isCardIn">Is Card In</a></li>
+                <!--<li><a href="javascript:;" id="acquireCardSync">Get Fixed Cards</a></li>-->
+                <!--<li><a href="javascript:;" id="releaseCard">Release Card</a></li>-->
+            </ul>
+        </details>
+    </li>
+    <li>
+        <details class="menu">
+            <summary>Scanner</summary>
+            <ul>
+                <li><a href="javascript:;" id="openScanner">Open Scanner</a></li>
+                <li><a href="javascript:;" id="initScannerFront">Init Scanner(Front Camera)</a></li>
+                <li><a href="javascript:;" id="initScannerBack">Init Scanner(Back Camera)</a></li>
+                <li><a href="javascript:;" id="startScan">Start Scan</a></li>
+                <li><a href="javascript:;" id="stopScan">Stop Scan</a></li>
+                <li><a href="javascript:;" id="closeScanner">Close Scanner</a></li>
+            </ul>
+        </details>
+    </li>
+    <li>
+        <details class="menu">
+            <summary>PINPAD for MKSK</summary>
+            <ul>
+                <li><a href="javascript:;" id="loadMasterKey">Download Master Key</a></li>
+                <li><a href="javascript:;" id="cancelLoadMasterKey">Cancel Master Key Download</a></li>
+                <li><a href="javascript:;" id="loadPinKey">Download PIN Key</a></li>
+                <li><a href="javascript:;" id="checkPinKey">Verify PIN Key</a></li>
+                <li><a href="javascript:;" id="calculateMac">Calculate Mac</a></li>
+                <li><a href="javascript:;" id="calculateTDESTest">TDES Encryption/Decryption Test</a></li>
+                <li><a href="javascript:;" id="calculateTDESTestKeyData">TDES Encryption Test (temporary key)</a></li>
+                <li><a href="javascript:;" id="inputOnlinePin">Input Online PIN</a></li>
+                <li><a href="javascript:;" id="clearKey">Format PIN Pad</a></li>
+            </ul>
+        </details>
+        <details class="menu">
+            <summary>PINPAD for DUKPT</summary>
+            <ul>
+                <li><a href="javascript:;" id="loadInitKey">Download Init Key</a></li>
+                <li><a href="javascript:;" id="cancelLoadInitKey">Cancel Init Key Download</a></li>
+                <li><a href="javascript:;" id="getCurrentKsn">Get Current KSN</a></li>
+                <li><a href="javascript:;" id="increaseKsn">increase Current KSN</a></li>
+                <li><a href="javascript:;" id="calculateMacForDukpt">Calculate Mac</a></li>
+                <!--<li><a href="javascript:;" id="calculateTDESTestForDUKPT">TDES Encryption/Decryption Test</a></li>-->
+                <li><a href="javascript:;" id="inputOnlinePinForDukpt">Input Online PIN</a></li>
+                <li><a href="javascript:;" id="clearKeyForDukpt">Format PIN Pad</a></li>
+            </ul>
+        </details>
+        <details class="menu">
+            <summary>PINPAD for FIXED</summary>
+            <ul>
+                <li><a href="javascript:;" id="loadKey">Download Key</a></li>
+                <li><a href="javascript:;" id="cancelLoadKey">Cancel Key Download</a></li>
+                <li><a href="javascript:;" id="calculateMacForFixed">Calculate Mac</a></li>
+                <li><a href="javascript:;" id="calculateTDESTestForFixed">TDES Encryption/Decryption Test</a></li>
+                <li><a href="javascript:;" id="inputOnlinePinForFixed">Input Online PIN</a></li>
+                <li><a href="javascript:;" id="clearKeyForFixed">Format PIN Pad</a></li>
+            </ul>
+        </details>
+    </li>
+    <li>
+        <details class="menu">
+            <summary>Printer</summary>
+            <ul>
+                <li><a href="javascript:;" id="printReceipt">Print</a></li>
+                <li><a href="javascript:;" id="printerStatus">Get Printer Status</a></li>
+                <li><a href="javascript:;" id="feedPaper">Feed Paper </a></li>
+                <!--<li><a href="javascript:;" id="resetPrinter">Reset Printer</a></li>-->
+            </ul>
+        </details>
+    </li>
+    <li>
+        <details class="menu">
+            <summary>Beeper</summary>
+            <ul>
+                <li><a href="javascript:;" id="beepNormal">Normal</a></li>
+                <li><a href="javascript:;" id="beepFail">Error</a></li>
+                <li><a href="javascript:;" id="beepInterval">Interval</a></li>
+                <li><a href="javascript:;" id="beepTime">Beep 2s</a></li>
+            </ul>
+        </details>
+    </li>
+    <li>
+        <details class="menu">
+            <summary>LED</summary>
+            <ul>
+                <li><a href="javascript:;" id="turnOnAll">Turn on All</a></li>
+                <li><a href="javascript:;" id="turnOffAll">Turn off All</a></li>
+                <li><a href="javascript:;" id="operateRedLed">Operate Red Light</a></li>
+                <li><a href="javascript:;" id="operateGreenLed">Operate Green Light</a></li>
+                <li><a href="javascript:;" id="operateYellowLed">Operate Yellow Light</a></li>
+                <li><a href="javascript:;" id="operateBlueLed">Operate Blue Light</a></li>
+                <li><a href="javascript:;" id="operateBlueRedLed">Turn on Blue and Red Lights</a></li>
+            </ul>
+        </details>
+    </li>
+    <li>
+        <details class="menu">
+            <summary>Signature Pad</summary>
+            <ul>
+                <li><a href="javascript:;" id="showSignaturePadTimeout">Auto Rotation,Timeout</a></li>
+                <li><a href="javascript:;" id="showSignaturePadTimeless">Auto Rotation, No Timeout</a></li>
+                <li><a href="javascript:;" id="showSignaturePadNone">No Rotation, No Timeout</a></li>
+                <li><a href="javascript:;" id="showSignaturePadLandscape">No Timeout, Landscape</a></li>
+                <li><a href="javascript:;" id="showSignaturePadPortrait">No Timeout, Portrait</a></li>
+                <li><a href="javascript:;" id="showSignaturePadLandscapeReverse">No Timeout, Landscape Reverse</a></li>
+                <li><a href="javascript:;" id="showSignaturePadPortraitReverse">No Timeout, Portrait Reverse</a></li>
+                <li><a href="javascript:;" id="showSignaturePadReSign3">No Timeout,Auto Rotation,Resign 3 Times</a></li>
+                <li><a href="javascript:;" id="showSignaturePadReSignResetTimeout">Timeout,Auto Rotation,Resign 3
+                    Times,Reset Time</a></li>
+                <li><a href="javascript:;" id="closeSignaturePad">Show and Close Later</a></li>
+            </ul>
+        </details>
+    </li>
+    <li>
+        <details class="menu">
+            <summary>EMV</summary>
+            <ul>
+                <li><a href="javascript:;" id="initEmv">Init EMV</a></li>
+                <li><a href="javascript:;" id="startEmvTest">Start EMV Process</a></li>
+                <li><a href="javascript:;" id="getBalanceTest">Get Balance</a></li>
+                <li><a href="javascript:;" id="emvConfig">Set EMV Params</a></li>
+                <li><a href="javascript:;" id="getContactIcLogsTest">Get Contact IC Logs</a></li>
+                <li><a href="javascript:;" id="getContactEcLogsTest">Get Contact EC Logs</a></li>
+                <li><a href="javascript:;" id="getRfIcLogsTest">Get RF IC Logs</a></li>
+                <li><a href="javascript:;" id="getRfEcLogsTest">Get RF EC Logs</a></li>
+                <li><a href="javascript:;" id="emvGetInfo">Get EMV Info</a></li>
+            </ul>
+        </details>
+    </li>
+    <li>
+        <details class="menu">
+            <summary>Serial Port(USB)</summary>
+            <ul>
+                <li><a href="javascript:;" id="openUsb">Open</a></li>
+                <li><a href="javascript:;" id="sendDataToUsb">Send Data(timeout = 0)</a></li>
+                <li><a href="javascript:;" id="readDataFromUsb">Read Data(timeout = 0)</a></li>
+                <li><a href="javascript:;" id="sendDataToUsbTimeout">Send Data(timeout = 10000)</a></li>
+                <li><a href="javascript:;" id="readDataFromUsbTimeout">Read Data(timeout = 10000)</a></li>
+                <li><a href="javascript:;" id="flushUsb">Flush</a></li>
+                <li><a href="javascript:;" id="closeUsb">Close</a></li>
+            </ul>
+        </details>
+    </li>
+
+    <li>
+        <details class="menu">
+            <summary>GPRS</summary>
+            <ul>
+                <li><a href="javascript:;" id="openGprs">Open</a></li>
+                <li><a href="javascript:;" id="closeGprs">Close</a></li>
+                <li><a href="javascript:;" id="setDefaultAPN">Set Default APN</a></li>
+                <li><a href="javascript:;" id="getDefaultAPN">Get Default APN</a></li>
+            </ul>
+        </details>
+    </li>
+
+    <li>
+        <details class="menu">
+            <summary>WIFI</summary>
+            <ul>
+                <li><a href="javascript:;" id="openWifi">Open</a></li>
+                <li><a href="javascript:;" id="closeWifi">Close</a></li>
+                <li><a href="javascript:;" id="getWifiList">Get WIFI List</a></li>
+                <li><a href="javascript:;" id="getWifiInfo">Get WIFI Info</a></li>
+                <li><a href="javascript:;" id="configWifi">Config WIFI</a></li>
+                <li><a href="javascript:;" id="getConfigList">Get Config List</a></li>
+                <li><a href="javascript:;" id="isConfigExist">Is Config Exist</a></li>
+            </ul>
+        </details>
+    </li>
+
+    <li>
+        <details class="menu">
+            <summary>LAN</summary>
+            <ul>
+                <li><a href="javascript:;" id="openLan">Open</a></li>
+                <li><a href="javascript:;" id="configLanTest">Config Lan Test</a></li>
+                <li><a href="javascript:;" id="getLanInfo">Get Lan Information</a></li>
+                <li><a href="javascript:;" id="closeLan">Close</a></li>
+            </ul>
+        </details>
+    </li>
+
+    <li>
+        <details class="menu">
+            <summary>Other</summary>
+            <ul>
+                <li><a href="javascript:;" id="getTerminalInfo">Get Terminal Info</a></li>
+                <li><a href="javascript:;" id="setDatetime">Set Terminal Datetime</a></li>
+                <li><a href="javascript:;" id="start">Start</a></li>
+                <li><a href="javascript:;" id="stop">Stop</a></li>
+            </ul>
+        </details>
+    </li>
+</ul>

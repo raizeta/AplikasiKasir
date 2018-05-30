@@ -1,0 +1,43 @@
+<ion-modal-view hide-nav-bar="false" class="mymodalpembayaran">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <button class="button button-clear left" ng-click="openbookclose()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <h1 class="title">BUKA BUKU</h1>
+  </ion-header-bar>
+  <ion-content scroll="true" class="has-header padding">
+    <ion-list >
+        <form name="openForm"  novalidate="true">
+          <div class="col col-100">      
+            <div class="padding">
+              <label  class="item item-input" style="background-color: #f8f8f8">
+              <span>Uang Di Laci</span></label>
+              <label  class="item item-input" style="background-color: #f8f8f8">
+                <i class="icon ion-card placeholder-icon float-right"></i>
+                <input type="tel" placeholder="Cash In Drawer" ng-model="openbookdata.CASHINDRAWER" format="number" ng-readonly="sudahopen" class="float-right">
+              </label>
+            </div>
+          </div>
+          <div style="padding: 0px 15px 10px 15px;">
+            <div style="border-bottom:1px solid rgba(1, 1, 1, 0.1);"></div>
+          </div>
+          <div class="col col-100">      
+            <div class="padding">
+              <label  class="item item-input" style="background-color: #f8f8f8">
+              <span>Tambahkan Uang</span></label>
+              <label  class="item item-input" style="background-color: #f8f8f8">
+                <i class="icon ion-card placeholder-icon float-right"></i>
+                <input type="tel" placeholder="Added Cash" ng-model="openbookdata.ADDCASH" format="number" 
+                ng-readonly="sudahopen" required class="float-right">
+              </label>
+            </div>
+          </div>
+          <div class="row" style="padding:0px 15px">
+            <button type="submit" class="button button-block button-assertive" ng-click="openbooksubmit()" ng-disabled="openForm.$invalid || sudahopen">
+              CHECK IN
+            </button>
+          </div>
+        </form>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,68 @@
+<ion-modal-view class="mymodalpembayaran">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <button class="button button-icon icon ion-chevron-left" ng-click="CloseModalItemRefund()" style="left:-10px;"></button>
+    <h1 class="title">Produk Yang Direfund</h1>
+  </ion-header-bar>
+  
+  <ion-content scroll='false'>
+    <style type="text/css">td.harga{padding-right:0px;}td.qty{padding-left:5px;}</style>
+    <ion-scroll style="height:80%">
+      <table class="pure-table pure-table-horizontal" width="100%">
+        <thead >
+          <tr>
+            <th style="width: 10px;">#</th>
+            <th>NAMA</th>
+            <th></th>
+            <th></th>
+            <th align="right">SUB</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="itemproduct in itemincart track by $index" ng-class="$index % 2 == 1 ? 'pure-table-odd' :''">
+            <td valign="middle" style="width: 10px;">{{$index + 1}}</td>
+            <td valign="middle">
+              {{itemproduct.PRODUCT_NM|cuttext:true:32:'...'}}
+              <div ng-if="itemproduct.CURRENT_PPN > 0">
+                PPN {{itemproduct.CURRENT_PPN}} %
+              </div>
+            </td>
+            <td valign="middle" align="right" class='harga'>{{itemproduct.HARGA_JUAL|number}}</td>
+            <td valign="middle" align="left" class="qty">x {{itemproduct.QTY_INCART}}</td>
+            <td valign="middle" align="right">
+              {{itemproduct.HARGA_JUAL * itemproduct.QTY_INCART|number}}
+              <div ng-if="itemproduct.CURRENT_PPN > 0">
+                {{itemproduct.CURRENT_PPN * itemproduct.HARGA_JUAL * itemproduct.QTY_INCART/100|number }}
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ion-scroll>
+   
+    <div style="position:absolute;bottom:-10px;width: 100%">
+      <div class="row" style="background: #f8f8f8;bottom: -5px;">
+          <div class="my-col">
+            <h4>Total </h4>
+          </div>
+          <div class="my-col">
+            <div style="float:right">
+              <h4>{{itemincart.length}} Item</h4>
+            </div>
+          </div>
+          <div class="my-col">
+            <div style="float:right;padding-right: 0px;">
+              <h4 ng-if="itemincart.length > 0">{{hitungtotal(itemincart)|number}}</h4>
+              <h4 ng-if="itemincart.length == 0">0</h4>
+            </div>
+          </div>
+      </div>
+      <div class="row" style="padding:0px;" ng-if="itemincart.length > 0">
+        <div class="col" style="padding:0px;">
+          <button class="button button-block button-full" ng-class="theme.buttonstyle" ng-click="SubmitModalItemRefund(hitungtotal(itemincart))" >
+            Refund 
+          </button>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

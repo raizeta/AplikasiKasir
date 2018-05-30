@@ -1,0 +1,10 @@
+<ion-modal-view hide-nav-bar="true">
+  <ion-content class="padding">
+	<div class="modal image-modal transparent" on-swipe-down="modalviewgambarclose()" on-swipe-left="modalviewgambarclose()" on-swipe-right="modalviewgambarclose()">
+        <ion-slide>
+            <img ng-src="http://image.kontrolgampang.com/produk/{{datadetailproduct.IMG_FILE}}" imageonload class="fullscreen-image" />
+            <!-- <img ng-src="img/save-image.png" class="fullscreen-image" ng-if="!productimages" /> -->
+        </ion-slide>
+	</div>
+  </ion-content>
+</ion-modal-view>

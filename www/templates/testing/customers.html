@@ -1,0 +1,43 @@
+<ion-view view-title="CUSTOMERS TESTING">
+	<ion-nav-buttons side="right">
+      <button class="button button-icon icon ion-plus" ng-click='modalnewcustomeropen()'></button>
+  	</ion-nav-buttons>
+	<ion-content>
+		<ion-list>
+			<div class="item item-divider item-calm">
+                AKTIF
+          	</div>
+			<ion-item class="item-stable" ng-repeat="customer in datacustomers" ng-if="customer.STATUS == 1">
+				<div class="item-icon-left">
+					<i class="icon ion-loop"></i>
+					<h2>{{customer.NAME|uppercase}}</h2>
+				</div>
+				<div class="item-icon-right">
+					<i class="icon ion-ios-arrow-right"></i>
+				</div>
+				<ion-option-button class="button-assertive icon ion-trash-b" ng-click="modaldeletecustomeropen(customer,$index)">
+				</ion-option-button>
+				<ion-option-button class="button-positive icon ion-loop" ng-click="modalupdatecustomeropen(customer,$index)">
+				</ion-option-button>
+			</ion-item>
+			<div class="item item-divider item-calm">
+                NON-AKTIF
+          	</div>
+			<ion-item class="item-stable" ng-repeat="customer in datacustomers" ng-if="customer.STATUS == 0">
+				<div class="item-icon-left">
+					<i class="icon ion-loop"></i>
+					<h2>{{customer.NAME|uppercase}}</h2>
+				</div>
+				<div class="item-icon-right">
+					<i class="icon ion-ios-arrow-right"></i>
+				</div>
+				<ion-option-button class="button-assertive icon ion-trash-b" ng-click="modaldeletecustomeropen(customer,$index)">
+				</ion-option-button>
+				<ion-option-button class="button-positive icon ion-loop" ng-click="modalupdatecustomeropen(customer,$index)">
+				</ion-option-button>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>
+
+

@@ -1,0 +1,39 @@
+<ion-modal-view id="login" class="mymodalpembayaran">
+  <ion-header-bar class="bar bar-header bar-assertive">
+    <h1 class="title">MITRA BARU</h1>
+    <button class="button button-icon icon ion-arrow-left-c" ng-click="signupmodalcancel()"></button>
+    <button class="button button-icon"></button>
+  </ion-header-bar>
+<ion-content overflow-scroll="false" has-bouncing="true" padding="true" >
+    <div class="row responsive-md">
+        <div class="col col-50 col-offset-25">
+            <form name="loginForm" novalidate="true">
+                <div class="list list-inset rounded">
+                    <!-- <label class="item item-input" style="background-color: #f8f8f8">
+                        <input type="text" placeholder="username" ng-model="datauserbaru.username" class="form-control" required>
+                    </label> -->
+                    <label class="item item-input" style="background-color: #f8f8f8">
+                        <input type="email" placeholder="Email" ng-model="datauserbaru.email" class="form-control" required>
+                    </label>
+                    <label class="item item-input" style="background-color: #f8f8f8">
+                        <input type="tel" placeholder="Nomor Telepon" ng-model="datauserbaru.NO_TELP" class="form-control" required>
+                    </label>
+                    <label class="item item-input" style="background-color: #f8f8f8">
+                        <input type="password" placeholder="Password" ng-model="datauserbaru.password" ui-show-password required="true">
+                    </label>
+                </div>
+                <button type="submit" class="button button-block button-positive rcorners2" ng-disabled="loginForm.$invalid" round  ng-click="submitnewuser()">
+                  Daftar
+                </button>
+            </form>
+                <div style="padding-top:10px;text-align: center;">
+                    <button class="button  ion-social-facebook button-positive rcorners2" ng-click="SignUpWithSocmed('facebook')" style="border: 1px solid rgba(255, 255, 255, 0.8);"></button>
+                </div>
+                <!-- <div style="padding-top:10px;text-align: center;">
+                    <button class="button  ion-social-facebook button-positive rcorners2" ng-click="SignUpWithGoogle()" style="border: 1px solid rgba(255, 255, 255, 0.8);"></button>
+                </div> -->
+            
+        </div>
+    </div>
+    </ion-content>
+</ion-modal-view>

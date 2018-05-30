@@ -1,0 +1,45 @@
+<ion-view hide-nav-bar="false" cache-view="true" view-title="VOUCHER GAME">
+  <ion-content>
+    <div class="list card no-padding" style="margin: 0px;">
+      <ion-item class="item" style="padding-left:0px;">
+        <div class="item-icon-left">
+      <i class="icon ion-bag"></i>
+          <h2>SISA SALDO</h2>
+          <h3>Rp 1.000.000</h3>
+        </div>
+        <div class="item-icon-right" ng-click="modalnewstoreopen()">
+            <i class="icon" style="font-size: 16px;">ISI SALDO</i>
+        </div>
+      </ion-item>
+    </div>
+    <form name="pulsaForm"  novalidate="true">
+      <style>
+        i.icon.ion-ios-bolt-outline
+        {
+          padding-right: 30px;
+          font-size: 30px;
+          color: teal;
+        }
+        label{line-height: 50%;}
+      </style>
+      <div class="row" style="margin:0px;padding: 0px;">
+        <div class="col col-90" style="margin:0px;padding: 0px;">
+          <label  class="item item-input">
+            <i class="icon ion-ios-bolt-outline placeholder-icon"></i>
+            <input type="tel" ng-model="datapembelianppob.MSISDN" maxlength="12" required ng-change="nomorteleponchange()" placeholder="Masukkan ID Pelanggan/Nomor Meter Disini">
+          </label>
+        </div>
+        <div class="col col-10" style="margin:0px;padding: 0px;">
+          <label  class="item item-input bg-dark">
+            <i class="icon ion-android-contacts placeholder-icon" style="font-size: 30px;margin-left:-5px;height: 34px;"></i>
+          </label>
+        </div>
+      </div>
+      <div class="padding">
+        <button class="button button-block button-full" ng-class="theme.buttonstyle" ng-click="submitpembelianpulsa()">
+          Bayar
+        </button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,119 @@
+<ion-view hide-nav-bar="false" view-title="TUTUP BUKU">
+  <ion-content class="has-header layerbackground">
+    <ion-list>
+        <ion-list>
+          <form name="closebookForm">
+            <table class="pure-table pure-table-horizontal" width="100%" style="padding-top: 5px;">
+              <tbody>
+                <tr class="pure-table-odd">
+                  <td valign="middle" style="width: 10px;" colspan="3">Data Kasir</td>
+                </tr>
+                <tr class="pure-table-odd">
+                  <td valign="middle" style="width: 10px;">1</td>
+                  <td valign="middle" style="width: 50vw;">ID Tutup Buku</td>
+                  <td valign="middle" align="right" style="border-left: 0px;">{{dataclosebook.SPLIT_OPENCLOSE_ID}}</td>
+                </tr>
+                <tr class="pure-table-odd">
+                  <td valign="middle" style="width: 10px;">2</td>
+                  <td valign="middle" style="width: 50vw;">Nama Kasir</td>
+                  <td valign="middle" align="right" style="border-left: 0px;">{{profileops.PROFILE.NM_DEPAN}}</td>
+                </tr>
+                <tr class="pure-table-odd">
+                  <td valign="middle" style="width: 10px;">3</td>
+                  <td valign="middle" style="width: 50vw;">Waktu Buka Buku</td>
+                  <td valign="middle" align="right" style="border-left: 0px;">{{dataclosebook.TGL_OPEN}}</td>
+                </tr>
+                <tr class="pure-table-odd">
+                  <td valign="middle" style="width: 10px;">4</td>
+                  <td valign="middle" style="width: 50vw;">Waktu Tutup Buku</td>
+                  <td valign="middle" align="right" style="border-left: 0px;">{{dataclosebook.TGL_CLOSE}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="padding-top: 5px;"></div>
+            <table class="pure-table pure-table-horizontal" width="100%">
+
+              <tbody>
+                <tr class="pure-table-odd">
+                  <td valign="middle" style="width: 10px;" colspan="3">Pemasukan</td>
+                </tr>
+                <tr class="pure-table-odd">
+                  <td valign="middle" style="width: 10px;">1</td>
+                  <td valign="middle" style="width: 50vw;">Modal Awal</td>
+                  <td valign="middle" align="right">{{dataclosebook.CASHINDRAWER|number}}</td>
+                </tr>
+                <tr class="pure-table-odd">
+                  <td valign="middle">2</td>
+                  <td valign="middle">Tambah Modal</td>
+                  <td valign="middle" align="right">{{dataclosebook.ADDCASH|number}}</td>
+                </tr>
+                <tr class="pure-table-odd">
+                  <td valign="middle">3</td>
+                  <td valign="middle">Hasil Penjualan</td>
+                  <td valign="middle" align="right">{{dataclosebook.SELLCASH|number}}</td>
+                </tr>
+                <tr class="pure-table-odd">
+                  <td valign="middle">4</td>
+                  <td valign="middle">Donasi</td>
+                  <td valign="middle" align="right">{{dataclosebook.TOTALDONASI|number}}</td>
+                </tr>
+                <tr class="pure-table-odd">
+                  <td valign="middle" colspan="2">Sub Total</td>
+                  <td valign="middle" align="right">{{dataclosebook.CASHINDRAWER + dataclosebook.ADDCASH +  dataclosebook.SELLCASH + dataclosebook.TOTALDONASI|number}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="padding-top: 5px;"></div>
+
+            <table class="pure-table pure-table-horizontal" width="100%" style="padding-top: 5px;">
+              <tbody>
+                <tr class="pure-table-odd">
+                  <td valign="middle" style="width: 10px;" colspan="3">Pengeluaran</td>
+                </tr>
+                <tr class="pure-table-odd">
+                  <td valign="middle" style="width: 10px;">1</td>
+                  <td valign="middle" style="width: 50vw;">Refund</td>
+                  <td valign="middle" align="right" style="border-left: 0px;">{{dataclosebook.TOTALREFUND|number}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="padding-top: 5px;"></div>
+            <table class="pure-table pure-table-horizontal" width="100%" style="padding-top: 5px;">
+              <tbody>
+                <tr class="pure-table-odd">
+                  <td valign="middle" style="width: 10px;" colspan="3">Neraca</td>
+                </tr>
+                <tr class="pure-table-odd">
+                  <td valign="middle" style="width: 10px;">1</td>
+                  <td valign="middle" style="width: 50vw;">Pemasukan</td>
+                  <td valign="middle" align="right">{{dataclosebook.CASHINDRAWER + dataclosebook.ADDCASH +  dataclosebook.SELLCASH + dataclosebook.TOTALDONASI|number}}</td>
+                </tr>
+                <tr class="pure-table-odd">
+                  <td valign="middle" style="width: 10px;">2</td>
+                  <td valign="middle" >Pengeluaran</td>
+                  <td valign="middle" align="right">{{dataclosebook.TOTALREFUND|number}}</td>
+                </tr>
+                <tr class="pure-table-odd">
+                  <td valign="middle" colspan="2">Total</td>
+                  <td valign="middle" align="right">{{dataclosebook.TOTALCASH|number}}</td>
+                </tr>
+              </tbody>
+            </table>
+           <!-- <div ></div> -->
+            <div style="padding-top: 5px;">
+              <label  class="item item-input" style="background-color: #f8f8f8"><span>Total Aktual</span></label>
+              <label  class="item item-input">
+                <i class="icon ion-card placeholder-icon float-right"></i>
+                <input type="tel"  format="number" ng-model="dataclosebook.TOTALCASH_ACTUAL" required ng-readonly="sudahclose" class="float-right">
+              </label>
+            </div>
+            <div class="row" style="padding-left: 10px;padding-right: 10px;">
+                <button class="button button-block button-full" ng-class="theme.buttonstyle" style="border-radius:15px;" ng-click="printclosebookhistory()">
+                  PRINT
+                </button>
+            </div>
+          </form>
+        </ion-list>
+    </ion-list>
+  </ion-content>
+</ion-view>

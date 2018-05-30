@@ -1,0 +1,83 @@
+<ion-view class="mymodalcustnewtransaksi">
+<form name="cicilanForm" novalidate="true">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <h1 class="title">Data Pekerjaan</h1>
+    <button class="button button-clear left" ng-click="closemodalformcicilan()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <button class="button button-clear right">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Pendapatan Bulanan</span>
+        <input type="text" name="MonthlyFixedIncome" ng-model="newcicilan.MonthlyFixedIncome" class="custom-success" placeholder="Masukkan Pendapatan Disini" required>
+        <p ng-show="cicilanForm.MonthlyFixedIncome.$error.required" style="color:red;">
+          Pendapatan Tidak Boleh Kosong
+        </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Bidang Pekerjaan</span>
+        <input type="text" name="ProfessionID" ng-model="newcicilan.ProfessionID" class="custom-success" placeholder="Masukkan Bidang Pekerjaan Disini" required>
+        <p ng-show="cicilanForm.ProfessionID.$error.required" style="color:red;">
+          Bidang Pekerjaan Tidak Boleh Kosong
+        </p>
+      </label> 
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Jabatan</span>
+        <input type="text" name="JobPositionID" ng-model="newcicilan.JobPositionID" class="custom-success" placeholder="Masukkan Jabatan Lengkap Disini" ng-required="true">
+        <p ng-show="cicilanForm.JobPositionID.$error.required" style="color:red;">
+          Jabatan Tidak Boleh Kosong
+        </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Tahun Masuk</span>
+        <input type="text" name="WorkSinceYear" ng-model="newcicilan.WorkSinceYear" class="custom-success" placeholder="Masukkan Tahun Masuk Disini" ng-required="true">
+        <p ng-show="cicilanForm.WorkSinceYear.$error.required" style="color:red;">
+          Tahun Masuk Tidak Boleh Kosong
+        </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Nama Perusahaan</span>
+          <input type="email" name="CompanyName" ng-model="newcicilan.CompanyName" class="custom-success" placeholder="Masukkan Nama Perusahaan Disini"  ng-required="true">
+          <p ng-show="cicilanForm.CompanyName.$error.required" style="color:red;">
+          Nama Perusahaan Tidak Boleh Kosong
+        </p>
+        <p ng-show="cicilanForm.CompanyName.$error.email" style="color:red;">
+          Nama Perusahaan Tidak Valid
+        </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Telp Perusahaan</span>
+          <input type="text" name="CompanyPhone" ng-model="newcicilan.CompanyPhone" class="custom-success" placeholder="Masukkan Nomor Telp/HP Disini" ng-required="true">
+          <p ng-show="cicilanForm.CompanyPhone.$error.required" style="color:red;">
+            Telp Perusahaan Tidak Boleh Kosong
+          </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Provinsi</span>
+          <input type="text" name="CompanyPropinsi" ng-model="newcicilan.CompanyPropinsi" class="custom-success" placeholder="Masukkan Propinsi Disini" ng-required="true">
+          <p ng-show="cicilanForm.CompanyPropinsi.$error.required" style="color:red;">
+            Provinsi Tidak Boleh Kosong
+          </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Alamat Lengkap</span>
+          <input type="text" name="CompanyAddress" ng-model="newcicilan.CompanyAddress" class="custom-success" placeholder="Masukkan Nomor Telp/HP Disini" ng-required="true">
+          <p ng-show="cicilanForm.CompanyAddress.$error.required" style="color:red;">
+            Alamat Lengkap Tidak Boleh Kosong
+          </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Kode Pos</span>
+          <input type="text" name="CompanyZipCode" ng-model="newcicilan.CompanyZipCode" class="custom-success" placeholder="Masukkan Nomor Telp/HP Disini" ng-required="true">
+          <p ng-show="cicilanForm.CompanyZipCode.$error.required" style="color:red;">
+            Kode Pos Tidak Boleh Kosong
+          </p>
+      </label>
+    </ion-list>
+  </ion-content>
+</form>
+</ion-view>

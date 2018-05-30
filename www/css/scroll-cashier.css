@@ -1,0 +1,96 @@
+.shopcart-scroll
+{
+	position: relative !important;
+	height:85%;
+	overflow-y: scroll;
+}
+
+.shopcartkecil-scroll
+{
+	position: relative !important;
+	height:87%;
+	overflow-y: scroll;
+}
+
+.itemincart-scroll
+{
+	position: relative !important;
+	height:63%;
+	overflow-y: scroll;
+}
+
+.controltoko-scroll
+{
+	position: relative !important;
+	height:83vh;
+	overflow-y: scroll;
+}
+
+.infotoko-scroll
+{
+	position: relative !important;
+	height:84vh;
+	overflow-y: scroll;
+}
+
+.infotokokecil-scroll
+{
+	position: relative !important;
+	height:84vh;
+	overflow-y: scroll;
+}
+
+.controlproduct-scroll
+{
+	position: relative !important;
+	height:75vh;
+	overflow-y: scroll;
+}
+
+.infoproduct-scroll
+{
+	position: relative !important;
+	height:84vh;
+	overflow-y: scroll;
+}
+.infoproduct-kecil-scroll
+{
+	position: relative !important;
+	height:86vh;
+	overflow-y: scroll;
+}
+
+.listtrans-scroll
+{
+	position: relative !important;
+	height:74vh;
+	overflow-y: scroll;
+}
+
+.detailtrans-scroll
+{
+	position: relative !important;
+	height:42.5vh;
+	overflow-y: scroll;
+}
+
+.detailtranskecil-scroll
+{
+	position: relative !important;
+	height:85vh;
+	overflow-y: scroll;
+}
+
+.listsetoran-scroll
+{
+	position: relative !important;
+	height:91vh;
+	overflow-y: scroll;
+}
+
+.detailsetoran-scroll
+{
+	position: relative !important;
+	height:91vh;
+	overflow-y: scroll;
+}

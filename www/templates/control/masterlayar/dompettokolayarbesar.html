@@ -1,0 +1,67 @@
+<div class="row" ng-if="screenbesar">
+  <style>
+      .item-icon-left.xxx {padding-left: 4vh;}
+      i.icon.xxx {font-size:16px;padding-left: 2vh}
+  </style>
+  <div class="col col-33" style="height:100vh;padding:0px;">
+    <ion-item class="item item-calm" style="padding-left:0px;">
+      <div class="item-icon-left">
+        <h2>DAFTAR TOKO</h2>
+      </div>
+    </ion-item>
+    <ion-scroll class="controltoko-scroll">
+      <ion-item  ng-repeat="store in datastores track by $index" ng-class="isGroupShown(store) ? 'active':''" >
+          <div class="item-icon-left" on-tap="detailstore(store)">
+              <i class="icon xxx">{{$index + 1}}</i>
+              <h2 ng-if="store.STORE_NM == ''">OUTLET {{store.STORE_ID|split:'.':1}}</h2>
+              <h2>{{store.STORE_NM|uppercase}}</h2>
+          </div>
+          <div class="item-icon-right">
+              <i class="icon ion-ios-arrow-right"></i>
+          </div>
+      </ion-item>
+    </ion-scroll>
+  </div>
+  <div class="col col-66 layerbackground" style="height:100vh;padding:0px;">
+    <ion-scroll  class="infotoko-scroll" style="height: 87vh;">
+      <ion-list>
+        <div class="list card no-padding" style="margin: 0px;">
+            <ion-item class="item" style="padding-left:0px;">
+              <div class="item-icon-left">
+            <i class="icon ion-bag"></i>
+                <h2>SISA SALDO</h2>
+                <h3>Rp 1.000.000</h3>
+              </div>
+              <div class="item-icon-right">
+                  <i class="icon" style="font-size: 16px;">ISI SALDO</i>
+              </div>
+            </ion-item>
+        </div>
+        <ion-item style="border:0px;">
+          <fieldset style="background-color: white">
+            <legend>TRANSFER SALDO</legend>
+            <div class="list">
+              <label class="item item-input item-stacked-label border-bottom">
+               <span class="input-label">Dari Toko</span>
+                <input type="text" placeholder="Pilih Paket Pembayaran" ng-model="datadetail.STORE_NM" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+              </label>
+              <label class="item item-input item-stacked-label border-bottom" ng-click="openstorepopup(datadetail)">
+               <span class="input-label">Transfer Ke</span>
+                <input type="text" format="number" placeholder="Pilih Paket Pembayaran" ng-value="DOMPET UTAMA" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+              </label>
+              <label class="item item-input item-stacked-label border-bottom">
+               <span class="input-label">Nominal Transfer</span>
+                <input type="text" format="number" ng-model="iuranyangharusdibayar.PAKET_DURATION" class="custom-success" required style="background-color: white">
+              </label>
+            </div>
+          </fieldset>
+        </ion-item>
+        <ion-item>
+          <button class="button button-block" type="submit" ng-class="theme.buttonstyle"   style="border-radius: 50px;">
+            TRANSFER SALDO
+          </button>
+        </ion-item>
+      </ion-list>
+    </ion-scroll>
+  </div>
+</div>

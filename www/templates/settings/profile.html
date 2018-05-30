@@ -1,0 +1,143 @@
+<ion-view>
+	<ion-nav-title>
+        <div class="page-title">SETTING {{mode.valuechoose}}</div>
+    </ion-nav-title>
+	<ion-header-bar class="bar-subheader"  ng-class="theme.headerstyle" id="mybar" ng-if="!screenbesar" style="padding-left: 0px;padding-right: 0px;padding-bottom: 0px;padding-top: 0px" >
+	    <div class="button-bar" id="mybar">
+    	  <a class="button button-small icon ion-person" style="padding-top:5px" grouped-radio="'PROFIL'" ng-model="mode.valuechoose"></a>
+	      <a class="button button-small icon ion-ios-briefcase" style="padding-top:5px" grouped-radio="'REKENING'" ng-model="mode.valuechoose"></a>
+	      <a class="button button-small icon ion-locked" style="padding-top:5px" grouped-radio="'KEAMANAN'" ng-model="mode.valuechoose"></a>
+	    </div>
+  	</ion-header-bar>
+	<ion-content class="has-subheader">
+      	<ion-list ng-show="mode.valuechoose == 'PROFIL'">
+          	<ion-item>
+	          	<div class="list">
+	          		<form name="ubahprofileForm" novalidate="true" ng-submit="ubahprofileForm.$valid && ubahprofile(datauserprofile)">
+	              	<label class="item item-input item-stacked-label border-bottom">
+					    <span class="input-label">No KTP</span>
+					    <input type="text" name="ktp" ng-model="datauserprofile.KTP" placeholder="Masukkan No.KTP Anda Disini" class="custom-success" required>
+					    <p ng-show="ubahprofileForm.$submitted && ubahprofileForm.ktp.$invalid" style="color:red;">
+				    		Nomor KTP Tidak Boleh Kosong
+					    </p>
+					  </label>
+	              	<label class="item item-input item-stacked-label border-bottom">
+	                  <span class="input-label">Email</span>
+	                  <input type="email" name="emails" ng-model="datauserprofile.EMAIL" placeholder="Masukkan Email Anda Disini" class="custom-success" required>
+	                  <p ng-show="ubahprofileForm.$submitted && ubahprofileForm.emails.$error.required" style="color:red;">
+	                  	Email Tidak Boleh Kosong
+	                  </p>
+	                  <p ng-show="ubahprofileForm.$submitted && ubahprofileForm.emails.$error.email" style="color:red;">
+	                  	Email Tidak Valid
+	                  </p>
+	              	</label>
+	              	<label class="item item-input item-stacked-label border-bottom">
+	                  <span class="input-label">No HP/Telp</span>
+	                  <input type="tel" name="notelp" ng-model="datauserprofile.HP" placeholder="Masukkan Nomor HP/Telp Anda Disini" class="custom-success" ng-required="true">
+	                  <p ng-show="ubahprofileForm.$submitted && ubahprofileForm.notelp.$error.required" style="color:red;">
+	                  	No Telp/HP Tidak Boleh Kosong
+	                  </p>
+	              	</label>
+	              	<label class="item item-input item-stacked-label border-bottom">
+	                  <span class="input-label">Nama Lengkap</span>
+	                  <input type="text" name="namalkp" ng-model="datauserprofile.NM_DEPAN" placeholder="Masukkan Nama Lengkap Anda Disini" class="custom-success" required>
+	                  <p ng-show="ubahprofileForm.$submitted && ubahprofileForm.namalkp.$error.required" style="color:red;">
+	                  	Nama Lengkap Tidak Boleh Kosong
+	                  </p>
+	              	</label>
+	              	<label class="item item-input item-stacked-label border-bottom">
+	                  <span class="input-label">Tempat Lahir</span>
+	                  <input type="text" name="tptlahir" ng-model="datauserprofile.LAHIR_TEMPAT" placeholder="Masukkan Tempat Lahir Anda Disini" class="custom-success" required>
+	                  <p ng-show="ubahprofileForm.$submitted && ubahprofileForm.tptlahir.$error.required" style="color:red;">
+	                  	Tempat Lahir Tidak Boleh Kosong
+	                  </p>
+	              	</label>
+	              	<label class="item item-input item-stacked-label border-bottom">
+	                  <span class="input-label">Tanggal Lahir</span>
+	                  <input type="date" name="tgllahir" ng-model="datauserprofile.LAHIR_TGL" placeholder="Masukkan Tanggal Lahir Anda Disini" class="custom-success" required>
+	                  <p ng-show="ubahprofileForm.$submitted && ubahprofileForm.tgllahir.$error.required" style="color:red;">
+	                  	Tanggal Lahir Tidak Boleh Kosong
+	                  </p>
+	              	</label>
+	              	<label class="item item-input item-stacked-label border-bottom" ng-click="pilihjeniskelamin()">
+	                  <span class="input-label">Jenis Kelamin</span>
+	                  <input type="text" name="jeskel" ng-model="datauserprofile.LAHIR_GENDER" placeholder="Masukkan Jenis Kelamin Anda Disini" class="custom-success" ng-readonly="true" ng-disabled="true" style="background-color: white;" required>
+	                  <p ng-show="ubahprofileForm.$submitted && ubahprofileForm.jeskel.$error.required" style="color:red;">
+	                  	Jenis Kelamin Tidak Boleh Kosong
+	                  </p>
+	              	</label>
+	              	<label class="item item-input item-stacked-label border-bottom">
+	                  <span class="input-label">Alamat Lengkap</span>
+	                  <input type="text" name="alamat" ng-model="datauserprofile.ALAMAT" placeholder="Masukkan Alamat Lengkap Anda Disini" class="custom-success"ng-required="true">
+	                  <p ng-show="ubahprofileForm.$submitted && ubahprofileForm.alamat.$error.required" style="color:red;">
+	                  	Alamat Tidak Boleh Kosong
+	                  </p>
+	              	</label>
+			          <button type="submit" class="button button-block" ng-class="theme.buttonstyle" style="border-radius: 50px">
+			            UBAH PROFIL
+			          </button>
+					</form>
+	          	</div>
+          	</ion-item>
+		</ion-list>
+		<ion-list ng-show="mode.valuechoose == 'REKENING'">
+          	<ion-item>
+	          	<div class="list">
+	          		<form name="ubahrekeningForm" novalidate="true" ng-submit="ubahrekeningForm.$valid && ubahprofile(datarekening)">
+	              	<label class="item item-input item-stacked-label border-bottom">
+					    <span class="input-label">Nomor Rekening</span>
+					    <input type="text" name="nomorek" ng-model="datarekening.NOMOR_REKENING" placeholder="Masukkan Nomor Rekening Anda Disini" class="custom-success" required>
+					    <p ng-show="ubahrekeningForm.$submitted && ubahrekeningForm.nomorek.$invalid" style="color:red;">
+				    		Nomor Rekening Tidak Boleh Kosong
+					    </p>
+					  </label>
+	              	<label class="item item-input item-stacked-label border-bottom">
+	                  <span class="input-label">Nama Pemilik Rekening</span>
+	                  <input type="text" name="namapemilikrek" ng-model="datarekening.PEMILIK_REKENING" placeholder="Masukkan Nama Anda Yang Tercantum Di Rekening" class="custom-success" required>
+	                  <p ng-show="ubahrekeningForm.$submitted && ubahrekeningForm.nomorek.$invalid" style="color:red;">
+	                  	Nama Pemilik Tidak Boleh Kosong
+	                  </p>
+	              	</label>
+	              	<label class="item item-input item-stacked-label border-bottom">
+	                  <span class="input-label">Nama Bank</span>
+	                  <input type="tel" name="bankrekening" ng-model="datarekening.BANK_REKENING" placeholder="Masukkan Nama Bank Yang Tercantum Di Rekening" class="custom-success" ng-required="true">
+	                  <p ng-show="ubahrekeningForm.$submitted && ubahrekeningForm.bankrekening.$invalid" style="color:red;">
+	                  	Nama Bank Tidak Boleh Kosong
+	                  </p>
+	              	</label>
+	              	<label class="item item-input item-stacked-label border-bottom">
+	                  <span class="input-label">Alamat Bank</span>
+	                  <input type="text" name="kacabbank" ng-model="datarekening.KACAB_BANK" placeholder="Masukkan Kantor Cabang Bank Yang Tercantum Di Rekening" class="custom-success" required>
+	                  <p ng-show="ubahrekeningForm.$submitted && ubahrekeningForm.kacabbank.$error.required" style="color:red;">
+	                  	Kantor Cabang Bank Tidak Boleh Kosong
+	                  </p>
+	              	</label>
+			          <button type="submit" class="button button-block" ng-class="theme.buttonstyle" style="border-radius: 50px">
+			            UBAH DATA REKENING
+			          </button>
+					</form>
+	          	</div>
+          	</ion-item>
+		</ion-list>
+		<ion-list ng-show="mode.valuechoose == 'KEAMANAN'">
+			<ion-item>
+	          	<div class="list list-inset rounded">
+	          		<form name="ubahpasswordForm" novalidate="true">
+	              	<label class="item item-input" style="background-color:#f8f8f8;border-radius: 15px;margin-bottom:20px">
+	                  <input type="text" ng-model="datauserlogin.username" ng-readonly="false" required>
+	              	</label>
+	              	
+	              	<label class="item item-input" style="background-color: #f8f8f8;border-radius: 15px">
+                        <input type="password" placeholder="Password Baru" ng-model="datauserlogin.password" ui-show-password required>
+                    </label>
+
+			          <button class="button button-block" ng-class="theme.buttonstyle" ng-click="ubahpassword(datauserlogin)"  style="border-radius: 50px;">
+			            UBAH PASSWORD
+			          </button>
+					</form>
+	          	</div>
+          	</ion-item>
+      	</ion-list>
+	</ion-content>
+</ion-view>
+

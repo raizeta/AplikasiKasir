@@ -1,0 +1,83 @@
+<!-- <ion-view hide-nav-bar="false" view-title="{{splitnomortransaksi}}"> -->
+<ion-view hide-nav-bar="false" cache-view="true" view-title="BRANCHLESS BANKING">
+	<ion-header-bar class="bar-subheader"  ng-class="theme.headerstyle" id="mybar" >
+	    <div class="button-bar" id="mybar">
+    	  <a class="button button-small" style="padding-top:5px" grouped-radio="'SETOR'" ng-model="mode.valuechoose">
+    	  	SETOR/TRANSFER
+    	  </a>
+	      <a class="button button-small" style="padding-top:5px" grouped-radio="'TARIK'" ng-model="mode.valuechoose">
+	      	TARIK
+	      </a>
+	    </div>
+  	</ion-header-bar>
+  <ion-content>
+	<ion-list ng-if="mode.valuechoose == 'SETOR' ">
+	    <ion-item style="border:0px;">
+	      <fieldset style="background-color: white">
+	        <legend>SETOR</legend>
+	        <div class="list">
+	          <label class="item item-input item-stacked-label border-bottom" ng-click="openstorepopup(datadetail)">
+	           <span class="input-label">Nomor Rekening</span>
+	            <input type="text" ng-model="tariksaldo.NOMOR_REK" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+	          </label>
+	          <label class="item item-input item-stacked-label border-bottom" ng-click="openstorepopup(datadetail)">
+	           <span class="input-label">Nama Pemilik</span>
+	            <input type="text" ng-model="tariksaldo.NAMAPEMILIK_REK" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+	          </label>
+	          <label class="item item-input item-stacked-label border-bottom" ng-click="openstorepopup(datadetail)">
+	           <span class="input-label">Nama Bank</span>
+	            <input type="text" ng-model="tariksaldo.NAMABANK_REK" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+	          </label>
+	          <label class="item item-input item-stacked-label border-bottom" ng-click="openstorepopup(datadetail)">
+	           <span class="input-label">Cabang Bank</span>
+	            <input type="text" ng-model="tariksaldo.CABBANK_REK" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+	          </label>
+	          <label class="item item-input item-stacked-label border-bottom">
+	           <span class="input-label">Nominal Setoran</span>
+	            <input type="text" format="number" placeholder="Masukkan Nominal Yang Ingin Anda Tarik" ng-model="tariksaldo.NOMINAL_TARIK" class="custom-success" required style="background-color: white">
+	          </label>
+	        </div>
+	      </fieldset>
+	    </ion-item>
+	    <ion-item>
+	      <button class="button button-block" type="submit" ng-class="theme.buttonstyle"   style="border-radius: 50px;">
+	        SETOR
+	      </button>
+	    </ion-item>
+	</ion-list>
+	<ion-list ng-if="mode.valuechoose == 'TARIK' ">
+	    <ion-item style="border:0px;">
+	      <fieldset style="background-color: white">
+	        <legend>PENARIKAN</legend>
+	        <div class="list">
+	          <label class="item item-input item-stacked-label border-bottom" ng-click="openstorepopup(datadetail)">
+	           <span class="input-label">Nomor Rekening</span>
+	            <input type="text" ng-model="tariksaldo.NOMOR_REK" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+	          </label>
+	          <label class="item item-input item-stacked-label border-bottom" ng-click="openstorepopup(datadetail)">
+	           <span class="input-label">Nama Pemilik</span>
+	            <input type="text" ng-model="tariksaldo.NAMAPEMILIK_REK" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+	          </label>
+	          <label class="item item-input item-stacked-label border-bottom" ng-click="openstorepopup(datadetail)">
+	           <span class="input-label">Nama Bank</span>
+	            <input type="text" ng-model="tariksaldo.NAMABANK_REK" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+	          </label>
+	          <label class="item item-input item-stacked-label border-bottom" ng-click="openstorepopup(datadetail)">
+	           <span class="input-label">Cabang Bank</span>
+	            <input type="text" ng-model="tariksaldo.CABBANK_REK" class="custom-success" required ng-readonly="true" ng-disabled="true" style="background-color: white">
+	          </label>
+	          <label class="item item-input item-stacked-label border-bottom">
+	           <span class="input-label">Nominal Penarikan</span>
+	            <input type="text" format="number" placeholder="Masukkan Nominal Yang Ingin Anda Tarik" ng-model="tariksaldo.NOMINAL_TARIK" class="custom-success" required style="background-color: white">
+	          </label>
+	        </div>
+	      </fieldset>
+	    </ion-item>
+	    <ion-item>
+	      <button class="button button-block" type="submit" ng-class="theme.buttonstyle"   style="border-radius: 50px;">
+	        PENARIKAN
+	      </button>
+	    </ion-item>
+	</ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,39 @@
+<ion-modal-view class="mymodalstock">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-stable">
+        <form name="newhargaForm" novalidate="true">
+          <div class="padding">
+            <label  class="item item-input" style="background-color: #f8f8f8">
+            <span>HARGA PRODUK</span></label>
+            <label  class="item item-input" style="background-color: #f8f8f8">
+              <i class="icon ion-card placeholder-icon float-right"></i>
+              <input type="tel" format="number" ng-model="newharga.HARGA_JUAL"  class="float-right"  required="true">
+            </label>
+          </div>
+          <div class="padding">
+            <label  class="item item-input" style="background-color: #f8f8f8">
+            <span>TGL BERLAKU</span></label>
+            <label  class="item item-input" style="background-color: #f8f8f8">
+              <i class="icon ion-card placeholder-icon float-right"></i>
+              <input type="date" ng-model="newharga.PERIODE_TGL1" class="float-right" required="true">
+            </label>
+          </div>
+          <div class="padding">
+            <label  class="item item-input" style="background-color: #f8f8f8">
+            <span>TGL BERAKHIR</span></label>
+            <label  class="item item-input" style="background-color: #f8f8f8">
+              <i class="icon ion-card placeholder-icon float-right"></i>
+              <input type="date" ng-model="newharga.PERIODE_TGL2" class="float-right" required="true">
+            </label>
+          </div>
+          <div class="row" style="padding:0px 8px">
+            <button type="submit" class="button button-block button-assertive" ng-click="tambahharga(newharga)" ng-disabled="newhargaForm.$invalid">
+              SUBMIT
+            </button>
+          </div>
+        </form>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

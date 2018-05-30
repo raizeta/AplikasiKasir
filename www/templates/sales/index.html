@@ -1,0 +1,38 @@
+<!-- <ion-view hide-nav-bar="false" view-title="{{splitnomortransaksi}}"> -->
+<ion-view hide-nav-bar="false" cache-view="true" view-title="{{titleheader}}">
+      <!-- <ion-nav-buttons side="left" >
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left" ng-if="modelayar.cashier">
+        </button>
+        <button class="button button-icon button-clear ion-ios-arrow-back" ng-click="backbuttonfunction()" ng-if="!modelayar.cashier">
+        </button>
+      </ion-nav-buttons> -->
+    <ion-nav-buttons side="right">
+      <button class="button button-icon icon  ion-ios-cart" ng-click="openmodalviewitemincart()" ng-if="!screenbesar && itemincart.length > 0">
+        <span class="badge badge-positive icon-badge shopping-cart">{{itemincart.length}}</span>
+      </button>
+  </ion-nav-buttons>
+  <ion-header-bar class="bar-subheader" ng-class="theme.headerstyle" id="mybar" ng-if="!screenbesar" style="padding-left: 0px;padding-right: 0px;padding-bottom: 0px;padding-top: 0px" >
+    <div class="button-bar" id="mybar">
+      <a class="button button-small icon ion-person" ng-click="openmodallistcustomer()"></a>
+      <a class="button button-small icon ion-android-exit" ng-click="openmodalloadfromtobill()"></a>
+      <a class="button button-small icon ion-qr-scanner" ng-click="scanbarcode()"></a>
+      <a class="button button-small icon ion-ios-star" style="color : rgb(200, 200, 100)" ng-click="showproductfavorite()" ng-if="displayproductfavorite"></a>
+      <a class="button button-small icon ion-ios-star" ng-click="showproductfavorite()" ng-if="!displayproductfavorite"></a>
+
+      <a class="button button-small icon ion-social-google" style="color : rgb(200, 200, 100)" ng-click="showproductgroup()" ng-if="displayproductgroup"></a>
+      <a class="button button-small icon icon ion-social-google" ng-click="showproductgroup()" ng-if="!displayproductgroup"></a>
+      <a class="button button-small icon ion-flash" ng-click="showpopovermenuppob($event)"></a>
+      <a class="button button-small icon ion-more" ng-click="showpopovermenumore($event)"></a>
+    </div>
+  </ion-header-bar>
+
+  <ion-content scroll="false" ng-class="{'has-subheader':screenbesar == !true,'fullsaja-cashier':screenbesar == true}" padding="false">
+    <ion-list ng-if="screenbesar">
+      <div ng-include="'templates/sales/masterlayar/layarbesar.html'"></div>
+    </ion-list>
+
+    <ion-list ng-if="!screenbesar">
+      <div ng-include="'templates/sales/masterlayar/layarkecil.html'"></div>
+    </ion-list>
+  </ion-content>
+</ion-view>

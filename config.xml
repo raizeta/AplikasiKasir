@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.kontrolgampang.poscashier" version="0.1.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Kontrol Gampang</name>
+    <description>
+        Cepat Dan Mudah Untuk Usaha Anda
+    </description>
+    <author email="radumta@gmail.com" href="http://kontrolgampang.com/">
+      Radumta Sitepu
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-navigation href="http://ionic.local/*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" launch-external="yes" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="SplashScreenDelay" value="30000" />
+    <preference name="android-minSdkVersion" value="16" />
+    <preference name="BackupWebStorage" value="none" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
+    <preference name="SplashShowOnlyFirstTime" value="true" />
+    <feature name="StatusBar">
+        <param name="ios-package" onload="true" value="CDVStatusBar" />
+    </feature>
+    <platform name="android">
+        <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
+        <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
+        <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
+        <icon density="xhdpi" src="resources/android/icon/drawable-xhdpi-icon.png" />
+        <icon density="xxhdpi" src="resources/android/icon/drawable-xxhdpi-icon.png" />
+        <icon density="xxxhdpi" src="resources/android/icon/drawable-xxxhdpi-icon.png" />
+        <splash density="land-ldpi" src="resources/android/splash/R2.png" />
+        <splash density="land-mdpi" src="resources/android/splash/R3.png" />
+        <splash density="land-hdpi" src="resources/android/splash/R1.png" />
+        <splash density="land-xhdpi" src="resources/android/splash/R4.png" />
+        <splash density="land-xxhdpi" src="resources/android/splash/R5.png" />
+        <splash density="land-xxxhdpi" src="resources/android/splash/R6.png" />
+        <splash density="port-ldpi" src="resources/android/splash/R8.png" />
+        <splash density="port-mdpi" src="resources/android/splash/R9.png" />
+        <splash density="port-hdpi" src="resources/android/splash/R7.png" />
+        <splash density="port-xhdpi" src="resources/android/splash/R10.png" />
+        <splash density="port-xxhdpi" src="resources/android/splash/R11.png" />
+        <splash density="port-xxxhdpi" src="resources/android/splash/R12.png" />
+    </platform>
+    <plugin name="cordova-plugin-device" spec="^1.1.6" />
+    <plugin name="cordova-plugin-file" spec="^4.3.3" />
+    <plugin name="cordova-plugin-geolocation" spec="^2.4.3" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1" />
+    <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.2.3" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
+    <plugin name="cordova-plugin-x-toast" spec="^2.6.0" />
+    <plugin name="cordova-sqlite-storage" spec="^2.0.4" />
+    <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
+    <plugin name="onesignal-cordova-plugin" spec="^2.2.2" />
+    <plugin name="cordova-plugin-camera" spec="^2.4.1" />
+    <plugin name="cordova-plugin-console" spec="^1.0.7" />
+    <plugin name="cordova-plugin-dialogs" spec="^1.3.3" />
+    <plugin name="cordova-plugin-image-picker" spec="https://github.com/wymsee/cordova-imagePicker.git" />
+    <plugin name="com-badrit-base64" spec="^0.2.0" />
+    <plugin name="cordova-plugin-compat" spec="~1.2.0" />
+    <plugin name="phonegap-plugin-barcodescanner" spec="https://github.com/phonegap/phonegap-plugin-barcodescanner.git#6.0.5" />
+    <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
+    <plugin name="cordova-plugin-speechrecognition" spec="^1.2.0" />
+    <engine name="android" spec="5.2.1" />
+</widget>

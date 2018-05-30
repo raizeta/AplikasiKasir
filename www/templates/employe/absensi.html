@@ -1,0 +1,37 @@
+<ion-view view-title="ABSENSI {{namatokoyangaktive|uppercase}}">
+  <ion-content padding="false" scroll="true" class="layerbackground">
+    <ion-list ng-if="datakaryawans.length > 0">
+      <div class="row" style="flex-wrap: wrap;">
+        <div class="col" ng-class="{'col-25':screenbesar == true,'col-50':screenbesar != true}" ng-repeat="karyawan in datakaryawans|orderBy:'NAMA_DPN'">
+          <div class="center">
+            <div class="profilex">
+              <div class="image" >
+                <div class="circle-1"></div>
+                <div class="circle-2"></div>
+                <!-- <img src="http://100dayscss.com/codepen/jessica-potter.jpg" width="70" height="70" ng-if="$index != 1"> -->
+                <ng-letter-avatar data="{{karyawan.NAMA_DPN|capitalize}}" shape="round" height="70" width="70" charCount="3" dynamic="true"></ng-letter-avatar>
+              </div>
+              
+              <div class="name">{{karyawan.NAMA_DPN|capitalize}}</div>
+              
+              <div class="actions">
+                <button class="btn">Telp</button>
+                <button class="btn">Email</button>
+                <button class="btn" style="width: 100px;" ng-click="openmodalabsensi(karyawan)">
+                  Absensi
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </ion-list>
+    <div class="row not-found" ng-if="datakaryawans.length == 0">
+      <div class="profile">
+          <img ng-src="img/kg.png"/>
+          <h5 style="color: #444;margin-top: -1vh;">Data Karyawan Kosong</h5>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

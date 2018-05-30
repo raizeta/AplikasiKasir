@@ -1,0 +1,41 @@
+<ion-modal-view class="mymodalpembayarannotifikasi">
+  <form name="newperangkatForm">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <h1 class="title">PERANGKAT BARU</h1>
+    <button class="button button-clear right" ng-click="modalnewperangkatclose()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <button class="button button-clear left" type="submit" ng-click="modalnewperangkatsubmit()" ng-disabled="newperangkatForm.$invalid" tabindex="5">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item style="border:0px;">
+        <div class="list">
+          <label class="item item-input item-stacked-label border-bottom">
+            <span class="input-label">NAMA TOKO</span>
+            <input type="text" name="storeid" ng-model="newperangkat.STORE_NM" class="custom-success" ng-readonly="true" style="background-color: white">
+            <p ng-show="newperangkatForm.storeid.$error.required" style="color:red;">
+              UUID Perangkat Tidak Boleh Kosong
+            </p>
+          </label>
+          <label class="item item-input item-stacked-label border-bottom">
+            <span class="input-label">ACCESS ID</span>
+            <input type="text" name="accessid" ng-model="newperangkat.ACCESS_ID" class="custom-success" ng-readonly="true" style="background-color: white">
+          </label>
+          <label class="item item-input item-stacked-label border-bottom">
+            <span class="input-label">UUID Perangkat</span>
+            <input type="text" name="uuidperangkat" ng-model="newperangkat.PERANGKAT_UUID" class="custom-success" placeholder="Masukkan UUID Perangkat Disini" required>
+            <p ng-show="newperangkatForm.uuidperangkat.$error.required" style="color:red;">
+              UUID Perangkat Tidak Boleh Kosong
+            </p>
+          </label>
+          
+          
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  </form>
+</ion-modal-view>

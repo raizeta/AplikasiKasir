@@ -1,0 +1,55 @@
+<ion-modal-view class="mymodalcustnewtransaksi">
+<form name="cicilanForm" novalidate="true">
+  <ion-header-bar class="bar bar-header" ng-class="theme.headerstyle">
+    <h1 class="title">PENGAJUAN CICILAN</h1>
+    <button class="button button-clear left" ng-click="closemodalformcicilan()">
+      <i class="icon ion-chevron-left"></i>
+    </button>
+    <button class="button button-clear right">
+      <i class="icon ion-android-done-all"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">NIK KTP</span>
+        <input type="text" name="nik" ng-model="newcicilan.NIK" class="custom-success" placeholder="Masukkan NIK Disini" required>
+        <p ng-show="cicilanForm.nik.$error.required" style="color:red;">
+          NIK Tidak Boleh Kosong
+        </p>
+      </label> 
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Nama Lengkap</span>
+        <input type="text" name="namalengkap" ng-model="newcicilan.NAME" class="custom-success" placeholder="Masukkan Nama Lengkap Disini" ng-required="true">
+        <p ng-show="cicilanForm.namalengkap.$error.required" style="color:red;">
+          Nama Lengkap Tidak Boleh Kosong
+        </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Alamat Lengkap</span>
+        <input type="text" name="alamatlengkap" ng-model="newcicilan.ALAMAT_LENGKAP" class="custom-success" placeholder="Masukkan Alamat Lengkap Disini" ng-required="true">
+        <p ng-show="cicilanForm.alamatlengkap.$error.required" style="color:red;">
+          Alamat Lengkap Tidak Boleh Kosong
+        </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Alamat Email</span>
+          <input type="email" name="alamatemail" ng-model="newcicilan.EMAIL" class="custom-success" placeholder="Masukkan Alamat Email Disini"  ng-required="true">
+          <p ng-show="cicilanForm.alamatemail.$error.required" style="color:red;">
+          Email Tidak Boleh Kosong
+        </p>
+        <p ng-show="cicilanForm.alamatemail.$error.email" style="color:red;">
+          Email Tidak Valid
+        </p>
+      </label>
+      <label class="item item-input item-stacked-label border-bottom">
+        <span class="input-label">Nomor Telp/HP</span>
+          <input type="text" name="nomortelp" ng-model="newcicilan.PHONE" class="custom-success" placeholder="Masukkan Nomor Telp/HP Disini" ng-required="true">
+          <p ng-show="cicilanForm.nomortelp.$error.required" style="color:red;">
+            Nomor Telepon/HP Tidak Boleh Kosong
+          </p>
+      </label>
+    </ion-list>
+  </ion-content>
+</form>
+</ion-modal-view>

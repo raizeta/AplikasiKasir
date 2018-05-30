@@ -1,0 +1,43 @@
+<ion-view view-title="STORES TESTING">
+	<ion-nav-buttons side="right">
+      <button class="button button-icon icon ion-plus" ng-click='modalnewstoreopen()'></button>
+  	</ion-nav-buttons>
+	<ion-content ion-sticky>
+		<ion-list>
+			<div class="item item-divider item-calm">
+                AKTIF
+          	</div>
+			<ion-item class="item-stable" ng-repeat="store in datastores" ng-if="store.STATUS == 1">
+				<div class="item-icon-left">
+					<i class="icon ion-loop"></i>
+					<h2>{{store.STORE_NM|uppercase}}</h2>
+				</div>
+				<div class="item-icon-right">
+					<i class="icon ion-ios-arrow-right"></i>
+				</div>
+				<ion-option-button class="button-assertive icon ion-trash-b" ng-click="modaldeletestoreopen(store,$index)">
+				</ion-option-button>
+				<ion-option-button class="button-positive icon ion-loop" ng-click="modalupdatestoreopen(store,$index)">
+				</ion-option-button>
+			</ion-item>
+			<div class="item item-divider item-calm">
+                NON-AKTIF
+          	</div>
+			<ion-item class="item-stable" ng-repeat="store in datastores" ng-if="store.STATUS == 0">
+				<div class="item-icon-left">
+					<i class="icon ion-loop"></i>
+					<h2>{{store.STORE_NM|uppercase}}</h2>
+				</div>
+				<div class="item-icon-right">
+					<i class="icon ion-ios-arrow-right"></i>
+				</div>
+				<ion-option-button class="button-assertive icon ion-trash-b" ng-click="modaldeletestoreopen(store,$index)">
+				</ion-option-button>
+				<ion-option-button class="button-positive icon ion-loop" ng-click="modalupdatestoreopen(store,$index)">
+				</ion-option-button>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>
+
+

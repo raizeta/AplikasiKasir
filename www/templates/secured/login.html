@@ -1,0 +1,47 @@
+<ion-view  hide-nav-bar="true">
+    <ion-content padding="true" scroll="true" has-bouncing="true" class="layerbackground">
+        <ion-list>
+            <div class="row row-center" style="margin-top:0px">
+                <div class="row responsive-md">
+                    <div class="col col-50 col-offset-25">
+                        <div class="header padding text-center" style="margin-bottom:-5vh;margin-top:-5vh;">
+                            <img src="img/image.jpg" alt="Your logo here"/>
+                        </div>
+                        <form name="loginForm" novalidate="true">
+                            <div class="list list-inset label" style="margin-bottom:5px">
+                                <label class="item item-input">
+                                    <input type="text" placeholder="username" ng-model="datauserlogin.username"  class="form-control" required>
+                                </label>
+                                <label class="item item-input">
+                                     <input type="password" placeholder="password" ng-model="datauserlogin.password" ui-show-password required="true">
+                                </label>
+                            </div>
+                            <p style="float:right;color:rgba(255, 255, 255, 0.5);padding-top:10px;padding-bottom:10px;" ng-click="resetpassword()">
+                                Lupa Password?
+                            </p>
+                            <button type="submit" class="button button-block button-balanced rcorners2" ng-disabled="loginForm.$invalid" style="border: 1px solid rgba(255, 255, 255, 0.8);" ng-click="login()" >
+                              Masuk
+                            </button>
+                        </form>
+                        <button  class="button button-block button-calm rcorners2" style="border: 1px solid rgba(255, 255, 255, 0.8); " ng-click="signupnewuser()">
+                          Daftar
+                        </button>
+                        <div style="padding-top:10px;text-align: center;">
+                        <style>
+                            button.ion-social-facebook 
+                            {
+                                font-size: 30px;
+                            }
+
+                          </style>
+                            <button class="button  ion-social-facebook button-positive rcorners2" ng-click="loginWithSocmed('facebook')" style="border: 1px solid rgba(255, 255, 255, 0.8);"></button>
+
+                            <!-- <button class="button ion-social-googleplus rcorners2" ng-click="loginWithGoogle()" style="border: 1px solid rgba(255, 255, 255, 0.8);background-color: #f44336;color:white;">
+                            </button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-list>
+  </ion-content>
+</ion-view>

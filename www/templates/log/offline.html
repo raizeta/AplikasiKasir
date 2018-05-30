@@ -1,0 +1,99 @@
+<ion-view view-title="LOG OFFLINE">
+  <ion-content padding="false" scroll="true" style="background-size: cover;background-color:#f8f8f8;">
+    <ion-list ng-if="dataofflines.length > 0">
+        <!-- <ion-item class="item-stable" style="padding-top:0px;" > -->
+            <table class="pure-table" width="100%">
+              <thead>
+                  <tr>
+                      <th style="width: 10px;">#</th>
+                      <th>TABEL</th>
+                      <!-- <th>PRIMARY</th> -->
+                      <!-- <th>TYPE</th> -->
+                      <th style="text-align: center;">JUMLAH</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr ng-repeat="offline in dataofflines|orderBy:'-ID_LOCAL' track by $index" ng-class="$index % 2 == 1 ? 'pure-table-odd' :'' ">
+                      <td style="width: 10px;vertical-align: middle;">{{$index + 1}}</td>
+                      <td style="vertical-align: middle;">{{offline.NAMA_TABEL}}</td>
+                      <!-- <td>
+                        <span ng-if="offline.NAMA_TABEL == 'Tbl_Transaksis' ">
+                          {{offline.PRIMARY_KEY| split:'.':2}}.{{offline.PRIMARY_KEY| split:'.':4}}
+                        </span>
+                        <span ng-if="offline.NAMA_TABEL != 'Tbl_Transaksis' ">
+                          {{offline.PRIMARY_KEY}}
+                        </span>
+                      </td> -->
+                      <!-- <td>{{offline.TYPE_ACTION}}</td> -->
+                      <td style="text-align: center;vertical-align: middle;">
+                          {{offline.JUMLAH}}
+                      </td>
+                  </tr>
+              </tbody>
+            </table>
+
+            <!-- <div class="row padding">
+              <div class="col my-col" style="max-width:20px">
+                #.
+              </div>
+              <div class="col my-col">
+                <div style="float:left;padding-left:25px;width: 20vw;">
+                  TABEL
+                </div>
+              </div>
+              <div class ="my-col">
+              	<div style="float:left;padding-left:25px;width: 55vw;">
+                	PRIMARY
+                </div>
+              </div>
+              <div class ="my-col">
+                <div style="float:right">
+                  TYPE
+                </div>
+              </div>
+              <div class ="my-col">
+                <div style="float:right">
+                  STATUS
+                </div>
+              </div>
+            </div>
+            <div class="row  padding" style='padding-top:5px;padding-bottom:5px;border-top: 1px solid rgba(1, 1, 1, 0.1);' ng-repeat="offline in dataofflines track by $index">
+              <div class="col my-col" style="max-width:20px">
+                {{$index + 1}}.
+              </div>
+              <div class="col my-col">
+                <div style="float:left;padding-left:25px;width:20vw;">
+                  {{offline.NAMA_TABEL}}
+                </div>
+              </div>
+              <div class="my-col">
+              	<div style="float:left;padding-left:25px;width: 55vw;">
+	                <span ng-if="offline.NAMA_TABEL == 'Tbl_Transaksis' ">
+                    {{offline.PRIMARY_KEY| split:'.':2}}.{{offline.PRIMARY_KEY| split:'.':4}}
+                  </span>
+                  <span ng-if="offline.NAMA_TABEL != 'Tbl_Transaksis' ">
+                    {{offline.PRIMARY_KEY}}
+                  </span>
+	            </div>
+              </div>
+              <div class ="my-col">
+                <div style="float:right">
+                  {{offline.TYPE_ACTION}}
+                </div>
+              </div>
+              <div class="my-col">
+                <div style="float:right">
+                  {{offline.STATUS_SYNC}}
+                </div>
+              </div>
+            </div> -->
+        <!-- </ion-item> -->
+    </ion-list>
+    <div class="row not-found" ng-if="dataofflines.length == 0">
+      <div class="profile">
+          <img ng-src="img/kg.png"/>
+          <h5 style="color: #444;margin-top: -1vh;">Data Offline Kosong</h5>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
